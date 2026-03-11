@@ -1,0 +1,43 @@
+:root {
+  /* Colors */
+  --color-bg: #121220;
+  --color-surface: #1a1a2e;
+  --color-surface-alt: #16213e;
+  --color-primary: #0f3460;
+  --color-primary-light: #1a4a8a;
+  --color-accent: #e94560;
+  --color-accent-hover: #ff6b81;
+  --color-text: #e8e8e8;
+  --color-text-muted: #8888a0;
+  --color-text-heading: #ffffff;
+  --color-highlight: #ffd369;
+  --color-success: #4ecdc4;
+  --color-border: #2a2a4a;
+
+  /* Typography */
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --line-height: 1.7;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --content-max-width: 740px;
+  --header-height: 56px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}

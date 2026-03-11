@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\" && pwd && dir \"Rhythm\" 2>&1)",
+      "Bash(cd \"/c/Users/Paul March/AI/MusicInstruction/TheoryTraining\" && mkdir -p css js/components js/data/topics/chord-qualities assets/svg)",
+      "Bash(cd \"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\" && cp \"Chord Qualities/Phase1/piano_white_names.svg\" \"assets/svg/piano-white-names.svg\" && cp \"Chord Qualities/Phase1/piano_all_names.svg\" \"assets/svg/piano-all-names.svg\" && cp \"Chord Qualities/Phase1/Circle_of_fifths_deluxe_4.svg\" \"assets/svg/circle-of-fifths.svg\")",
+      "Bash(BASE=\"C:\\\\\\\\Users\\\\\\\\Paul March\\\\\\\\AI\\\\\\\\MusicInstruction\\\\\\\\TheoryTraining\" && cp \"$BASE/Chord Qualities/Phase1/piano_white_names.svg\" \"$BASE/assets/svg/piano-white-names.svg\" && cp \"$BASE/Chord Qualities/Phase1/piano_all_names.svg\" \"$BASE/assets/svg/piano-all-names.svg\" && cp \"$BASE/Chord Qualities/Phase1/Circle_of_fifths_deluxe_4.svg\" \"$BASE/assets/svg/circle-of-fifths.svg\")",
+      "Bash(BASE='/c/Users/Paul March/AI/MusicInstruction/TheoryTraining' && cp \"$BASE/Chord Qualities/Phase1/piano_white_names.svg\" \"$BASE/assets/svg/piano-white-names.svg\")",
+      "Bash(cmd //c \"copy \\\\\"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\Chord Qualities\\\\Phase1\\\\piano_white_names.svg\\\\\" \\\\\"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\assets\\\\svg\\\\piano-white-names.svg\\\\\"\")",
+      "Bash(cmd.exe /c copy \"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\Chord Qualities\\\\Phase1\\\\piano_white_names.svg\" \"C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\assets\\\\svg\\\\piano-white-names.svg\")",
+      "Bash(powershell -Command \"Copy-Item 'C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\Chord Qualities\\\\Phase1\\\\piano_white_names.svg' 'C:\\\\Users\\\\Paul March\\\\AI\\\\MusicInstruction\\\\TheoryTraining\\\\assets\\\\svg\\\\piano-white-names.svg'\")",
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:127.0.0.1)",
+      "Bash(curl -s http://127.0.0.1:8080/ | head -20)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/js/app.js && echo \" app.js\" && curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/js/data/topics/chord-qualities/phase1.js && echo \" phase1.js\" && curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8080/assets/svg/piano-white-names.svg && echo \" svg\")",
+      "Bash(kill %1 2>/dev/null; echo \"stopped\")",
+      "Bash(ls -la js/data/topics/chord-qualities/*.js)",
+      "Bash(ls js/data/topics/chord-qualities/phase*.js)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/Paul March/AI/MusicInstruction/TheoryTraining/**)",
+      "Bash(done)",
+      "Bash(wc -l js/data/topics/chord-qualities/phase*.js)",
+      "Bash(kill %1 2>/dev/null; echo \"done\")",
+      "Bash(find \"C:/Users/Paul March/AI/MusicInstruction/TheoryTraining\" -name \"*audio*\" -o -name \"*sound*\" 2>/dev/null | head -20)"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+/* ─── Piano Keyboard ────────────────────────────────────────── */
+
+.piano-keyboard {
+  margin: var(--space-xl) 0;
+  text-align: center;
+}
+
+.piano-svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Top decorative bar */
+.piano-topbar {
+  fill: var(--color-border);
+}
+
+/* White keys */
+.piano-key--white {
+  fill: #ffffff;
+  stroke: var(--color-border);
+  stroke-width: 0.5;
+}
+
+/* Black keys */
+.piano-key--black {
+  fill: #1a1a2e;
+  stroke: #111122;
+  stroke-width: 0.5;
+}
+
+/* ─── Highlight colors ──────────────────────────────────────── */
+
+.piano-key.piano-key--hl-root {
+  fill: var(--color-accent);
+}
+
+.piano-key.piano-key--hl-primary {
+  fill: var(--color-success);
+}
+
+.piano-key.piano-key--hl-secondary {
+  fill: var(--color-highlight);
+}
+
+/* ─── Labels ────────────────────────────────────────────────── */
+
+.piano-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* White key labels (below keys, on dark background) */
+.piano-label--white {
+  font-size: 10px;
+  fill: var(--color-text);
+}
+
+/* Black key labels (on key body) */
+.piano-label--black {
+  font-size: 8px;
+  fill: #ffffff;
+}
+
+/* ─── Caption ───────────────────────────────────────────────── */
+
+.piano-caption {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .piano-label--white {
+    font-size: 8px;
+  }
+  .piano-label--black {
+    font-size: 6px;
+  }
+}

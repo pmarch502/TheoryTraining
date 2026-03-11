@@ -1,0 +1,62 @@
+/* ─── Audio Play / Strum Buttons ──────────────────────────── */
+
+.audio-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  padding: 6px 16px;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.audio-play-btn:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-primary-light);
+  color: var(--color-text-heading);
+}
+
+.audio-play-btn:active {
+  transform: scale(0.96);
+}
+
+.audio-play-btn.audio-playing {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.audio-play-btn.audio-loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.audio-play-btn.audio-error {
+  border-color: var(--color-accent);
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* ─── Piano Key Click Feedback ────────────────────────────── */
+
+.piano-key {
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+.piano-key--playing.piano-key--white {
+  fill: var(--color-success) !important;
+  opacity: 0.85;
+}
+
+.piano-key--playing.piano-key--black {
+  fill: var(--color-success) !important;
+  opacity: 0.85;
+}

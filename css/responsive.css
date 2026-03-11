@@ -1,0 +1,83 @@
+/* Tablet and below */
+@media (max-width: 1023px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  #sidebar-toggle {
+    display: flex;
+  }
+
+  #sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+
+  #sidebar.open {
+    transform: translateX(0);
+  }
+
+  #sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 199;
+  }
+
+  #sidebar-overlay.visible {
+    display: block;
+  }
+
+  #main-content {
+    padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  :root {
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+  }
+
+  #main-content {
+    padding: var(--space-md) var(--space-md) var(--space-xl);
+  }
+
+  .lesson-nav {
+    flex-direction: column;
+  }
+
+  .lesson-nav a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sidebar-lesson-link {
+    padding-left: var(--space-xl);
+  }
+}
+
+/* ─── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,107 @@
+/* ─── Guitar Chord Diagram ─────────────────────────────────── */
+
+.guitar-chord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--space-xl) 0;
+}
+
+.guitar-svg {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  display: block;
+}
+
+/* Nut (thick bar at top of open-position diagrams) */
+.guitar-nut {
+  fill: var(--color-text, #eee);
+}
+
+/* Fret lines */
+.guitar-fret-line {
+  stroke: var(--color-border, #444);
+  stroke-width: 1;
+}
+
+/* Strings */
+.guitar-string {
+  stroke: var(--color-text-muted, #999);
+  stroke-width: 1;
+}
+
+.guitar-string--bass {
+  stroke-width: 1.5;
+}
+
+/* ─── X / O markers above grid ─────────────────────────────── */
+
+.guitar-marker-x {
+  stroke: var(--color-text-muted, #999);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.guitar-open-dot {
+  fill: var(--color-text-muted, #999);
+}
+
+/* ─── Dots & highlight colors ──────────────────────────────── */
+
+.guitar-dot {
+  fill: var(--color-text, #eee);
+}
+
+.guitar-dot--root,
+.guitar-open-dot.guitar-dot--root {
+  fill: var(--color-accent);
+}
+
+.guitar-dot--primary,
+.guitar-open-dot.guitar-dot--primary {
+  fill: var(--color-success);
+}
+
+.guitar-dot--secondary,
+.guitar-open-dot.guitar-dot--secondary {
+  fill: var(--color-highlight);
+}
+
+/* Barre bar */
+.guitar-barre {
+  fill: var(--color-text, #eee);
+  opacity: 0.85;
+}
+
+.guitar-barre.guitar-dot--root    { fill: var(--color-accent); }
+.guitar-barre.guitar-dot--primary { fill: var(--color-success); }
+.guitar-barre.guitar-dot--secondary { fill: var(--color-highlight); }
+
+/* ─── Dot labels ───────────────────────────────────────────── */
+
+.guitar-dot-label {
+  fill: #ffffff;
+  font-size: 9px;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Fret-position number (for non-open diagrams) */
+.guitar-fret-num {
+  fill: var(--color-text-muted, #999);
+  font-size: 10px;
+  font-family: var(--font-body, sans-serif);
+}
+
+/* ─── Caption ──────────────────────────────────────────────── */
+
+.guitar-caption {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
