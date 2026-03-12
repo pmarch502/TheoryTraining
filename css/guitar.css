@@ -140,6 +140,50 @@
 .guitar-deg--deg-6 { fill: #8E44AD; }
 .guitar-deg--deg-7 { fill: #9B59B6; }
 
+/* ─── Voicing Navigation ──────────────────────────────────── */
+
+.voicing-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.voicing-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 11px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.voicing-nav-btn:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-primary-light);
+  color: var(--color-text-heading);
+}
+
+.voicing-nav-btn:active {
+  transform: scale(0.92);
+}
+
+.voicing-counter {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  min-width: 3.5em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ─── Caption ──────────────────────────────────────────────── */
 
 .guitar-caption {

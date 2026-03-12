@@ -213,6 +213,8 @@ function ordinal(n) {
 
 // ─── Public API ──────────────────────────────────────────────
 
+const CI_LOOKUP = { 'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11 };
+
 /**
  * Look up a real guitar voicing for the given root and suffix.
  * Returns a config object in the same format as lesson data, or null.
@@ -229,6 +231,37 @@ export function getTransposedConfig(rootName, originalConfig) {
   const frets = bestVoicing(entry.voicings);
   if (!frets) return null;
 
-  const rootCI = { 'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11 }[libRoot];
+  const rootCI = CI_LOOKUP[libRoot];
   return voicingToConfig(frets, rootCI, entry.spelling, rootName, originalConfig.suffix, originalConfig.title);
+}
+
+/**
+ * Return ALL voicing configs for a root + suffix, sorted best-first.
+ * Each config is a full fretboard config (dots, barres, title, etc.).
+ */
+export function getAllVoicingConfigs(rootName, suffix) {
+  if (!_db) return null;
+
+  const libRoot = ROOT_TO_LIB[rootName];
+  if (!libRoot) return null;
+
+  const entry = _db[libRoot]?.[suffix];
+  if (!entry) return null;
+
+  const rootCI = CI_LOOKUP[libRoot];
+
+  const all = [];
+  for (const cat of ['open', 'barre', 'moveable']) {
+    const list = entry.voicings[cat];
+    if (!list) continue;
+    for (const v of list) {
+      all.push({ frets: v, score: scoreVoicing(v) });
+    }
+  }
+
+  all.sort((a, b) => b.score - a.score);
+
+  return all.map(({ frets }) =>
+    voicingToConfig(frets, rootCI, entry.spelling, rootName, suffix)
+  );
 }

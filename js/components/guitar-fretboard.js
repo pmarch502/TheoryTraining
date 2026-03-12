@@ -243,6 +243,70 @@ function buildChordSVG(config) {
   return svg;
 }
 
+// ─── Voicing Navigation ─────────────────────────────────────
+
+const _voicingState = new Map();
+
+/**
+ * Set up prev/next voicing navigation on a guitar diagram.
+ * `configs` is the full array of voicing configs (from chord-library).
+ * `audio` is the audio-engine module (for re-attaching the play button).
+ * `startIndex` optionally sets the initial voicing (default 0).
+ */
+export function setupVoicingNav(guitar, configs, audio, startIndex = 0) {
+  // Remove existing nav
+  guitar.querySelector('.voicing-nav')?.remove();
+  _voicingState.delete(guitar);
+
+  if (!configs || configs.length <= 1) return;
+
+  _voicingState.set(guitar, { configs, index: startIndex });
+
+  const nav = document.createElement('div');
+  nav.className = 'voicing-nav';
+  nav.innerHTML =
+    `<button class="voicing-nav-btn voicing-prev" aria-label="Previous voicing">\u25C0</button>` +
+    `<span class="voicing-counter">${startIndex + 1} / ${configs.length}</span>` +
+    `<button class="voicing-nav-btn voicing-next" aria-label="Next voicing">\u25B6</button>`;
+
+  // Insert after caption (or after SVG if no caption)
+  const caption = guitar.querySelector('.guitar-caption');
+  const anchor = caption || guitar.querySelector('.guitar-svg');
+  if (anchor) anchor.after(nav); else guitar.prepend(nav);
+
+  const counter = nav.querySelector('.voicing-counter');
+
+  const navigate = (delta) => {
+    const st = _voicingState.get(guitar);
+    if (!st) return;
+    st.index = (st.index + delta + st.configs.length) % st.configs.length;
+    const config = st.configs[st.index];
+
+    // Update diagram and caption
+    updateGuitarSVG(guitar, config);
+
+    // Recompute playable notes
+    const mutedSet = new Set(config.muted || []);
+    const dots = config.dots || [];
+    const notes = [];
+    for (let s = 6; s >= 1; s--) {
+      if (mutedSet.has(s)) continue;
+      const dot = dots.find(d => d.string === s);
+      if (dot) notes.push(guitarNoteName(s, dot.fret));
+    }
+    guitar.dataset.notes = notes.join(',');
+
+    // Update counter
+    counter.textContent = `${st.index + 1} / ${st.configs.length}`;
+
+    // Re-attach play button
+    if (audio) hydrateSingleGuitar(guitar, audio);
+  };
+
+  nav.querySelector('.voicing-prev').addEventListener('click', () => navigate(-1));
+  nav.querySelector('.voicing-next').addEventListener('click', () => navigate(1));
+}
+
 // ─── Exports ────────────────────────────────────────────────
 
 function escAttr(s) {

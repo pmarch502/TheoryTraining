@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 import { linkGlossaryTerms } from './glossary-linker.js';
 import { renderPianoHTML, hydratePianos, updatePianoSVG, hydrateSinglePiano } from './piano-keyboard.js';
-import { renderGuitarHTML, hydrateGuitars, updateGuitarSVG, hydrateSingleGuitar } from './guitar-fretboard.js';
+import { renderGuitarHTML, hydrateGuitars, updateGuitarSVG, hydrateSingleGuitar, setupVoicingNav } from './guitar-fretboard.js';
 import {
   renderRootSelector, transposePianoConfig, transposeGuitarConfig,
   pianoAudioNotes, guitarAudioNotes
@@ -58,6 +58,9 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
 
   // Hydrate interactive guitar chord diagrams
   if (article) hydrateGuitars(article);
+
+  // Hydrate voicing navigation for library-backed guitar chords
+  if (article) hydrateVoicingNavs(article);
 
   // Wire up root selector for transposition
   if (article && hasInstruments) setupRootSelector(article);
@@ -179,6 +182,34 @@ async function expandGuitarConfigs(blocks) {
 }
 
 /**
+ * Set up voicing navigation on all library-backed guitar diagrams.
+ */
+async function hydrateVoicingNavs(article) {
+  const guitars = article.querySelectorAll('.guitar-chord');
+  // Find guitars that have a suffix in their original config (library-backed)
+  const libraryGuitars = [...guitars].filter(g => {
+    try {
+      const config = JSON.parse(g.dataset.originalConfig);
+      return !!config.suffix;
+    } catch { return false; }
+  });
+  if (!libraryGuitars.length) return;
+
+  const [audio, chordLib] = await Promise.all([
+    import('../audio/audio-engine.js'),
+    import('../data/chord-library.js')
+  ]);
+  await chordLib.ensureLoaded();
+
+  for (const guitar of libraryGuitars) {
+    const config = JSON.parse(guitar.dataset.originalConfig);
+    const rootName = config.rootName || 'C';
+    const allConfigs = chordLib.getAllVoicingConfigs(rootName, config.suffix);
+    if (allConfigs) setupVoicingNav(guitar, allConfigs, audio);
+  }
+}
+
+/**
  * Wire up the root selector dropdown to transpose all piano/guitar blocks.
  */
 function setupRootSelector(article) {
@@ -210,6 +241,13 @@ function setupRootSelector(article) {
         updateGuitarSVG(guitar, newConfig);
         guitar.dataset.notes = guitarAudioNotes(newConfig).join(',');
         hydrateSingleGuitar(guitar, audio);
+
+        // Re-initialize voicing navigation for the new root
+        if (config.suffix) {
+          const targetRoot = rootName === 'C' ? 'C' : rootName;
+          const allConfigs = chordLib.getAllVoicingConfigs(targetRoot, config.suffix);
+          setupVoicingNav(guitar, allConfigs, audio);
+        }
       }
     } catch (e) {
       console.warn('[transposer] Error:', e);
