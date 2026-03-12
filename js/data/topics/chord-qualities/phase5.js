@@ -22,7 +22,7 @@ export const phase5 = [
       },
       {
         type: 'paragraph',
-        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth), skip E to F (eleventh). Boom\u2014we've created an eleventh chord. (In this case, a C major eleventh chord: <strong>C - E - G - B - D - F</strong>.)"
+        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth), skip E to F (eleventh). Boom—we've created an eleventh chord. (In this case, a C major eleventh chord: <strong>C - E - G - B - D - F</strong>.)"
       },
       {
         type: 'paragraph',
@@ -45,7 +45,7 @@ export const phase5 = [
     content: [
       {
         type: 'paragraph',
-        text: "We now have a basic idea of what eleventh chords are and how to build them from a scale using stacked thirds. So, let's get specific\u2014let's talk about the <strong>major eleventh</strong>. To our ears, it's bright yet suspended, ethereal, and somewhat ambiguous."
+        text: "We now have a basic idea of what eleventh chords are and how to build them from a scale using stacked thirds. So, let's get specific—let's talk about the <strong>major eleventh</strong>. To our ears, it's bright yet suspended, ethereal, and somewhat ambiguous."
       },
       {
         type: 'paragraph',
@@ -88,7 +88,7 @@ export const phase5 = [
             { note: 'F', degree: 4 }
           ],
           labels: 'highlighted',
-          title: 'C Major Eleventh: C \u2013 E \u2013 G \u2013 B \u2013 D \u2013 F'
+          title: 'C Major Eleventh: C – E – G – B – D – F'
         }
       },
       {
@@ -103,12 +103,12 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
-          title: 'CMaj11 \u2014 Open Position'
+          title: 'CMaj11 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a major eleventh appears on a chord chart, it may appear with various chord quality decorations: CM11, CMaj11, Cmaj11, C<sup>\u0394</sup>11"
+        text: "When a major eleventh appears on a chord chart, it may appear with various chord quality decorations: CM11, CMaj11, Cmaj11, C<sup>Δ</sup>11"
       },
       {
         type: 'paragraph',
@@ -139,8 +139,8 @@ export const phase5 = [
         items: [
           "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, (W+W). E.g., C to E.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W).  E.g., C to D.",
           "<strong>Perfect eleventh</strong> above root: an interval of 17 half steps, an octave + perfect fourth, (Wx6)+(W+W+H).  E.g., C to F."
         ]
@@ -155,7 +155,7 @@ export const phase5 = [
       },
       {
         type: 'notation',
-        text: "C dominant eleventh: C - E - G - B\u266D - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       ^       ^       \u266D       ^       ^"
+        text: "C dominant eleventh: C - E - G - B♭ - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       ^       ^       ♭       ^       ^"
       },
       {
         type: 'piano',
@@ -170,7 +170,7 @@ export const phase5 = [
             { note: 'F', degree: 4 }
           ],
           labels: 'highlighted',
-          title: 'C Dominant Eleventh: C \u2013 E \u2013 G \u2013 B\u266D \u2013 D \u2013 F'
+          title: 'C Dominant Eleventh: C – E – G – B♭ – D – F'
         }
       },
       {
@@ -185,16 +185,16 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
-          title: 'C11 \u2014 Open Position'
+          title: 'C11 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a dominant eleventh appears on a chord chart, it only appears with one chord quality decoration: C11 (we have a major triad (no decoration) and it's not including the 7 - it's the \u266D7 (no decoration))"
+        text: "When a dominant eleventh appears on a chord chart, it only appears with one chord quality decoration: C11 (we have a major triad (no decoration) and it's not including the 7 - it's the ♭7 (no decoration))"
       },
       {
         type: 'paragraph',
-        text: "When we talk about a dominant eleventh according to scale degrees, we would call it a 1-3-5-\u266D7-9-11 (or, 1-3-5-7\u266D-9-11 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a dominant eleventh according to scale degrees, we would call it a 1-3-5-♭7-9-11 (or, 1-3-5-7♭-9-11 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -205,7 +205,7 @@ export const phase5 = [
     content: [
       {
         type: 'paragraph',
-        text: "Next is the <strong>minor eleventh</strong>. The minor eleventh sounds warm, complex, lush, and deeply atmospheric\u2014it's common in worship for adding velvety or cinematic atmosphere."
+        text: "Next is the <strong>minor eleventh</strong>. The minor eleventh sounds warm, complex, lush, and deeply atmospheric—it's common in worship for adding velvety or cinematic atmosphere."
       },
       {
         type: 'paragraph',
@@ -216,9 +216,9 @@ export const phase5 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W).  E.g., C to D.",
           "<strong>Perfect eleventh</strong> above root: an interval of 17 half steps, an octave + perfect fourth, (Wx6)+(W+W+H).  E.g., C to F."
         ]
@@ -233,7 +233,7 @@ export const phase5 = [
       },
       {
         type: 'notation',
-        text: "C minor eleventh: C - E\u266D - G - B\u266D - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       \u266D       ^       \u266D       ^       ^"
+        text: "C minor eleventh: C - E♭ - G - B♭ - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       ♭       ^       ♭       ^       ^"
       },
       {
         type: 'piano',
@@ -248,7 +248,7 @@ export const phase5 = [
             { note: 'F', degree: 4 }
           ],
           labels: 'highlighted',
-          title: 'C Minor Eleventh: C \u2013 E\u266D \u2013 G \u2013 B\u266D \u2013 D \u2013 F'
+          title: 'C Minor Eleventh: C – E♭ – G – B♭ – D – F'
         }
       },
       {
@@ -263,16 +263,16 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
-          title: 'Cm11 \u2014 Open Position'
+          title: 'Cm11 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a minor eleventh appears on a chord chart, it may appear with various chord quality decorations: Cm11, Cmin11, Cmi11, C-11 (we have a minor triad ('m') and it's not including the 7 - it's the \u266D7 (no decoration))."
+        text: "When a minor eleventh appears on a chord chart, it may appear with various chord quality decorations: Cm11, Cmin11, Cmi11, C-11 (we have a minor triad ('m') and it's not including the 7 - it's the ♭7 (no decoration))."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a minor eleventh according to scale degrees, we would call it a 1-\u266D3-5-\u266D7-9-11 (or, 1-3\u266D-5-7\u266D-9-11 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a minor eleventh according to scale degrees, we would call it a 1-♭3-5-♭7-9-11 (or, 1-3♭-5-7♭-9-11 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   }

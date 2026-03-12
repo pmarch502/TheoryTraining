@@ -5,32 +5,32 @@
 export const glossary = {
   'augmented-fifth': {
     title: 'Augmented Fifth',
-    def: 'Interval of eight half steps, creating an unstable, ambiguous sound (e.g., C to G\u266f).',
+    def: 'Interval of eight half steps, creating an unstable, ambiguous sound (e.g., C to G♯).',
     category: 'interval'
   },
   'augmented-chord': {
     title: 'Augmented Chord',
-    def: 'A triad with major third and augmented fifth (1-3-\u266f5), creating intense tension and ambiguity, often used for chromatic passing or dramatic effect.',
+    def: 'A triad with major third and augmented fifth (1-3-♯5), creating intense tension and ambiguity, often used for chromatic passing or dramatic effect.',
     category: 'chord'
   },
   'dominant-eleventh-chord': {
     title: 'Dominant Eleventh Chord',
-    def: 'Eleventh chord with major third, perfect fifth, minor seventh, major ninth, perfect eleventh (1-3-5-\u266d7-9-11), funky and tense, common in jazz/funk.',
+    def: 'Eleventh chord with major third, perfect fifth, minor seventh, major ninth, perfect eleventh (1-3-5-♭7-9-11), funky and tense, common in jazz/funk.',
     category: 'chord'
   },
   'dominant-ninth-chord': {
     title: 'Dominant Ninth Chord',
-    def: 'Ninth chord with major third, perfect fifth, minor seventh, major ninth (1-3-5-\u266d7-9), bluesy tension leading to resolution (e.g., C9: C-E-G-B\u266d-D).',
+    def: 'Ninth chord with major third, perfect fifth, minor seventh, major ninth (1-3-5-♭7-9), bluesy tension leading to resolution (e.g., C9: C-E-G-B♭-D).',
     category: 'chord'
   },
   'dominant-seventh-chord': {
     title: 'Dominant Seventh Chord',
-    def: 'Seventh chord with major third, perfect fifth, minor seventh (1-3-5-\u266d7), strongly tense and resolving, the V7 in major keys (e.g., G7: G-B-D-F).',
+    def: 'Seventh chord with major third, perfect fifth, minor seventh (1-3-5-♭7), strongly tense and resolving, the V7 in major keys (e.g., G7: G-B-D-F).',
     category: 'chord'
   },
   'dominant-thirteenth-chord': {
     title: 'Dominant Thirteenth Chord',
-    def: 'A thirteenth chord with major third, perfect fifth, minor seventh, major ninth, perfect eleventh, and major thirteenth (1-3-5-\u266d7-9-11-13), creating elegance, tension-release potential, and harmonic fullness.',
+    def: 'A thirteenth chord with major third, perfect fifth, minor seventh, major ninth, perfect eleventh, and major thirteenth (1-3-5-♭7-9-11-13), creating elegance, tension-release potential, and harmonic fullness.',
     category: 'chord'
   },
   'chord': {
@@ -64,58 +64,58 @@ export const glossary = {
     category: 'chord'
   },
   'circle-of-fifths-flats': {
-    title: 'Circle of Fifths \u2014 Flats',
-    def: 'Clockwise progression of keys adding flats (F, B\u266d, E\u266d, A\u266d, D\u266d, G\u266d, C\u266d), aiding key relationships, modulation, and chord progressions in flat-heavy music.',
+    title: 'Circle of Fifths — Flats',
+    def: 'Clockwise progression of keys adding flats (F, B♭, E♭, A♭, D♭, G♭, C♭), aiding key relationships, modulation, and chord progressions in flat-heavy music.',
     category: 'scale-key'
   },
   'circle-of-fifths-sharps': {
-    title: 'Circle of Fifths \u2014 Sharps',
-    def: 'Counter-clockwise progression of keys adding sharps (G, D, A, E, B, F\u266f, C\u266f), showing key relationships and facilitating modulation/transposition.',
+    title: 'Circle of Fifths — Sharps',
+    def: 'Counter-clockwise progression of keys adding sharps (G, D, A, E, B, F♯, C♯), showing key relationships and facilitating modulation/transposition.',
     category: 'scale-key'
   },
   'diminished-seventh-chord': {
     title: 'Diminished Seventh Chord',
-    def: 'A seventh chord with diminished third, diminished fifth, and diminished seventh (1-\u266d3-\u266d5-\u266d\u266d7), highly tense/symmetrical, used for leading tones.',
+    def: 'A seventh chord with diminished third, diminished fifth, and diminished seventh (1-♭3-♭5-♭♭7), highly tense/symmetrical, used for leading tones.',
     category: 'chord'
   },
   'diminished-chord': {
     title: 'Diminished Chord',
-    def: 'A triad with minor third and diminished fifth (1-\u266d3-\u266d5), tense and unstable, often leading to resolution.',
+    def: 'A triad with minor third and diminished fifth (1-♭3-♭5), tense and unstable, often leading to resolution.',
     category: 'chord'
   },
   'half-diminished-seventh-chord': {
     title: 'Half-Diminished Seventh Chord',
-    def: 'Seventh chord with minor third, diminished fifth, minor seventh (1-\u266d3-\u266d5-\u266d7), moody/tensive, common in ii\u00f87 in major keys.',
+    def: 'Seventh chord with minor third, diminished fifth, minor seventh (1-♭3-♭5-♭7), moody/tensive, common in iiø7 in major keys.',
     category: 'chord'
   },
   'minor-eleventh-chord': {
     title: 'Minor Eleventh Chord',
-    def: 'Eleventh chord with minor third, perfect fifth, minor seventh, major ninth, perfect eleventh (1-\u266d3-5-\u266d7-9-11), atmospheric and tense.',
+    def: 'Eleventh chord with minor third, perfect fifth, minor seventh, major ninth, perfect eleventh (1-♭3-5-♭7-9-11), atmospheric and tense.',
     category: 'chord'
   },
   'minor-major-seventh-chord': {
     title: 'Minor Major Seventh Chord',
-    def: 'Seventh chord with minor third, perfect fifth, major seventh (1-\u266d3-5-7), bittersweet/melancholic, rare but expressive.',
+    def: 'Seventh chord with minor third, perfect fifth, major seventh (1-♭3-5-7), bittersweet/melancholic, rare but expressive.',
     category: 'chord'
   },
   'minor-ninth-chord': {
     title: 'Minor Ninth Chord',
-    def: 'Ninth chord with minor third, perfect fifth, minor seventh, major ninth (1-\u266d3-5-\u266d7-9), melancholic and smooth (e.g., Cm9: C-E\u266d-G-B\u266d-D).',
+    def: 'Ninth chord with minor third, perfect fifth, minor seventh, major ninth (1-♭3-5-♭7-9), melancholic and smooth (e.g., Cm9: C-E♭-G-B♭-D).',
     category: 'chord'
   },
   'minor-seventh-chord': {
     title: 'Minor Seventh Chord',
-    def: 'Seventh chord with minor third, perfect fifth, minor seventh (1-\u266d3-5-\u266d7), smooth/melancholic/jazzy, ii7/V7alt (e.g., Cm7: C-E\u266d-G-B\u266d).',
+    def: 'Seventh chord with minor third, perfect fifth, minor seventh (1-♭3-5-♭7), smooth/melancholic/jazzy, ii7/V7alt (e.g., Cm7: C-E♭-G-B♭).',
     category: 'chord'
   },
   'minor-thirteenth-chord': {
     title: 'Minor Thirteenth Chord',
-    def: 'Thirteenth chord with minor third, perfect fifth, minor seventh, major ninth, perfect eleventh, major thirteenth (1-\u266d3-5-\u266d7-9-11-13), velvety/atmospheric/cinematic (e.g., Cm13: C-E\u266d-G-B\u266d-D-F-A).',
+    def: 'Thirteenth chord with minor third, perfect fifth, minor seventh, major ninth, perfect eleventh, major thirteenth (1-♭3-5-♭7-9-11-13), velvety/atmospheric/cinematic (e.g., Cm13: C-E♭-G-B♭-D-F-A).',
     category: 'chord'
   },
   'minor-chord': {
     title: 'Minor Chord',
-    def: 'Triad with minor third and perfect fifth (1-\u266d3-5), sad/introspective, foundation for minor keys.',
+    def: 'Triad with minor third and perfect fifth (1-♭3-5), sad/introspective, foundation for minor keys.',
     category: 'chord'
   },
   'eleventh': {
@@ -125,7 +125,7 @@ export const glossary = {
   },
   'flat': {
     title: 'Flat',
-    def: 'Symbol (\u266d) lowering a note by one half step (semitone), used to alter pitch in scales, keys, and chords for expressive or modal purposes.',
+    def: 'Symbol (♭) lowering a note by one half step (semitone), used to alter pitch in scales, keys, and chords for expressive or modal purposes.',
     category: 'note-pitch'
   },
   'harmony': {
@@ -220,7 +220,7 @@ export const glossary = {
   },
   'sharp': {
     title: 'Sharp',
-    def: 'Symbol (\u266f) raising a note by one half step (semitone), used to alter pitch in scales, keys, and chords.',
+    def: 'Symbol (♯) raising a note by one half step (semitone), used to alter pitch in scales, keys, and chords.',
     category: 'note-pitch'
   },
   'suspended-2-chord': {
@@ -255,32 +255,32 @@ export const glossary = {
   },
   'augmented-eleventh': {
     title: 'Augmented Eleventh',
-    def: 'Interval of 18 half steps (octave + augmented fourth), extreme compound dissonance (e.g., C to F\u266f).',
+    def: 'Interval of 18 half steps (octave + augmented fourth), extreme compound dissonance (e.g., C to F♯).',
     category: 'interval'
   },
   'augmented-fourth': {
     title: 'Augmented Fourth',
-    def: 'Interval of 6 half steps, dissonant tension (also called tritone; e.g., C to F\u266f).',
+    def: 'Interval of 6 half steps, dissonant tension (also called tritone; e.g., C to F♯).',
     category: 'interval'
   },
   'augmented-unison': {
     title: 'Augmented Unison',
-    def: 'Interval of 1 half step, dissonant near-unison clash (e.g., C to C\u266f).',
+    def: 'Interval of 1 half step, dissonant near-unison clash (e.g., C to C♯).',
     category: 'interval'
   },
   'compound-tritone': {
     title: 'Compound Tritone',
-    def: 'Interval of 18 half steps (octave + tritone), amplified instability (e.g., C to F\u266f).',
+    def: 'Interval of 18 half steps (octave + tritone), amplified instability (e.g., C to F♯).',
     category: 'interval'
   },
   'diminished-fifth': {
     title: 'Diminished Fifth',
-    def: 'Interval of 6 half steps, highly dissonant (equiv. to tritone or A4; e.g., C to G\u266d).',
+    def: 'Interval of 6 half steps, highly dissonant (equiv. to tritone or A4; e.g., C to G♭).',
     category: 'interval'
   },
   'diminished-twelfth': {
     title: 'Diminished Twelfth',
-    def: 'Interval of 18 half steps (octave + diminished fifth), compound ambiguity (e.g., C to G\u266d).',
+    def: 'Interval of 18 half steps (octave + diminished fifth), compound ambiguity (e.g., C to G♭).',
     category: 'interval'
   },
   'major-fourteenth': {
@@ -305,32 +305,32 @@ export const glossary = {
   },
   'minor-fourteenth': {
     title: 'Minor Fourteenth',
-    def: 'Interval of 22 half steps (octave + minor seventh), deep melancholic smoothness (e.g., C to B\u266d).',
+    def: 'Interval of 22 half steps (octave + minor seventh), deep melancholic smoothness (e.g., C to B♭).',
     category: 'interval'
   },
   'minor-ninth': {
     title: 'Minor Ninth',
-    def: 'Interval of 13 half steps (octave + minor second), tense compound crunch (e.g., C to D\u266d).',
+    def: 'Interval of 13 half steps (octave + minor second), tense compound crunch (e.g., C to D♭).',
     category: 'interval'
   },
   'minor-second': {
     title: 'Minor Second',
-    def: 'Interval of 1 half step, sharp dissonant tension (e.g., C to D\u266d).',
+    def: 'Interval of 1 half step, sharp dissonant tension (e.g., C to D♭).',
     category: 'interval'
   },
   'minor-sixth': {
     title: 'Minor Sixth',
-    def: 'Interval of 8 half steps, warm melancholic consonance (e.g., C to A\u266d).',
+    def: 'Interval of 8 half steps, warm melancholic consonance (e.g., C to A♭).',
     category: 'interval'
   },
   'minor-tenth': {
     title: 'Minor Tenth',
-    def: 'Interval of 15 half steps (octave + minor third), somber compound minor third (e.g., C to E\u266d).',
+    def: 'Interval of 15 half steps (octave + minor third), somber compound minor third (e.g., C to E♭).',
     category: 'interval'
   },
   'minor-thirteenth': {
     title: 'Minor Thirteenth',
-    def: 'Interval of 20 half steps (octave + minor sixth), lush atmospheric depth (e.g., C to A\u266d).',
+    def: 'Interval of 20 half steps (octave + minor sixth), lush atmospheric depth (e.g., C to A♭).',
     category: 'interval'
   },
   'perfect-fifteenth': {
@@ -355,77 +355,77 @@ export const glossary = {
   },
   'tritone': {
     title: 'Tritone',
-    def: 'Interval of 6 half steps, the most dissonant simple interval (equiv. A4/D5; e.g., C to F\u266f).',
+    def: 'Interval of 6 half steps, the most dissonant simple interval (equiv. A4/D5; e.g., C to F♯).',
     category: 'interval'
   },
   'altered-dominant-chord': {
     title: 'Altered Dominant Chord',
-    def: 'Dominant seventh (1-3-\u266d7) with altered extensions (\u266d9, \u266f9, \u266f11, \u266d5, \u266f5, \u266d13), maximum tension for resolution, jazz/superlocrian (e.g., C7alt).',
+    def: 'Dominant seventh (1-3-♭7) with altered extensions (♭9, ♯9, ♯11, ♭5, ♯5, ♭13), maximum tension for resolution, jazz/superlocrian (e.g., C7alt).',
     category: 'chord'
   },
   'augmented-major-seventh-chord': {
     title: 'Augmented Major Seventh Chord',
-    def: 'Major seventh with augmented fifth (1-3-\u266f5-7), shimmering ambiguity, chromatic color (e.g., Cmaj7\u266f5: C-E-G\u266f-B).',
+    def: 'Major seventh with augmented fifth (1-3-♯5-7), shimmering ambiguity, chromatic color (e.g., Cmaj7♯5: C-E-G♯-B).',
     category: 'chord'
   },
   'augmented-seventh-chord': {
     title: 'Augmented Seventh Chord',
-    def: 'Dominant seventh with augmented fifth (1-3-\u266f5-\u266d7), intense symmetric tension (e.g., Caug7: C-E-G\u266f-B\u266d).',
+    def: 'Dominant seventh with augmented fifth (1-3-♯5-♭7), intense symmetric tension (e.g., Caug7: C-E-G♯-B♭).',
     category: 'chord'
   },
   'flat-thirteenth-chord': {
     title: 'Flat Thirteenth Chord',
-    def: 'Dominant thirteenth with flat thirteenth (1-3-5-\u266d7-9-11-\u266d13), exotic dissonant tension (e.g., C13\u266d13: C-E-G-B\u266d-D-F-A\u266d).',
+    def: 'Dominant thirteenth with flat thirteenth (1-3-5-♭7-9-11-♭13), exotic dissonant tension (e.g., C13♭13: C-E-G-B♭-D-F-A♭).',
     category: 'chord'
   },
   'minor-sixth-chord': {
     title: 'Minor Sixth Chord',
-    def: 'Minor triad with added major sixth (1-\u266d3-5-6), melancholic warmth, common in bossa/latin (e.g., Cm6: C-E\u266d-G-A).',
+    def: 'Minor triad with added major sixth (1-♭3-5-6), melancholic warmth, common in bossa/latin (e.g., Cm6: C-E♭-G-A).',
     category: 'chord'
   },
   'seven-flat-five-chord': {
     title: 'Seven Flat Five Chord',
-    def: 'Dominant seventh with diminished fifth (1-3-\u266d5-\u266d7), tritone-heavy ambiguity, whole-tone scale (e.g., C7\u266d5: C-E-G\u266d-B\u266d).',
+    def: 'Dominant seventh with diminished fifth (1-3-♭5-♭7), tritone-heavy ambiguity, whole-tone scale (e.g., C7♭5: C-E-G♭-B♭).',
     category: 'chord'
   },
   'seven-flat-five-flat-nine-chord': {
     title: 'Seven Flat Five Flat Nine Chord',
-    def: 'Dominant seventh \u266d5 \u266d9 (1-3-\u266d5-\u266d7-\u266d9), dark altered depth (e.g., C7\u266d5\u266d9: C-E-G\u266d-B\u266d-D\u266d).',
+    def: 'Dominant seventh ♭5 ♭9 (1-3-♭5-♭7-♭9), dark altered depth (e.g., C7♭5♭9: C-E-G♭-B♭-D♭).',
     category: 'chord'
   },
   'seven-flat-five-sharp-nine-chord': {
     title: 'Seven Flat Five Sharp Nine Chord',
-    def: 'Dominant seventh \u266d5 \u266f9 (1-3-\u266d5-\u266d7-\u266f9), gritty altered dissonance (e.g., C7\u266d5\u266f9: C-E-G\u266d-B\u266d-D\u266f).',
+    def: 'Dominant seventh ♭5 ♯9 (1-3-♭5-♭7-♯9), gritty altered dissonance (e.g., C7♭5♯9: C-E-G♭-B♭-D♯).',
     category: 'chord'
   },
   'seven-flat-nine-chord': {
     title: 'Seven Flat Nine Chord',
-    def: 'Dominant ninth with flat ninth (1-3-5-\u266d7-\u266d9), tense smooth jazz tension (e.g., C7\u266d9: C-E-G-B\u266d-D\u266d).',
+    def: 'Dominant ninth with flat ninth (1-3-5-♭7-♭9), tense smooth jazz tension (e.g., C7♭9: C-E-G-B♭-D♭).',
     category: 'chord'
   },
   'seven-sharp-five-chord': {
     title: 'Seven Sharp Five Chord',
-    def: 'Dominant seventh with augmented fifth (1-3-\u266f5-\u266d7), golden lydian tension (e.g., C7\u266f5: C-E-G\u266f-B\u266d).',
+    def: 'Dominant seventh with augmented fifth (1-3-♯5-♭7), golden lydian tension (e.g., C7♯5: C-E-G♯-B♭).',
     category: 'chord'
   },
   'seven-sharp-five-flat-nine-chord': {
     title: 'Seven Sharp Five Flat Nine Chord',
-    def: 'Dominant seventh \u266f5 \u266d9 (1-3-\u266f5-\u266d7-\u266d9), bright-dark clash (e.g., C7\u266f5\u266d9: C-E-G\u266f-B\u266d-D\u266d).',
+    def: 'Dominant seventh ♯5 ♭9 (1-3-♯5-♭7-♭9), bright-dark clash (e.g., C7♯5♭9: C-E-G♯-B♭-D♭).',
     category: 'chord'
   },
   'seven-sharp-five-sharp-nine-chord': {
     title: 'Seven Sharp Five Sharp Nine Chord',
-    def: 'Dominant seventh \u266f5 \u266f9 (1-3-\u266f5-\u266d7-\u266f9), explosive tension (e.g., C7\u266f5\u266f9: C-E-G\u266f-B\u266d-D\u266f).',
+    def: 'Dominant seventh ♯5 ♯9 (1-3-♯5-♭7-♯9), explosive tension (e.g., C7♯5♯9: C-E-G♯-B♭-D♯).',
     category: 'chord'
   },
   'seven-sharp-nine-chord': {
     title: 'Seven Sharp Nine Chord',
-    def: 'Dominant ninth with sharp ninth (1-3-5-\u266d7-\u266f9), Hendrix blues crunch (e.g., C7\u266f9: C-E-G-B\u266d-D\u266f).',
+    def: 'Dominant ninth with sharp ninth (1-3-5-♭7-♯9), Hendrix blues crunch (e.g., C7♯9: C-E-G-B♭-D♯).',
     category: 'chord'
   },
   'sharp-eleventh-chord': {
     title: 'Sharp Eleventh Chord',
-    def: 'Dominant eleventh with sharp eleventh (\u266f11 instead of 11), lydian dominant sparkle (e.g., C9\u266f11: C-E-G-B\u266d-D-F\u266f-G).',
+    def: 'Dominant eleventh with sharp eleventh (♯11 instead of 11), lydian dominant sparkle (e.g., C9♯11: C-E-G-B♭-D-F♯-G).',
     category: 'chord'
   },
   'sixth-chord': {
@@ -440,12 +440,12 @@ export const glossary = {
   },
   'half-step': {
     title: 'Half Step',
-    def: 'The smallest interval in standard Western music, equal to one semitone \u2014 the distance from one key to the very next key on a piano (e.g., C to C\u266f, or E to F).',
+    def: 'The smallest interval in standard Western music, equal to one semitone — the distance from one key to the very next key on a piano (e.g., C to C♯, or E to F).',
     category: 'interval'
   },
   'whole-step': {
     title: 'Whole Step',
-    def: 'An interval of two half steps (two semitones), equivalent to one tone (e.g., C to D, or E to F\u266f).',
+    def: 'An interval of two half steps (two semitones), equivalent to one tone (e.g., C to D, or E to F♯).',
     category: 'interval'
   },
   'major-scale': {
@@ -460,7 +460,7 @@ export const glossary = {
   },
   'scale-degree': {
     title: 'Scale Degree',
-    def: 'A number (1\u20137) indicating a note\u2019s position within a scale, used to describe chord construction and harmonic function relative to the key.',
+    def: 'A number (1–7) indicating a note's position within a scale, used to describe chord construction and harmonic function relative to the key.',
     category: 'scale-key'
   },
   'thirteenth': {

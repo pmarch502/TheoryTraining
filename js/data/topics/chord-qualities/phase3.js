@@ -80,7 +80,7 @@ export const phase3 = [
             { note: 'B', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Major Seventh: C \u2013 E \u2013 G \u2013 B'
+          title: 'C Major Seventh: C – E – G – B'
         }
       },
       {
@@ -95,12 +95,12 @@ export const phase3 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'CMaj7 \u2014 Open Position'
+          title: 'CMaj7 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a major seventh appears on a chord chart, it may appear with various chord quality decorations: CM7, CMaj7, Cmaj7, C<sup>\u0394</sup>7, C<sup>\u0394</sup>"
+        text: "When a major seventh appears on a chord chart, it may appear with various chord quality decorations: CM7, CMaj7, Cmaj7, C<sup>Δ</sup>7, C<sup>Δ</sup>"
       },
       {
         type: 'paragraph',
@@ -131,8 +131,8 @@ export const phase3 = [
         items: [
           "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, W+W. E.g., C to E.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭."
         ]
       },
       {
@@ -144,15 +144,15 @@ export const phase3 = [
       },
       {
         type: 'paragraph',
-        text: "Remember back when we learned triads, we had major chords and minor chords? We discovered that when we had a major chord, it was just kind of assumed - we didn't need to say major. But, when we said 'minor' we were specifically talking about a \u266D3. On a chord chart, a C major most commonly appears as simply 'C'. But, a C minor gets the decoration 'Cm'. So, that 'm' (lowercase) decoration needs to mean only one thing - a \u266D3. If we tried to also use 'm' in relation to a seventh chord, we'd never know which was which! So, when you see an 'm', it is always talking about the \u266D3."
+        text: "Remember back when we learned triads, we had major chords and minor chords? We discovered that when we had a major chord, it was just kind of assumed - we didn't need to say major. But, when we said 'minor' we were specifically talking about a ♭3. On a chord chart, a C major most commonly appears as simply 'C'. But, a C minor gets the decoration 'Cm'. So, that 'm' (lowercase) decoration needs to mean only one thing - a ♭3. If we tried to also use 'm' in relation to a seventh chord, we'd never know which was which! So, when you see an 'm', it is always talking about the ♭3."
       },
       {
         type: 'paragraph',
-        text: "But, we're talking about seventh chords now. Remember in the last lesson we said a major seventh chord might look like this: CM7. The 'M' (uppercase) is specifically referring to the 7 (not the 3). So, major triads don't use the 'M' (normally) because it's reserved for the seventh - specifically designating the 7 of the chord root's major scale. When it is the \u266D7 (like in the dominant seventh), we use no decoration at all."
+        text: "But, we're talking about seventh chords now. Remember in the last lesson we said a major seventh chord might look like this: CM7. The 'M' (uppercase) is specifically referring to the 7 (not the 3). So, major triads don't use the 'M' (normally) because it's reserved for the seventh - specifically designating the 7 of the chord root's major scale. When it is the ♭7 (like in the dominant seventh), we use no decoration at all."
       },
       {
         type: 'paragraph',
-        text: "This may be a little confusing, but it is actually quite smart - at least as far as creating an unambiguous naming convention for chord qualities. A lower case 'm' means a \u266D3 and an upper case 'M' means a major 7. Our next lesson will, hopefully, help make this a little clearer."
+        text: "This may be a little confusing, but it is actually quite smart - at least as far as creating an unambiguous naming convention for chord qualities. A lower case 'm' means a ♭3 and an upper case 'M' means a major 7. Our next lesson will, hopefully, help make this a little clearer."
       },
       {
         type: 'divider'
@@ -163,7 +163,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "C dominant seventh: C - E - G - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ^       ^       \u266D"
+        text: "C dominant seventh: C - E - G - B♭\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ^       ^       ♭"
       },
       {
         type: 'piano',
@@ -176,7 +176,7 @@ export const phase3 = [
             { note: 'Bb', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Dominant Seventh: C \u2013 E \u2013 G \u2013 B\u266D'
+          title: 'C Dominant Seventh: C – E – G – B♭'
         }
       },
       {
@@ -191,16 +191,16 @@ export const phase3 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'C7 \u2014 Open Position'
+          title: 'C7 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a dominant seventh appears on a chord chart, it only appears with one chord quality decoration: C7 (we have a major triad (no decoration) and it's not the 7 - it's the \u266D7 (no decoration))"
+        text: "When a dominant seventh appears on a chord chart, it only appears with one chord quality decoration: C7 (we have a major triad (no decoration) and it's not the 7 - it's the ♭7 (no decoration))"
       },
       {
         type: 'paragraph',
-        text: "When we talk about a dominant seventh according to scale degrees, we would call it a 1-3-5-\u266D7 (or, 1-3-5-7\u266D - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a dominant seventh according to scale degrees, we would call it a 1-3-5-♭7 (or, 1-3-5-7♭ - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -222,9 +222,9 @@ export const phase3 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭."
         ]
       },
       {
@@ -237,7 +237,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "C minor seventh: C - E\u266D - G - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       ^       \u266D"
+        text: "C minor seventh: C - E♭ - G - B♭\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ^       ♭"
       },
       {
         type: 'piano',
@@ -250,7 +250,7 @@ export const phase3 = [
             { note: 'Bb', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Minor Seventh: C \u2013 E\u266D \u2013 G \u2013 B\u266D'
+          title: 'C Minor Seventh: C – E♭ – G – B♭'
         }
       },
       {
@@ -265,16 +265,16 @@ export const phase3 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
-          title: 'Cm7 \u2014 3rd Position'
+          title: 'Cm7 — 3rd Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a minor seventh appears on a chord chart, it may appear with various chord quality decorations: Cm7, Cmin7, Cmi7, C-7 (we have a minor triad ('m') and it's not the 7 - it's the \u266D7 (no decoration))."
+        text: "When a minor seventh appears on a chord chart, it may appear with various chord quality decorations: Cm7, Cmin7, Cmi7, C-7 (we have a minor triad ('m') and it's not the 7 - it's the ♭7 (no decoration))."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a minor seventh according to scale degrees, we would call it a 1-\u266D3-5-\u266D7 (or, 1-3\u266D-5-7\u266D - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a minor seventh according to scale degrees, we would call it a 1-♭3-5-♭7 (or, 1-3♭-5-7♭ - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -285,7 +285,7 @@ export const phase3 = [
     content: [
       {
         type: 'paragraph',
-        text: "Much like the diminished triad in an earlier lesson, we now come to a seventh you won't see very often. (But, when it's used well, it's so good\u2026) The <strong>half-diminished seventh</strong> adds subtle tension in major keys, common in jazz or in worship modulations."
+        text: "Much like the diminished triad in an earlier lesson, we now come to a seventh you won't see very often. (But, when it's used well, it's so good…) The <strong>half-diminished seventh</strong> adds subtle tension in major keys, common in jazz or in worship modulations."
       },
       {
         type: 'paragraph',
@@ -296,9 +296,9 @@ export const phase3 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + a minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., C to G♭.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + a minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭."
         ]
       },
       {
@@ -311,7 +311,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "C half-diminished seventh: C - E\u266D - G\u266D - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       \u266D       \u266D"
+        text: "C half-diminished seventh: C - E♭ - G♭ - B♭\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ♭       ♭"
       },
       {
         type: 'piano',
@@ -324,7 +324,7 @@ export const phase3 = [
             { note: 'Bb', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Half-Diminished Seventh: C \u2013 E\u266D \u2013 G\u266D \u2013 B\u266D'
+          title: 'C Half-Diminished Seventh: C – E♭ – G♭ – B♭'
         }
       },
       {
@@ -338,16 +338,16 @@ export const phase3 = [
             { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
-          title: 'C\u00F87 \u2014 3rd Position'
+          title: 'Cø7 — 3rd Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a half-diminished seventh appears on a chord chart, it may appear with various chord quality decorations: C\u00F87, C\u00F8, Cm7\u266D5, C-7\u266D5. The proper symbol may be the '\u00F87', but that's pretty hard to type on a normal keyboard. That's where the 'm7\u266D5' comes in. Not only is it a completely accurate and unambiguous name, it can be typed as plain text (which has made it quite popular for chord charts)."
+        text: "When a half-diminished seventh appears on a chord chart, it may appear with various chord quality decorations: Cø7, Cø, Cm7♭5, C-7♭5. The proper symbol may be the 'ø7', but that's pretty hard to type on a normal keyboard. That's where the 'm7♭5' comes in. Not only is it a completely accurate and unambiguous name, it can be typed as plain text (which has made it quite popular for chord charts)."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a half-diminished seventh according to scale degrees, we would call it a 1-\u266D3-\u266D5-\u266D7 (or, 1-3\u266D-5\u266D-7\u266D - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a half-diminished seventh according to scale degrees, we would call it a 1-♭3-♭5-♭7 (or, 1-3♭-5♭-7♭ - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -366,7 +366,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "CM7:  C   D   E   F   G   A   B   C\n      ^       ^       ^       ^\nDm7:  C   D   E   F   G   A   B   C\n          ^       ^       ^       ^\nEm7:  C   D   E   F   G   A   B   C   D\n              ^       ^       ^       ^\nFM7:  C   D   E   F   G   A   B   C   D   E\n                  ^       ^       ^       ^\nG7:  C   D   E   F   G   A   B   C   D   E   F\n                     ^       ^       ^       ^\nAm7:  C   D   E   F   G   A   B   C   D   E   F   G\n                          ^       ^       ^       ^\nB\u00F87:  C   D   E   F   G   A   B   C   D   E   F   G   A\n                              ^       ^       ^       ^"
+        text: "CM7:  C   D   E   F   G   A   B   C\n      ^       ^       ^       ^\nDm7:  C   D   E   F   G   A   B   C\n          ^       ^       ^       ^\nEm7:  C   D   E   F   G   A   B   C   D\n              ^       ^       ^       ^\nFM7:  C   D   E   F   G   A   B   C   D   E\n                  ^       ^       ^       ^\nG7:  C   D   E   F   G   A   B   C   D   E   F\n                     ^       ^       ^       ^\nAm7:  C   D   E   F   G   A   B   C   D   E   F   G\n                          ^       ^       ^       ^\nBø7:  C   D   E   F   G   A   B   C   D   E   F   G   A\n                              ^       ^       ^       ^"
       },
       {
         type: 'paragraph',
@@ -374,7 +374,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "IM7      ii7      iii7     IVM7     V7       vi7      vii\u00F87\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
+        text: "IM7      ii7      iii7     IVM7     V7       vi7      viiø7\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
       },
       {
         type: 'paragraph',
@@ -382,7 +382,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "1M7      2m7      3m7      4M7      57       6m7      7\u00F87\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
+        text: "1M7      2m7      3m7      4M7      57       6m7      7ø7\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
       },
       {
         type: 'paragraph',
@@ -408,14 +408,14 @@ export const phase3 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F.",
-          "<strong>Diminished seventh</strong> above root: an interval of 9 half steps, a minor third + a minor third + minor third, (W+H)+(W+H)+(W+H). (We might also call it a diminished fifth + a minor third.) E.g., C to B\u266D\u266D (yep, that's a real thing - a double flat)."
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., C to G♭.",
+          "<strong>Diminished seventh</strong> above root: an interval of 9 half steps, a minor third + a minor third + minor third, (W+H)+(W+H)+(W+H). (We might also call it a diminished fifth + a minor third.) E.g., C to B♭♭ (yep, that's a real thing - a double flat)."
         ]
       },
       {
         type: 'paragraph',
-        text: "Again, this definition is very important because it is very precise - it has an important purpose in defining and naming chords. If you remember back to when we talked about scales and keys, we said that every scale degree had to be a new letter name. In the key of C, the seventh degree must be some kind of a 'B'. Even though a B\u266D\u266D is the same pitch as an 'A', we can't call it some kind of an 'A' because then it would be a sixth. That's how we end up with things like a B\u266D\u266D (pronounced 'B double flat')."
+        text: "Again, this definition is very important because it is very precise - it has an important purpose in defining and naming chords. If you remember back to when we talked about scales and keys, we said that every scale degree had to be a new letter name. In the key of C, the seventh degree must be some kind of a 'B'. Even though a B♭♭ is the same pitch as an 'A', we can't call it some kind of an 'A' because then it would be a sixth. That's how we end up with things like a B♭♭ (pronounced 'B double flat')."
       },
       {
         type: 'paragraph',
@@ -423,7 +423,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "C diminished seventh: C - E\u266D - G\u266D - B\u266D\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       \u266D       \u266D\u266D"
+        text: "C diminished seventh: C - E♭ - G♭ - B♭♭\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ♭       ♭♭"
       },
       {
         type: 'piano',
@@ -436,7 +436,7 @@ export const phase3 = [
             { note: 'A', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Diminished Seventh: C \u2013 E\u266D \u2013 G\u266D \u2013 B\u266D\u266D'
+          title: 'C Diminished Seventh: C – E♭ – G♭ – B♭♭'
         }
       },
       {
@@ -450,16 +450,16 @@ export const phase3 = [
             { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
-          title: 'Cdim7 \u2014 2nd Position'
+          title: 'Cdim7 — 2nd Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a diminished seventh appears on a chord chart, it may appear with various chord quality decorations: C\u00B07, Co7, Cdim7. The proper symbol may be the '\u00B07', but that's pretty hard to type on a normal keyboard. That's where the 'o7' comes in. It is a reasonable plain text substitute."
+        text: "When a diminished seventh appears on a chord chart, it may appear with various chord quality decorations: C°7, Co7, Cdim7. The proper symbol may be the '°7', but that's pretty hard to type on a normal keyboard. That's where the 'o7' comes in. It is a reasonable plain text substitute."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a diminished seventh according to scale degrees, we would call it a 1-\u266D3-\u266D5-\u266D\u266D7 (or, 1-3\u266D-5\u266D-7\u266D\u266D - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a diminished seventh according to scale degrees, we would call it a 1-♭3-♭5-♭♭7 (or, 1-3♭-5♭-7♭♭ - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -481,14 +481,14 @@ export const phase3 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
           "<strong>Major seventh</strong> above root: an interval of 11 half steps, a major third + a minor third + major third, (W+W)+(W+H)+(W+W). (We might also call it a perfect fifth + a major third.) E.g., C to B."
         ]
       },
       {
         type: 'paragraph',
-        text: "Again, this definition is very important because it is very precise\u2014it has an important purpose in defining and naming chords."
+        text: "Again, this definition is very important because it is very precise—it has an important purpose in defining and naming chords."
       },
       {
         type: 'paragraph',
@@ -496,7 +496,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "C minor major seventh: C - E\u266D - G - B\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       ^       ^"
+        text: "C minor major seventh: C - E♭ - G - B\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ^       ^"
       },
       {
         type: 'piano',
@@ -509,7 +509,7 @@ export const phase3 = [
             { note: 'B', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'C Minor-Major Seventh: C \u2013 E\u266D \u2013 G \u2013 B'
+          title: 'C Minor-Major Seventh: C – E♭ – G – B'
         }
       },
       {
@@ -523,16 +523,16 @@ export const phase3 = [
             { string: 2, fret: 0, degree: 7 }
           ],
           muted: [6, 1],
-          title: 'CmM7 \u2014 Open Position'
+          title: 'CmM7 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a minor-major seventh appears on a chord chart, it may appear with various chord quality decorations: CmM7, C-M7, Cmin(maj7), Cm<sup>\u0394</sup>7, Cm<sup>\u0394</sup>"
+        text: "When a minor-major seventh appears on a chord chart, it may appear with various chord quality decorations: CmM7, C-M7, Cmin(maj7), Cm<sup>Δ</sup>7, Cm<sup>Δ</sup>"
       },
       {
         type: 'paragraph',
-        text: "When we talk about a minor-major seventh according to scale degrees, we would call it a 1-3\u266D-5-7. (Remember\u2014these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a minor-major seventh according to scale degrees, we would call it a 1-3♭-5-7. (Remember—these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   }

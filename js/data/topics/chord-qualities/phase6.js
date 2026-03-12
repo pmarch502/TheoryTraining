@@ -18,7 +18,7 @@ export const phase6 = [
       },
       {
         type: 'paragraph',
-        text: "In actual performance\u2014particularly on piano, guitar, or in ensemble settings\u2014the thirteenth chord is almost always voiced incompletely. The fifth and eleventh (and frequently the ninth or root) are omitted to avoid muddiness and to emphasize the defining color tones: the third, seventh, ninth, and especially the thirteenth."
+        text: "In actual performance—particularly on piano, guitar, or in ensemble settings—the thirteenth chord is almost always voiced incompletely. The fifth and eleventh (and frequently the ninth or root) are omitted to avoid muddiness and to emphasize the defining color tones: the third, seventh, ninth, and especially the thirteenth."
       },
       {
         type: 'paragraph',
@@ -30,7 +30,7 @@ export const phase6 = [
       },
       {
         type: 'paragraph',
-        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth), skip E to F (eleventh), skip G to A (thirteenth). Boom\u2014we've created a thirteenth chord. (In this case, a C major thirteenth chord: <strong>C - E - G - B - D - F - A</strong>.)"
+        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth), skip E to F (eleventh), skip G to A (thirteenth). Boom—we've created a thirteenth chord. (In this case, a C major thirteenth chord: <strong>C - E - G - B - D - F - A</strong>.)"
       },
       {
         type: 'paragraph',
@@ -53,7 +53,7 @@ export const phase6 = [
     content: [
       {
         type: 'paragraph',
-        text: "We now have a basic idea of what thirteenth chords are and how to build them from a scale using stacked thirds. So, let's get specific\u2014let's talk about the <strong>major thirteenth</strong>. To our ears, it's bright, open, ethereal, and maximally consonant."
+        text: "We now have a basic idea of what thirteenth chords are and how to build them from a scale using stacked thirds. So, let's get specific—let's talk about the <strong>major thirteenth</strong>. To our ears, it's bright, open, ethereal, and maximally consonant."
       },
       {
         type: 'paragraph',
@@ -98,7 +98,7 @@ export const phase6 = [
             { note: 'A', degree: 6 }
           ],
           labels: 'highlighted',
-          title: 'C Major Thirteenth: C \u2013 E \u2013 G \u2013 B \u2013 D \u2013 F \u2013 A'
+          title: 'C Major Thirteenth: C – E – G – B – D – F – A'
         }
       },
       {
@@ -113,12 +113,12 @@ export const phase6 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'CMaj13 \u2014 Open Position'
+          title: 'CMaj13 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a major thirteenth appears on a chord chart, it may appear with various chord quality decorations: CM13, CMaj13, Cmaj13, C<sup>\u0394</sup>13"
+        text: "When a major thirteenth appears on a chord chart, it may appear with various chord quality decorations: CM13, CMaj13, Cmaj13, C<sup>Δ</sup>13"
       },
       {
         type: 'paragraph',
@@ -149,8 +149,8 @@ export const phase6 = [
         items: [
           "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, (W+W). E.g., C to E.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W).  E.g., C to D.",
           "<strong>Perfect eleventh</strong> above root: an interval of 17 half steps, an octave + perfect fourth, (Wx6)+(W+W+H).  E.g., C to F.",
           "<strong>Major thirteenth</strong> above root: an interval of 21 half steps, an octave + major sixth, (Wx6)+(W+W+H+W+W).  E.g., C to A."
@@ -166,7 +166,7 @@ export const phase6 = [
       },
       {
         type: 'notation',
-        text: "C dominant thirteenth: C - E - G - B\u266D - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       ^       ^       \u266D       ^       ^       ^"
+        text: "C dominant thirteenth: C - E - G - B♭ - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       ^       ^       ♭       ^       ^       ^"
       },
       {
         type: 'piano',
@@ -182,7 +182,7 @@ export const phase6 = [
             { note: 'A', degree: 6 }
           ],
           labels: 'highlighted',
-          title: 'C Dominant Thirteenth: C \u2013 E \u2013 G \u2013 B\u266D \u2013 D \u2013 F \u2013 A'
+          title: 'C Dominant Thirteenth: C – E – G – B♭ – D – F – A'
         }
       },
       {
@@ -197,16 +197,16 @@ export const phase6 = [
             { string: 1, fret: 10, degree: 2 }
           ],
           muted: [5],
-          title: 'C13 \u2014 8th Position'
+          title: 'C13 — 8th Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a dominant thirteenth appears on a chord chart, it only appears with one chord quality decoration: C13 (we have a major triad (no decoration) and it's not including the 7 - it's the \u266D7 (no decoration))"
+        text: "When a dominant thirteenth appears on a chord chart, it only appears with one chord quality decoration: C13 (we have a major triad (no decoration) and it's not including the 7 - it's the ♭7 (no decoration))"
       },
       {
         type: 'paragraph',
-        text: "When we talk about a dominant thirteenth according to scale degrees, we would call it a 1-3-5-\u266D7-9-11-13 (or, 1-3-5-7\u266D-9-11-13 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a dominant thirteenth according to scale degrees, we would call it a 1-3-5-♭7-9-11-13 (or, 1-3-5-7♭-9-11-13 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -217,7 +217,7 @@ export const phase6 = [
     content: [
       {
         type: 'paragraph',
-        text: "Next is the <strong>minor thirteenth</strong>. The minor thirteenth sounds deeply atmospheric, velvety, and introspective\u2014it's common in worship for adding cinematic depth."
+        text: "Next is the <strong>minor thirteenth</strong>. The minor thirteenth sounds deeply atmospheric, velvety, and introspective—it's common in worship for adding cinematic depth."
       },
       {
         type: 'paragraph',
@@ -228,9 +228,9 @@ export const phase6 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W). E.g., C to D.",
           "<strong>Perfect eleventh</strong> above root: an interval of 17 half steps, an octave + perfect fourth, (Wx6)+(W+W+H).  E.g., C to F.",
           "<strong>Major thirteenth</strong> above root: an interval of 21 half steps, an octave + major sixth, (Wx6)+(W+W+H+W+W).  E.g., C to A."
@@ -246,7 +246,7 @@ export const phase6 = [
       },
       {
         type: 'notation',
-        text: "C minor thirteenth: C - E\u266D - G - B\u266D - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       \u266D       ^       \u266D       ^       ^       ^"
+        text: "C minor thirteenth: C - E♭ - G - B♭ - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       ♭       ^       ♭       ^       ^       ^"
       },
       {
         type: 'piano',
@@ -262,7 +262,7 @@ export const phase6 = [
             { note: 'A', degree: 6 }
           ],
           labels: 'highlighted',
-          title: 'C Minor Thirteenth: C \u2013 E\u266D \u2013 G \u2013 B\u266D \u2013 D \u2013 F \u2013 A'
+          title: 'C Minor Thirteenth: C – E♭ – G – B♭ – D – F – A'
         }
       },
       {
@@ -277,16 +277,16 @@ export const phase6 = [
             { string: 1, fret: 10, degree: 2 }
           ],
           muted: [5],
-          title: 'Cm13 \u2014 8th Position'
+          title: 'Cm13 — 8th Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a minor thirteenth appears on a chord chart, it may appear with various chord quality decorations: Cm13, Cmin13, Cmi13, C-13 (we have a minor triad ('m') and it's not including the 7 - it's the \u266D7 (no decoration))."
+        text: "When a minor thirteenth appears on a chord chart, it may appear with various chord quality decorations: Cm13, Cmin13, Cmi13, C-13 (we have a minor triad ('m') and it's not including the 7 - it's the ♭7 (no decoration))."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a minor thirteenth according to scale degrees, we would call it a 1-\u266D3-5-\u266D7-9-11-13 (or, 1-3\u266D-5-7\u266D-9-11-13 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a minor thirteenth according to scale degrees, we would call it a 1-♭3-5-♭7-9-11-13 (or, 1-3♭-5-7♭-9-11-13 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   }

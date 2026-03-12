@@ -22,7 +22,7 @@ export const phase4 = [
       },
       {
         type: 'paragraph',
-        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth). Boom\u2014we've created a ninth chord. (In this case, a C major ninth chord: <strong>C - E - G - B - D</strong>.)"
+        text: "Start on C (the root). Skip D to E (third), skip F to G (fifth), skip A to B (seventh), skip C to D (ninth). Boom—we've created a ninth chord. (In this case, a C major ninth chord: <strong>C - E - G - B - D</strong>.)"
       },
       {
         type: 'paragraph',
@@ -45,7 +45,7 @@ export const phase4 = [
     content: [
       {
         type: 'paragraph',
-        text: "We now have a basic idea of what ninth chords are and how to build them from a scale using stacked thirds. So, let's get specific\u2014let's talk about the <strong>major ninth</strong>. To our ears, it's bright, open, airy, and luminous\u2014perfect for worship warmth or emotional elevation."
+        text: "We now have a basic idea of what ninth chords are and how to build them from a scale using stacked thirds. So, let's get specific—let's talk about the <strong>major ninth</strong>. To our ears, it's bright, open, airy, and luminous—perfect for worship warmth or emotional elevation."
       },
       {
         type: 'paragraph',
@@ -64,7 +64,7 @@ export const phase4 = [
       },
       {
         type: 'paragraph',
-        text: "Just as with triads, this definition is very important because it is very precise\u2014it has an important purpose in defining and naming chords. But, for us and for now, we'll just keep thinking of it as the stacked thirds."
+        text: "Just as with triads, this definition is very important because it is very precise—it has an important purpose in defining and naming chords. But, for us and for now, we'll just keep thinking of it as the stacked thirds."
       },
       {
         type: 'paragraph',
@@ -86,7 +86,7 @@ export const phase4 = [
             { note: 'D', degree: 2 }
           ],
           labels: 'highlighted',
-          title: 'C Major Ninth: C \u2013 E \u2013 G \u2013 B \u2013 D'
+          title: 'C Major Ninth: C – E – G – B – D'
         }
       },
       {
@@ -101,12 +101,12 @@ export const phase4 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'CMaj9 \u2014 Open Position'
+          title: 'CMaj9 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a major ninth appears on a chord chart, it may appear with various chord quality decorations: CM9, CMaj9, Cmaj9, C<sup>\u0394</sup>9"
+        text: "When a major ninth appears on a chord chart, it may appear with various chord quality decorations: CM9, CMaj9, Cmaj9, C<sup>Δ</sup>9"
       },
       {
         type: 'paragraph',
@@ -125,7 +125,7 @@ export const phase4 = [
       },
       {
         type: 'paragraph',
-        text: "The <strong>dominant ninth</strong> brings a mellow tension and pull\u2014warmly leading back to I in worship choruses (ii-V9-I)."
+        text: "The <strong>dominant ninth</strong> brings a mellow tension and pull—warmly leading back to I in worship choruses (ii-V9-I)."
       },
       {
         type: 'paragraph',
@@ -137,8 +137,8 @@ export const phase4 = [
         items: [
           "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, (W+W). E.g., C to E.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W).  E.g., C to D."
         ]
       },
@@ -152,7 +152,7 @@ export const phase4 = [
       },
       {
         type: 'notation',
-        text: "C dominant ninth: C - E - G - B\u266D - D\n\n1   2   3   4   5   6   7   8   9\nC   D   E   F   G   A   B   C   D\n^       ^       ^       \u266D       ^"
+        text: "C dominant ninth: C - E - G - B♭ - D\n\n1   2   3   4   5   6   7   8   9\nC   D   E   F   G   A   B   C   D\n^       ^       ^       ♭       ^"
       },
       {
         type: 'piano',
@@ -166,7 +166,7 @@ export const phase4 = [
             { note: 'D', degree: 2 }
           ],
           labels: 'highlighted',
-          title: 'C Dominant Ninth: C \u2013 E \u2013 G \u2013 B\u266D \u2013 D'
+          title: 'C Dominant Ninth: C – E – G – B♭ – D'
         }
       },
       {
@@ -181,16 +181,16 @@ export const phase4 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'C9 \u2014 Open Position'
+          title: 'C9 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a dominant ninth appears on a chord chart, it only appears with one chord quality decoration: C9 (we have a major triad (no decoration) and it's not including the 7 - it's the \u266D7 (no decoration))"
+        text: "When a dominant ninth appears on a chord chart, it only appears with one chord quality decoration: C9 (we have a major triad (no decoration) and it's not including the 7 - it's the ♭7 (no decoration))"
       },
       {
         type: 'paragraph',
-        text: "When we talk about a dominant ninth according to scale degrees, we would call it a 1-3-5-\u266D7-9 (or, 1-3-5-7\u266D-9 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a dominant ninth according to scale degrees, we would call it a 1-3-5-♭7-9 (or, 1-3-5-7♭-9 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   },
@@ -201,7 +201,7 @@ export const phase4 = [
     content: [
       {
         type: 'paragraph',
-        text: "Next is the <strong>minor ninth</strong>. The minor ninth sounds darkly romantic or bittersweet\u2014it's common in worship for adding sophistication and lushness."
+        text: "Next is the <strong>minor ninth</strong>. The minor ninth sounds darkly romantic or bittersweet—it's common in worship for adding sophistication and lushness."
       },
       {
         type: 'paragraph',
@@ -212,9 +212,9 @@ export const phase4 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
-          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D.",
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
+          "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B♭.",
           "<strong>Major ninth</strong> above root: an interval of 14 half steps, an octave + major second, (Wx6)+(W).  E.g., C to D."
         ]
       },
@@ -228,7 +228,7 @@ export const phase4 = [
       },
       {
         type: 'notation',
-        text: "C minor ninth: C - E\u266D - G - B\u266D - D\n\n1   2   3   4   5   6   7   8   9\nC   D   E   F   G   A   B   C   D\n^       \u266D       ^       \u266D       ^"
+        text: "C minor ninth: C - E♭ - G - B♭ - D\n\n1   2   3   4   5   6   7   8   9\nC   D   E   F   G   A   B   C   D\n^       ♭       ^       ♭       ^"
       },
       {
         type: 'piano',
@@ -242,7 +242,7 @@ export const phase4 = [
             { note: 'D', degree: 2 }
           ],
           labels: 'highlighted',
-          title: 'C Minor Ninth: C \u2013 E\u266D \u2013 G \u2013 B\u266D \u2013 D'
+          title: 'C Minor Ninth: C – E♭ – G – B♭ – D'
         }
       },
       {
@@ -257,16 +257,16 @@ export const phase4 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
-          title: 'Cm9 \u2014 Open Position'
+          title: 'Cm9 — Open Position'
         }
       },
       {
         type: 'paragraph',
-        text: "When a minor ninth appears on a chord chart, it may appear with various chord quality decorations: Cm9, Cmin9, Cmi9, C-9 (we have a minor triad ('m') and it's not including the 7 - it's the \u266D7 (no decoration))."
+        text: "When a minor ninth appears on a chord chart, it may appear with various chord quality decorations: Cm9, Cmin9, Cmi9, C-9 (we have a minor triad ('m') and it's not including the 7 - it's the ♭7 (no decoration))."
       },
       {
         type: 'paragraph',
-        text: "When we talk about a minor ninth according to scale degrees, we would call it a 1-\u266D3-5-\u266D7-9 (or, 1-3\u266D-5-7\u266D-9 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
+        text: "When we talk about a minor ninth according to scale degrees, we would call it a 1-♭3-5-♭7-9 (or, 1-3♭-5-7♭-9 - people say it both ways). (Remember - these numbers are scale degrees from the major scale of the root of the chord.)"
       }
     ]
   }

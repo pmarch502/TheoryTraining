@@ -16,11 +16,11 @@ export const chordQualities = {
         { id: 'cq-1',  number: 1,  title: 'Notes A-G' },
         { id: 'cq-2',  number: 2,  title: 'Sharps and Flats' },
         { id: 'cq-3',  number: 3,  title: 'Octaves' },
-        { id: 'cq-4',  number: 4,  title: 'Intervals \u2014 Whole/Half Steps' },
+        { id: 'cq-4',  number: 4,  title: 'Intervals — Whole/Half Steps' },
         { id: 'cq-5',  number: 5,  title: 'The Major Scale Formula' },
         { id: 'cq-6',  number: 6,  title: 'What Is a Key?' },
-        { id: 'cq-7',  number: 7,  title: 'Circle of Fifths \u2014 Sharps' },
-        { id: 'cq-8',  number: 8,  title: 'Circle of Fifths \u2014 Flats' },
+        { id: 'cq-7',  number: 7,  title: 'Circle of Fifths — Sharps' },
+        { id: 'cq-8',  number: 8,  title: 'Circle of Fifths — Flats' },
       ]
     },
     {

@@ -18,7 +18,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "You may have noticed, there are only seven names - but, we just said there are twelve notes. This is because the letters, when they appear without any additional information (like a \u266F or a \u266D), are referring to <strong>natural</strong> notes. We can identify these, for the most part, with the white keys on a piano. The additional names will be discussed in Lesson 2."
+        text: "You may have noticed, there are only seven names - but, we just said there are twelve notes. This is because the letters, when they appear without any additional information (like a ♯ or a ♭), are referring to <strong>natural</strong> notes. We can identify these, for the most part, with the white keys on a piano. The additional names will be discussed in Lesson 2."
       },
       {
         type: 'piano',
@@ -34,7 +34,7 @@ export const phase1 = [
             { note: 'B', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'Piano White Keys \u2014 Natural Notes'
+          title: 'Piano White Keys — Natural Notes'
         }
       }
     ]
@@ -46,18 +46,18 @@ export const phase1 = [
     content: [
       {
         type: 'paragraph',
-        text: "As we noticed in Lesson 1, there are only seven alphabet letter names\u2014but there are twelve notes. We also have names for the notes between the <strong>natural</strong> notes. We use the words <strong>sharp</strong> and <strong>flat</strong> (and their corresponding symbols <strong>\u266F</strong> and <strong>\u266D</strong>) to name the notes that are in between the alphabet names. For example, there is a note between C and D (if you are familiar with a piano keyboard, it's one of the black keys). We call that C sharp (C\u266F). We also call it D flat (D\u266D). Yep, it has two names. Right now, that probably seems confusing, but there is actually a good reason for it (that'll have to wait). When a note has two different names for the same pitch, we call them enharmonic notes. So, here are all twelve names\u2014the natural and the enharmonic:"
+        text: "As we noticed in Lesson 1, there are only seven alphabet letter names—but there are twelve notes. We also have names for the notes between the <strong>natural</strong> notes. We use the words <strong>sharp</strong> and <strong>flat</strong> (and their corresponding symbols <strong>♯</strong> and <strong>♭</strong>) to name the notes that are in between the alphabet names. For example, there is a note between C and D (if you are familiar with a piano keyboard, it's one of the black keys). We call that C sharp (C♯). We also call it D flat (D♭). Yep, it has two names. Right now, that probably seems confusing, but there is actually a good reason for it (that'll have to wait). When a note has two different names for the same pitch, we call them enharmonic notes. So, here are all twelve names—the natural and the enharmonic:"
       },
       {
         type: 'notation',
-        text: "A   A\u266F/B\u266D   B   C   C\u266F/D\u266D   D   D\u266F/E\u266D   E   F   F\u266F/G\u266D   G   G\u266F/A\u266D"
+        text: "A   A♯/B♭   B   C   C♯/D♭   D   D♯/E♭   E   F   F♯/G♭   G   G♯/A♭"
       },
       {
         type: 'piano',
         config: {
           octaves: 1,
           labels: 'all',
-          title: 'Piano Keyboard \u2014 All 12 Notes'
+          title: 'Piano Keyboard — All 12 Notes'
         }
       }
     ]
@@ -80,7 +80,7 @@ export const phase1 = [
         config: {
           octaves: 2,
           labels: 'all',
-          title: 'Two Octaves \u2014 Repeating Pattern'
+          title: 'Two Octaves — Repeating Pattern'
         }
       },
       {
@@ -96,7 +96,7 @@ export const phase1 = [
   {
     id: 'cq-4',
     number: 4,
-    title: 'Intervals \u2014 Whole/Half Steps',
+    title: 'Intervals — Whole/Half Steps',
     content: [
       {
         type: 'paragraph',
@@ -108,11 +108,11 @@ export const phase1 = [
       },
       {
         type: 'notation',
-        text: "A   A\u266F/B\u266D   B   C   C\u266F/D\u266D   D   D\u266F/E\u266D   E   F   F\u266F/G\u266D   G   G\u266F/A\u266D"
+        text: "A   A♯/B♭   B   C   C♯/D♭   D   D♯/E♭   E   F   F♯/G♭   G   G♯/A♭"
       },
       {
         type: 'paragraph',
-        text: "The 'distance' between each of these notes is called a half step. So, from A to A\u266F is one half step (H). From A to B is a whole step (W)\u2014 i.e. two half steps makes a whole. From E to F is only a half step (H). From E to F\u266F is a whole step (W)."
+        text: "The 'distance' between each of these notes is called a half step. So, from A to A♯ is one half step (H). From A to B is a whole step (W)— i.e. two half steps makes a whole. From E to F is only a half step (H). From E to F♯ is a whole step (W)."
       }
     ]
   },
@@ -131,7 +131,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "What we are going to focus on is a collection of intervals that represent the major scale\u2014 i.e. a formula for making a major scale. You would likely recognize a major scale as the universally recognizable Do, Re, Mi, Fa, So, La, Ti, Do."
+        text: "What we are going to focus on is a collection of intervals that represent the major scale— i.e. a formula for making a major scale. You would likely recognize a major scale as the universally recognizable Do, Re, Mi, Fa, So, La, Ti, Do."
       },
       {
         type: 'paragraph',
@@ -147,7 +147,7 @@ export const phase1 = [
       },
       {
         type: 'notation',
-        text: "A   A\u266F/B\u266D   B   C   C\u266F/D\u266D   D   D\u266F/E\u266D   E   F   F\u266F/G\u266D   G   G\u266F/A\u266D"
+        text: "A   A♯/B♭   B   C   C♯/D♭   D   D♯/E♭   E   F   F♯/G♭   G   G♯/A♭"
       },
       {
         type: 'paragraph',
@@ -159,7 +159,7 @@ export const phase1 = [
       },
       {
         type: 'notation',
-        text: "A   A\u266F/B\u266D   B   C   C\u266F/D\u266D   D   D\u266F/E\u266D   E   F   F\u266F/G\u266D   G   G\u266F/A\u266D\n                    W       W       H   W       W       W   H"
+        text: "A   A♯/B♭   B   C   C♯/D♭   D   D♯/E♭   E   F   F♯/G♭   G   G♯/A♭\n                    W       W       H   W       W       W   H"
       },
       {
         type: 'paragraph',
@@ -183,7 +183,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "G <sup>+W</sup> A <sup>+W</sup> B <sup>+H</sup> C <sup>+W</sup> D <sup>+W</sup> E <sup>+W</sup> F\u266F <sup>+H</sup> G"
+        text: "G <sup>+W</sup> A <sup>+W</sup> B <sup>+H</sup> C <sup>+W</sup> D <sup>+W</sup> E <sup>+W</sup> F♯ <sup>+H</sup> G"
       },
       {
         type: 'paragraph',
@@ -191,7 +191,7 @@ export const phase1 = [
       },
       {
         type: 'notation',
-        text: "G   A   B   C   D   E   F\u266F   G"
+        text: "G   A   B   C   D   E   F♯   G"
       }
     ]
   },
@@ -214,7 +214,7 @@ export const phase1 = [
       },
       {
         type: 'notation',
-        text: "D   E   F\u266F   G   A   B   C\u266F   D"
+        text: "D   E   F♯   G   A   B   C♯   D"
       },
       {
         type: 'paragraph',
@@ -222,11 +222,11 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "If we played an F\u266F while in the key of C, it would sound weird, off, bad. But, if we play an F\u266F in the key of D, it sounds normal, on, good."
+        text: "If we played an F♯ while in the key of C, it would sound weird, off, bad. But, if we play an F♯ in the key of D, it sounds normal, on, good."
       },
       {
         type: 'paragraph',
-        text: "So, we know what all the notes are and we know how we might go about figuring out what subset of those notes are in a key. We could do this for every one of the twelve notes. But, surely someone has done all this work for us, right? Figured out all of the keys? Yes, and we can use a tool that has been around a long time to see them (the tool is good for many additional things, too). The name of this tool won't seem relevant for what we're doing, but it's a good name\u2014 you'll just have to trust me. This tool is called the <strong>Circle of Fifths</strong>. Here's what it looks like:"
+        text: "So, we know what all the notes are and we know how we might go about figuring out what subset of those notes are in a key. We could do this for every one of the twelve notes. But, surely someone has done all this work for us, right? Figured out all of the keys? Yes, and we can use a tool that has been around a long time to see them (the tool is good for many additional things, too). The name of this tool won't seem relevant for what we're doing, but it's a good name— you'll just have to trust me. This tool is called the <strong>Circle of Fifths</strong>. Here's what it looks like:"
       },
       {
         type: 'image',
@@ -236,12 +236,12 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "<strong>Wow</strong>\u2014that's kinda scary-looking. But, we will only use it for a few points. Without explaining these points (yet), let's just list some things that the Circle of Fifths is telling us. For now, we'll just trust they are true."
+        text: "<strong>Wow</strong>—that's kinda scary-looking. But, we will only use it for a few points. Without explaining these points (yet), let's just list some things that the Circle of Fifths is telling us. For now, we'll just trust they are true."
       },
       {
         type: 'list',
         items: [
-          "Keys can be represented in a key signature (a shortcut way of defining which notes are sharp or flat\u2014 i.e. not natural)",
+          "Keys can be represented in a key signature (a shortcut way of defining which notes are sharp or flat— i.e. not natural)",
           "There are only 15 major key <em>names</em> total (12 unique pitch collections) (there are relative minor keys, too)",
           "There is only one major key that has no sharps or flats - C",
           "There are seven major keys that have sharps",
@@ -250,14 +250,14 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "You might be thinking, \"there are only twelve notes, shouldn't there only be 12 keys?\" It's a good question. If you look again at the Circle of Fifths, you will notice that some of the keys have two, for example: C\u266F and D\u266D. We talked before about how the same pitch (the same key on the piano) might have two different names - they are enharmonic. Well, we also have enharmonic keys. Just as a note might sound the same, but we call it two different things, the key sounds the same to our ears, but we talk about it in two different ways. If we are in the key of D\u266D (one of the flat keys), we refer to the 6th as a B\u266Dm. However, if we are in the key of C\u266F (one of the sharp keys), we refer to the 6th as an A\u266Fm. They both have the same notes and they sound the same, but we name them according to the key."
+        text: "You might be thinking, \"there are only twelve notes, shouldn't there only be 12 keys?\" It's a good question. If you look again at the Circle of Fifths, you will notice that some of the keys have two, for example: C♯ and D♭. We talked before about how the same pitch (the same key on the piano) might have two different names - they are enharmonic. Well, we also have enharmonic keys. Just as a note might sound the same, but we call it two different things, the key sounds the same to our ears, but we talk about it in two different ways. If we are in the key of D♭ (one of the flat keys), we refer to the 6th as a B♭m. However, if we are in the key of C♯ (one of the sharp keys), we refer to the 6th as an A♯m. They both have the same notes and they sound the same, but we name them according to the key."
       }
     ]
   },
   {
     id: 'cq-7',
     number: 7,
-    title: 'Circle of Fifths \u2014 Sharps',
+    title: 'Circle of Fifths — Sharps',
     content: [
       {
         type: 'image',
@@ -271,7 +271,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "You may also notice you are adding a single sharp each time. C has 0, G has 1, D has 2, etc\u2026 Here is a little trick for reading a key signature with sharps and quickly determining what the key is. Whatever the rightmost sharp is in the key signature, just add a half step and that is your key. For example, the key signature for the key of G has 1 sharp - F\u266F. If we add a half-step to F\u266F, we are at G - the key of the song."
+        text: "You may also notice you are adding a single sharp each time. C has 0, G has 1, D has 2, etc… Here is a little trick for reading a key signature with sharps and quickly determining what the key is. Whatever the rightmost sharp is in the key signature, just add a half step and that is your key. For example, the key signature for the key of G has 1 sharp - F♯. If we add a half-step to F♯, we are at G - the key of the song."
       },
       {
         type: 'paragraph',
@@ -279,7 +279,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "A | <strong>A\u266F</strong>/B\u266D | B | C | C\u266F/D\u266D | D | <strong>D\u266F</strong>/E\u266D | E | F | F\u266F/G\u266D | G | <strong>G\u266F</strong>/A\u266D"
+        text: "A | <strong>A♯</strong>/B♭ | B | C | C♯/D♭ | D | <strong>D♯</strong>/E♭ | E | F | F♯/G♭ | G | <strong>G♯</strong>/A♭"
       },
       {
         type: 'paragraph',
@@ -290,7 +290,7 @@ export const phase1 = [
   {
     id: 'cq-8',
     number: 8,
-    title: 'Circle of Fifths \u2014 Flats',
+    title: 'Circle of Fifths — Flats',
     content: [
       {
         type: 'image',
@@ -304,7 +304,7 @@ export const phase1 = [
       },
       {
         type: 'paragraph',
-        text: "You may also notice you are adding a single flat each time. C has 0, F has 1, B\u266D has 2, etc\u2026 Here is a little trick for reading a key signature with flats and quickly determining what the key is. First, you just have to memorize: F (one flat) is the key of F. For the rest, whatever the second from the right (i.e. penultimate) flat is in the key signature, that is your key. For example, the key signature for the key of E\u266D has 3 flats - B\u266D, E\u266D, A\u266D. Just look at the next to last flat (E\u266D), that's the key of the song."
+        text: "You may also notice you are adding a single flat each time. C has 0, F has 1, B♭ has 2, etc… Here is a little trick for reading a key signature with flats and quickly determining what the key is. First, you just have to memorize: F (one flat) is the key of F. For the rest, whatever the second from the right (i.e. penultimate) flat is in the key signature, that is your key. For example, the key signature for the key of E♭ has 3 flats - B♭, E♭, A♭. Just look at the next to last flat (E♭), that's the key of the song."
       },
       {
         type: 'paragraph',

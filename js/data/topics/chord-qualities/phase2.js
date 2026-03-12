@@ -86,7 +86,7 @@ export const phase2 = [
             { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'C Major Triad: C \u2013 E \u2013 G'
+          title: 'C Major Triad: C – E – G'
         }
       },
       {
@@ -101,7 +101,7 @@ export const phase2 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'C Major \u2014 Open Position'
+          title: 'C Major — Open Position'
         }
       },
       {
@@ -140,8 +140,8 @@ export const phase2 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
-          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A."
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G."
         ]
       },
       {
@@ -150,33 +150,34 @@ export const phase2 = [
       },
       {
         type: 'notation',
-        text: "1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n    ^       ^       ^"
+        text: "1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ^"
       },
       {
         type: 'piano',
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'D', degree: 1 },
-            { note: 'F', degree: 3 },
-            { note: 'A', degree: 5 }
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'D Minor Triad: D \u2013 F \u2013 A'
+          title: 'C Minor Triad: C – E♭ – G'
         }
       },
       {
         type: 'guitar',
         config: {
-          startFret: 0, frets: 4,
+          startFret: 3, frets: 3,
+          barres: [{ fret: 3, from: 1, to: 5, degree: 1 }],
           dots: [
-            { string: 4, fret: 0, degree: 1 },
-            { string: 3, fret: 2, degree: 5 },
-            { string: 2, fret: 3, degree: 1 },
-            { string: 1, fret: 1, degree: 3 }
+            { string: 4, fret: 5, degree: 5 },
+            { string: 3, fret: 5, degree: 1 },
+            { string: 2, fret: 4, degree: 3 },
+            { string: 1, fret: 3, degree: 5 }
           ],
-          muted: [6, 5],
-          title: 'D Minor \u2014 Open Position'
+          muted: [6],
+          title: 'C Minor — Barre Chord (3rd Fret)'
         }
       },
       {
@@ -215,8 +216,8 @@ export const phase2 = [
         className: 'formula-list',
         items: [
           "<strong>Root</strong>",
-          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., B to D.",
-          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F."
+          "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., C to E♭.",
+          "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., C to G♭."
         ]
       },
       {
@@ -225,33 +226,33 @@ export const phase2 = [
       },
       {
         type: 'notation',
-        text: "1   2   3   4   5   6   7   8   9   10  11  12  13  14  15\nC   D   E   F   G   A   B   C   D   E   F   G   A   B   C\n                        ^       ^       ^"
+        text: "1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ♭       ♭"
       },
       {
         type: 'piano',
         config: {
-          octaves: 2,
+          octaves: 1,
           highlighted: [
-            { note: 'B', degree: 1 },
-            { note: 'D', degree: 3 },
-            { note: 'F', degree: 5 }
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'Gb', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'B Diminished Triad: B \u2013 D \u2013 F'
+          title: 'C Diminished Triad: C – E♭ – G♭'
         }
       },
       {
         type: 'guitar',
         config: {
-          startFret: 0, frets: 4,
+          startFret: 3, frets: 3,
           dots: [
-            { string: 5, fret: 2, degree: 1 },
-            { string: 4, fret: 3, degree: 5 },
-            { string: 3, fret: 4, degree: 1 },
-            { string: 2, fret: 3, degree: 3 }
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 4, degree: 5 },
+            { string: 3, fret: 5, degree: 1 },
+            { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
-          title: 'B Diminished'
+          title: 'C Diminished'
         }
       },
       {
@@ -355,7 +356,7 @@ export const phase2 = [
             { note: 'G#', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'C Augmented Triad: C \u2013 E \u2013 G\u266F'
+          title: 'C Augmented Triad: C – E – G♯'
         }
       },
       {
@@ -370,7 +371,7 @@ export const phase2 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
-          title: 'C Augmented \u2014 Open Position'
+          title: 'C Augmented — Open Position'
         }
       },
       {
@@ -427,7 +428,7 @@ export const phase2 = [
             { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'C Suspended 4: C \u2013 F \u2013 G'
+          title: 'C Suspended 4: C – F – G'
         }
       },
       {
@@ -442,7 +443,7 @@ export const phase2 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
-          title: 'Csus4 \u2014 Open Position'
+          title: 'Csus4 — Open Position'
         }
       },
       {
@@ -499,7 +500,7 @@ export const phase2 = [
             { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
-          title: 'C Suspended 2: C \u2013 D \u2013 G'
+          title: 'C Suspended 2: C – D – G'
         }
       },
       {
@@ -514,7 +515,7 @@ export const phase2 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
-          title: 'Csus2 \u2014 Open Position'
+          title: 'Csus2 — Open Position'
         }
       },
       {
