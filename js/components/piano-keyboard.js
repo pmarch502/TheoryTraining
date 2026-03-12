@@ -208,7 +208,7 @@ export function hydratePianos(container) {
           btn.setAttribute('aria-busy', 'true');
           try {
             const notes = hlData.split(',').map(n => audio.normalizeNote(n) + '4');
-            await audio.playChord('piano', notes);
+            await audio.playStrum('piano', notes);
             btn.classList.remove('audio-loading');
             btn.classList.add('audio-playing');
             btn.setAttribute('aria-busy', 'false');

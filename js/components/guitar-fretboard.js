@@ -215,8 +215,8 @@ export function hydrateGuitars(container) {
 
       const btn = document.createElement('button');
       btn.className = 'audio-play-btn';
-      btn.innerHTML = '\u25B6 Strum';
-      btn.setAttribute('aria-label', 'Strum chord');
+      btn.innerHTML = '\u25B6 Play';
+      btn.setAttribute('aria-label', 'Play chord');
       btn.addEventListener('click', async () => {
         if (btn.classList.contains('audio-loading')) return;
         btn.classList.add('audio-loading');
