@@ -5,7 +5,7 @@
 export const chordQualities = {
   id: 'chord-qualities',
   title: 'Chord Qualities',
-  description: 'Learn how chords are built — from basic notes and scales through triads, seventh chords, and extended harmony.',
+  description: 'Learn how chords are built — from basic notes and scales through triads, seventh chords, extended harmony, and added tone chords.',
   phases: [
     {
       id: 'phase1',
@@ -89,6 +89,18 @@ export const chordQualities = {
         { id: 'cq-34', number: 34, title: 'Major Thirteenth' },
         { id: 'cq-35', number: 35, title: 'Dominant Thirteenth' },
         { id: 'cq-36', number: 36, title: 'Minor Thirteenth' },
+      ]
+    },
+    {
+      id: 'phase7',
+      title: 'Phase 7: Added & Sixth Chords',
+      subtitle: 'Add9, sixth, minor sixth, and six-nine',
+      dataModule: './phase7.js',
+      lessons: [
+        { id: 'cq-37', number: 37, title: 'Added Ninth' },
+        { id: 'cq-38', number: 38, title: 'Sixth' },
+        { id: 'cq-39', number: 39, title: 'Minor Sixth' },
+        { id: 'cq-40', number: 40, title: 'Six-Nine' },
       ]
     },
   ]
