@@ -119,6 +119,27 @@
   font-family: var(--font-body, sans-serif);
 }
 
+/* ─── Degree labels (below grid, aligned with strings) ─────── */
+
+.guitar-deg-label {
+  font-size: 10px;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+  fill: var(--color-text-muted);
+}
+
+/* Degree-specific colors (match dot colors) */
+.guitar-deg--deg-1 { fill: #C0392B; }
+.guitar-deg--deg-2 { fill: #E67E22; }
+.guitar-deg--deg-3 { fill: #F1C40F; }
+.guitar-deg--deg-4 { fill: #27AE60; }
+.guitar-deg--deg-5 { fill: #2980B9; }
+.guitar-deg--deg-6 { fill: #8E44AD; }
+.guitar-deg--deg-7 { fill: #9B59B6; }
+
 /* ─── Caption ──────────────────────────────────────────────── */
 
 .guitar-caption {

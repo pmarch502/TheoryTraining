@@ -12,6 +12,7 @@ const DOT_R    = 8.5;  // fretted-dot radius
 const OPEN_R   = 5;    // open-string indicator radius (no label)
 const OPEN_R_L = 8.5;  // open-string indicator radius (with label)
 const NUT_H    = 4;    // nut bar thickness
+const DEG_H    = 18;   // degree label area below grid
 
 // ─── Guitar Tuning (for audio playback) ─────────────────────
 
@@ -29,6 +30,30 @@ function noteLabel(string, fret) {
   const midi = OPEN_MIDI[string] + fret;
   const name = CHROMATIC[midi % 12];
   return name.replace(/([A-G])b$/i, '$1\u266D').replace('#', '\u266F');
+}
+
+// ─── Enharmonic Spelling ────────────────────────────────────
+
+const LETTERS    = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+const LETTER_CI  = [0, 2, 4, 5, 7, 9, 11]; // natural chromatic index per letter
+// Map chromatic index → letter index for root note (common chord-root conventions)
+const ROOT_LETTER_IDX = [0, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6];
+//                       C Db  D Eb  E  F F#  G Ab  A Bb  B
+
+/** Spell a note correctly for a given degree relative to a root.
+ *  E.g., rootCI=0 (C), degree=5, noteCI=8 → "G♯" (not "A♭"). */
+function degreeNoteName(rootCI, degree, noteCI) {
+  const rootLetterIdx = ROOT_LETTER_IDX[rootCI];
+  const noteLetterIdx = (rootLetterIdx + degree - 1) % 7;
+  const natural = LETTER_CI[noteLetterIdx];
+  const diff = ((noteCI - natural) + 12) % 12;
+  const letter = LETTERS[noteLetterIdx];
+  if (diff === 0) return letter;
+  if (diff === 1) return letter + '\u266F';
+  if (diff === 11) return letter + '\u266D';
+  if (diff === 2) return letter + '\u266F\u266F';
+  if (diff === 10) return letter + '\u266D\u266D';
+  return letter;
 }
 
 // ─── Helpers ────────────────────────────────────────────────
@@ -73,9 +98,20 @@ function buildChordSVG(config) {
   const fretDots = dots.filter(d => d.fret > 0);
   const openMap  = new Map(openDots.map(d => [d.string, d]));
 
+  // Find root chromatic index for degree-aware note spelling
+  const rootDot = dots.find(d => d.degree === 1);
+  const rootBarre = barres.find(b => b.degree === 1);
+  const rootCI = rootDot
+    ? (OPEN_MIDI[rootDot.string] + rootDot.fret) % 12
+    : rootBarre
+      ? (OPEN_MIDI[Math.max(rootBarre.from, rootBarre.to)] + rootBarre.fret) % 12
+      : 0;
+
   // Grid dimensions
   const gridW = 5 * STR_GAP;
   const gridH = numFrets * FRET_GAP;
+  const hasDegrees = dots.some(d => d.degree) || barres.some(b => b.degree);
+  const degH = hasDegrees ? DEG_H : 0;
 
   const markerH  = 16; // space above grid for X/O markers
   const leftPad  = 14 + (showNut ? 0 : 24);
@@ -85,7 +121,7 @@ function buildChordSVG(config) {
   const gridX = leftPad;
   const gridY = markerH + (showNut ? NUT_H : 0) + 2;
   const totalW = leftPad + gridW + rightPad;
-  const totalH = gridY + gridH + botPad;
+  const totalH = gridY + gridH + degH + botPad;
 
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalW} ${totalH}" `
           + `class="guitar-svg" role="img" aria-label="${esc(config.title || 'Guitar chord diagram')}">`;
@@ -126,7 +162,7 @@ function buildChordSVG(config) {
       const r = hasLabel ? OPEN_R_L : OPEN_R;
       svg += `<circle cx="${x}" cy="${markerY}" r="${r}" class="guitar-open-dot${cls}"/>`;
       if (hasLabel) {
-        const label = d.label || noteLabel(s, 0);
+        const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[s]) % 12) : noteLabel(s, 0));
         const darkText = d.degree === 3;
         svg += `<text x="${x}" y="${markerY + 3}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
       }
@@ -153,8 +189,53 @@ function buildChordSVG(config) {
     const cls = dotColorCls(d);
     const darkText = d.degree === 3;
     svg += `<circle cx="${x}" cy="${y}" r="${DOT_R}" class="guitar-dot${cls}"/>`;
-    const label = d.label || noteLabel(d.string, d.fret);
+    const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[d.string] + d.fret) % 12) : noteLabel(d.string, d.fret));
     svg += `<text x="${x}" y="${y + 3.5}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
+  }
+
+  // ── Degree labels below grid ──
+  if (hasDegrees) {
+    const MAJOR_SCALE = [0, 0, 2, 4, 5, 7, 9, 11]; // index 0 unused, degrees 1-7
+
+    // Build per-string degree info: dot degrees override barre degrees
+    const stringDeg = new Map();
+    for (const b of barres) {
+      if (!b.degree) continue;
+      const lo = Math.min(b.from, b.to);
+      const hi = Math.max(b.from, b.to);
+      for (let s = lo; s <= hi; s++) {
+        if (mutedSet.has(s)) continue;
+        stringDeg.set(s, { degree: b.degree, ci: (OPEN_MIDI[s] + b.fret) % 12 });
+      }
+    }
+    for (const d of dots) {
+      if (!d.degree) continue;
+      stringDeg.set(d.string, { degree: d.degree, ci: (OPEN_MIDI[d.string] + d.fret) % 12 });
+    }
+
+    // Find root chromatic index and detect extended chord (has 7th)
+    const rootEntry = [...stringDeg.values()].find(d => d.degree === 1);
+    const rootCI = rootEntry ? rootEntry.ci : 0;
+    const has7th = [...stringDeg.values()].some(d => d.degree === 7);
+
+    for (const [s, d] of stringDeg) {
+      const x = strX(gridX, s);
+      const y = gridY + gridH + degH - 4;
+
+      // Extended interval when 7th is present
+      let displayDeg = d.degree;
+      if (has7th && (d.degree === 2 || d.degree === 4 || d.degree === 6)) {
+        displayDeg = d.degree + 7;
+      }
+
+      // Detect accidental by comparing to root's major scale
+      const expectedCI = (rootCI + MAJOR_SCALE[d.degree]) % 12;
+      const diff = ((d.ci - expectedCI) + 12) % 12;
+      const accidental = diff === 1 ? '\u266F' : diff === 11 ? '\u266D' : '';
+
+      const degCls = ` guitar-deg--deg-${d.degree}`;
+      svg += `<text x="${x}" y="${y}" text-anchor="middle" class="guitar-deg-label${degCls}">${accidental}${displayDeg}</text>`;
+    }
   }
 
   svg += `</svg>`;

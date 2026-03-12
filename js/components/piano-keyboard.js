@@ -41,6 +41,30 @@ const DOT_R_W = 10;  // dot radius on white keys
 const DOT_R_B = 7;   // dot radius on black keys
 const DEG_H = 18;    // degree label area below keys
 
+// ─── Enharmonic Spelling ────────────────────────────────────
+
+const LETTERS    = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+const LETTER_CI  = [0, 2, 4, 5, 7, 9, 11]; // natural chromatic index per letter
+// Map chromatic index → letter index for root note (common chord-root conventions)
+const ROOT_LETTER_IDX = [0, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6];
+//                       C Db  D Eb  E  F F#  G Ab  A Bb  B
+
+/** Spell a note correctly for a given degree relative to a root.
+ *  E.g., rootCI=0 (C), degree=7, noteCI=9 → "B♭♭" (not "A"). */
+function degreeNoteName(rootCI, degree, noteCI) {
+  const rootLetterIdx = ROOT_LETTER_IDX[rootCI];
+  const noteLetterIdx = (rootLetterIdx + degree - 1) % 7;
+  const natural = LETTER_CI[noteLetterIdx];
+  const diff = ((noteCI - natural) + 12) % 12;
+  const letter = LETTERS[noteLetterIdx];
+  if (diff === 0) return letter;
+  if (diff === 1) return letter + '\u266F';
+  if (diff === 11) return letter + '\u266D';
+  if (diff === 2) return letter + '\u266F\u266F';
+  if (diff === 10) return letter + '\u266D\u266D';
+  return letter;
+}
+
 // ─── Helpers ─────────────────────────────────────────────────
 
 /** Map a note name (e.g. 'C#', 'Db', 'G♯') to its chromatic index. */
@@ -144,6 +168,9 @@ function buildPianoSVG(config) {
   }
 
   // ── Dots on highlighted keys (each note once, in formula order) ──
+  const rootItem = hlItems.find(h => h.degree === 1);
+  const rootCI = rootItem ? rootItem.idx : 0;
+
   for (const h of hlItems) {
     const note = NOTES.find(n => n.i === h.idx);
     if (!note || h.oct >= oct) continue;
@@ -153,17 +180,19 @@ function buildPianoSVG(config) {
       ? ` piano-dot--deg-${h.degree}`
       : (h.color ? ` piano-dot--${h.color}` : '');
     const darkText = h.degree === 3; // yellow needs dark text
+    // Use degree-aware spelling (e.g., Bbb not A for dim7)
+    const label = h.degree ? degreeNoteName(rootCI, h.degree, h.idx) : displayName(h.label);
 
     if (note.white) {
       const cx = (h.oct * 7 + note.w) * KW + KW / 2;
       const cy = TOP + KH - 16;
       s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_W}" class="piano-dot${degCls}"/>`;
-      s += `<text x="${cx}" y="${cy + 3.5}" class="piano-dot-label${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
+      s += `<text x="${cx}" y="${cy + 3.5}" class="piano-dot-label${darkText ? ' piano-dot-label--dark' : ''}">${esc(label)}</text>`;
     } else {
       const cx = (h.oct * 7 + note.after + 1) * KW;
       const cy = TOP + BH - 14;
       s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_B}" class="piano-dot piano-dot--on-black${degCls}"/>`;
-      s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
+      s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(label)}</text>`;
     }
   }
 
