@@ -61,8 +61,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, W+W. E.g., C to E.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G."
         ]
@@ -136,8 +137,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A."
         ]
@@ -210,8 +212,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., B to D.",
           "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F."
         ]
@@ -323,7 +326,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
+          "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, W+W. E.g., C to E.",
           "<strong>Augmented fifth</strong> above root: an interval of 8 half steps, a major third + a major third, (W+W)+(W+W). E.g., C to G♯."
         ]
@@ -393,7 +398,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
+          "<strong>Root</strong>",
           "<strong>Perfect Fourth</strong> above root: an interval of 5 half steps, W+W+H. E.g., C to F.",
           "<strong>Perfect Fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G."
         ]
@@ -463,7 +470,9 @@ export const phase2 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
+          "<strong>Root</strong>",
           "<strong>Major second</strong> above root: an interval of 2 half steps, W. E.g., C to D.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G."
         ]

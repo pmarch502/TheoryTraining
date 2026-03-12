@@ -49,8 +49,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, W+W. E.g., C to E.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
           "<strong>Major seventh</strong> above root: an interval of 11 half steps, a major third + a minor third + major third, (W+W)+(W+H)+(W+W). (We might also call it a perfect fifth + a major third.) E.g., C to B."
@@ -126,8 +127,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Major third</strong> above root: an interval of 4 half steps, W+W. E.g., C to E.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
           "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
@@ -217,8 +219,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., D to A.",
           "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
@@ -290,8 +293,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
           "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F.",
           "<strong>Minor seventh</strong> above root: an interval of 10 half steps, a major third + a minor third + a minor third, (W+W)+(W+H)+(W+H). (We might also call it a perfect fifth + a minor third.) E.g., C to B\u266D."
@@ -401,8 +405,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
           "<strong>Diminished fifth</strong> above root: an interval of 6 half steps, a minor third + a minor third, (W+H)+(W+H). E.g., B to F.",
           "<strong>Diminished seventh</strong> above root: an interval of 9 half steps, a minor third + a minor third + minor third, (W+H)+(W+H)+(W+H). (We might also call it a diminished fifth + a minor third.) E.g., C to B\u266D\u266D (yep, that's a real thing - a double flat)."
@@ -473,8 +478,9 @@ export const phase3 = [
       },
       {
         type: 'list',
+        className: 'formula-list',
         items: [
-          "Root",
+          "<strong>Root</strong>",
           "<strong>Minor third</strong> above root: an interval of 3 half steps, W+H. E.g., D to F.",
           "<strong>Perfect fifth</strong> above root: an interval of 7 half steps, a major third + a minor third, (W+W)+(W+H). E.g., C to G.",
           "<strong>Major seventh</strong> above root: an interval of 11 half steps, a major third + a minor third + major third, (W+W)+(W+H)+(W+W). (We might also call it a perfect fifth + a major third.) E.g., C to B."

@@ -77,7 +77,7 @@ function renderBlock(block) {
       return `<pre><code>${escapeHtml(block.text)}</code></pre>`;
 
     case 'list':
-      return `<ul>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+      return `<ul${block.className ? ` class="${block.className}"` : ''}>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
 
     case 'image':
       return `<div class="lesson-image">

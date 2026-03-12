@@ -87,6 +87,11 @@
   margin: 0;
 }
 
+/* ─── Chord formula lists ─── */
+.formula-list strong {
+  color: var(--color-highlight);
+}
+
 /* ─── Glossary browse page ─── */
 .glossary-page {
   max-width: var(--content-max-width);
