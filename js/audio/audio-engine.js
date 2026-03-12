@@ -5,10 +5,10 @@
 
 // ─── Configuration ──────────────────────────────────────────
 
-const SOUNDFONT_BASE = 'https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM';
+const SOUNDFONT_BASE = 'assets/soundfonts';
 const INSTRUMENTS = {
   piano: 'acoustic_grand_piano',
-  guitar: 'acoustic_guitar_nylon',
+  guitar: 'acoustic_guitar_steel',
 };
 
 // ─── Note Utilities ─────────────────────────────────────────
