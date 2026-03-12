@@ -168,9 +168,10 @@ export const phase2 = [
       {
         type: 'guitar',
         config: {
-          startFret: 3, frets: 3,
+          startFret: 2, frets: 4,
           barres: [{ fret: 3, from: 1, to: 5, degree: 1 }],
           dots: [
+            { string: 5, fret: 3, degree: 1 },
             { string: 4, fret: 5, degree: 5 },
             { string: 3, fret: 5, degree: 1 },
             { string: 2, fret: 4, degree: 3 },
@@ -244,7 +245,7 @@ export const phase2 = [
       {
         type: 'guitar',
         config: {
-          startFret: 3, frets: 3,
+          startFret: 2, frets: 4,
           dots: [
             { string: 5, fret: 3, degree: 1 },
             { string: 4, fret: 4, degree: 5 },

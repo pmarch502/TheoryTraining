@@ -460,7 +460,7 @@ export const glossary = {
   },
   'scale-degree': {
     title: 'Scale Degree',
-    def: 'A number (1–7) indicating a note's position within a scale, used to describe chord construction and harmonic function relative to the key.',
+    def: 'A number (1–7) indicating a note\'s position within a scale, used to describe chord construction and harmonic function relative to the key.',
     category: 'scale-key'
   },
   'thirteenth': {

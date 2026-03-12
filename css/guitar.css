@@ -81,7 +81,7 @@
 /* Barre bar */
 .guitar-barre {
   fill: var(--color-text, #eee);
-  opacity: 0.85;
+  opacity: 0.30;
 }
 
 .guitar-barre.guitar-dot--deg-1 { fill: #C0392B; }
