@@ -1,6 +1,8 @@
 /**
  * Interactive SVG Piano Keyboard component.
  * Generates inline SVG keyboards with configurable note highlighting.
+ * Highlighted notes are shown as colored dots (with note name inside)
+ * rather than coloring entire keys.
  */
 
 // ─── Note Data ───────────────────────────────────────────────
@@ -33,6 +35,11 @@ const LABEL_H = 20; // label area below keys
 const TOP = 3;    // decorative top bar
 const RAD = 3;    // corner radius
 
+// ─── Dot dimensions ─────────────────────────────────────────
+
+const DOT_R_W = 10;  // dot radius on white keys
+const DOT_R_B = 7;   // dot radius on black keys
+
 // ─── Helpers ─────────────────────────────────────────────────
 
 /** Map a note name (e.g. 'C#', 'Db', 'G♯') to its chromatic index. */
@@ -53,13 +60,13 @@ function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-/** Build a map of chromatic index → { color, label } from config.highlighted. */
+/** Build a map of chromatic index → { color, degree, label } from config.highlighted. */
 function buildHighlights(arr) {
   const map = {};
   if (!arr) return map;
   for (const h of arr) {
     const idx = noteIndex(h.note);
-    if (idx !== -1) map[idx] = { color: h.color || 'primary', label: h.note };
+    if (idx !== -1) map[idx] = { color: h.color, degree: h.degree, label: h.note };
   }
   return map;
 }
@@ -70,32 +77,31 @@ function buildPianoSVG(config) {
   const oct = config.octaves || 1;
   const labels = config.labels || 'none';
   const hl = buildHighlights(config.highlighted);
-  const hasLabels = labels !== 'none';
+
+  // Label area only needed for 'all' mode (highlighted keys use dots now)
+  const hasLabelArea = labels === 'all';
 
   const totalWhite = oct * 7;
   const svgW = totalWhite * KW;
-  const svgH = TOP + KH + (hasLabels ? LABEL_H : 0);
+  const svgH = TOP + KH + (hasLabelArea ? LABEL_H : 0);
   const ariaLabel = config.title || 'Piano keyboard';
 
   let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgW} ${svgH}" `;
-  s += `role="img" aria-label="${esc(ariaLabel)}" class="piano-svg">`;
+  s += `role="img" aria-label="${esc(ariaLabel)}" class="piano-svg" style="height:125px">`;
 
   // Top decorative bar
   s += `<rect x="0" y="0" width="${svgW}" height="${TOP}" class="piano-topbar"/>`;
 
-  // ── White keys ──
+  // ── White keys (never filled with highlight color) ──
   for (let o = 0; o < oct; o++) {
     for (const note of WHITES) {
       const x = (o * 7 + note.w) * KW;
-      const h = hl[note.i];
-      const cls = `piano-key piano-key--white${h ? ` piano-key--hl-${h.color}` : ''}`;
-
       s += `<rect x="${x + 0.5}" y="${TOP}" width="${KW - 1}" height="${KH}" `;
-      s += `rx="${RAD}" ry="${RAD}" class="${cls}" data-note="${note.names[0]}" data-octave="${o}"/>`;
+      s += `rx="${RAD}" ry="${RAD}" class="piano-key piano-key--white" data-note="${note.names[0]}" data-octave="${o}"/>`;
 
-      // White key label (below the key in the label area)
-      if (hasLabels && (labels === 'all' || (labels === 'highlighted' && h))) {
-        const text = displayName(h ? h.label : note.names[0]);
+      // Label below for non-highlighted white keys in 'all' mode
+      if (hasLabelArea && !hl[note.i]) {
+        const text = displayName(note.names[0]);
         const lx = x + KW / 2;
         const ly = TOP + KH + LABEL_H - 5;
         s += `<text x="${lx}" y="${ly}" text-anchor="middle" `;
@@ -104,30 +110,48 @@ function buildPianoSVG(config) {
     }
   }
 
-  // ── Black keys (drawn on top) ──
+  // ── Black keys (drawn on top, never filled with highlight color) ──
   for (let o = 0; o < oct; o++) {
     for (const note of BLACKS) {
       const x = (o * 7 + note.after + 1) * KW - BW / 2;
-      const h = hl[note.i];
-      const cls = `piano-key piano-key--black${h ? ` piano-key--hl-${h.color}` : ''}`;
-
       s += `<rect x="${x}" y="${TOP}" width="${BW}" height="${BH}" `;
-      s += `rx="${RAD}" ry="${RAD}" class="${cls}" data-note="${note.names.join(',')}" data-octave="${o}"/>`;
+      s += `rx="${RAD}" ry="${RAD}" class="piano-key piano-key--black" data-note="${note.names.join(',')}" data-octave="${o}"/>`;
 
-      // Black key labels (on the key body)
-      if (labels === 'all') {
+      // Labels on body for non-highlighted black keys in 'all' mode
+      if (labels === 'all' && !hl[note.i]) {
         const lx = x + BW / 2;
-        // Two lines: sharp name, then flat name
         s += `<text x="${lx}" y="${TOP + BH - 20}" text-anchor="middle" `;
         s += `class="piano-label piano-label--black">${esc(displayName(note.names[0]))}</text>`;
         if (note.names.length > 1) {
           s += `<text x="${lx}" y="${TOP + BH - 8}" text-anchor="middle" `;
           s += `class="piano-label piano-label--black">${esc(displayName(note.names[1]))}</text>`;
         }
-      } else if (labels === 'highlighted' && h) {
-        const lx = x + BW / 2;
-        s += `<text x="${lx}" y="${TOP + BH - 12}" text-anchor="middle" `;
-        s += `class="piano-label piano-label--black piano-label--hl">${esc(displayName(h.label))}</text>`;
+      }
+    }
+  }
+
+  // ── Dots on highlighted keys ──
+  for (let o = 0; o < oct; o++) {
+    for (const note of NOTES) {
+      const h = hl[note.i];
+      if (!h) continue;
+
+      // Degree-based color class, with fallback to named color
+      const degCls = h.degree
+        ? ` piano-dot--deg-${h.degree}`
+        : (h.color ? ` piano-dot--${h.color}` : '');
+      const darkText = h.degree === 3; // yellow needs dark text
+
+      if (note.white) {
+        const cx = (o * 7 + note.w) * KW + KW / 2;
+        const cy = TOP + KH - 16;
+        s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_W}" class="piano-dot${degCls}"/>`;
+        s += `<text x="${cx}" y="${cy + 3.5}" class="piano-dot-label${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
+      } else {
+        const cx = (o * 7 + note.after + 1) * KW;
+        const cy = TOP + BH - 14;
+        s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_B}" class="piano-dot piano-dot--on-black${degCls}"/>`;
+        s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
       }
     }
   }
@@ -144,8 +168,12 @@ function buildPianoSVG(config) {
  *
  * Config shape:
  *   { octaves: 1, labels: 'all'|'highlighted'|'none',
- *     highlighted: [{ note: 'C', color: 'root' }, ...],
+ *     highlighted: [{ note: 'C', degree: 1 }, ...],
  *     title: 'C Major Chord' }
+ *
+ * Each highlighted note can specify:
+ *   degree: 1-7 (scale degree → mapped to degree colors)
+ *   color: 'root'|'primary'|'secondary' (legacy fallback)
  */
 export function renderPianoHTML(config) {
   const svg = buildPianoSVG(config);

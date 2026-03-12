@@ -80,9 +80,9 @@ export const phase2 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'C', color: 'root' },
-            { note: 'E', color: 'primary' },
-            { note: 'G', color: 'primary' }
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'C Major Triad: C \u2013 E \u2013 G'
@@ -93,11 +93,11 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 5, fret: 3, color: 'root' },
-            { string: 4, fret: 2, color: 'primary' },
-            { string: 3, fret: 0, color: 'primary' },
-            { string: 2, fret: 1, color: 'root' },
-            { string: 1, fret: 0, color: 'primary' }
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 1, degree: 1 },
+            { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
           title: 'C Major \u2014 Open Position'
@@ -155,9 +155,9 @@ export const phase2 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'D', color: 'root' },
-            { note: 'F', color: 'primary' },
-            { note: 'A', color: 'primary' }
+            { note: 'D', degree: 1 },
+            { note: 'F', degree: 3 },
+            { note: 'A', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'D Minor Triad: D \u2013 F \u2013 A'
@@ -168,10 +168,10 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 4, fret: 0, color: 'root' },
-            { string: 3, fret: 2, color: 'primary' },
-            { string: 2, fret: 3, color: 'root' },
-            { string: 1, fret: 1, color: 'primary' }
+            { string: 4, fret: 0, degree: 1 },
+            { string: 3, fret: 2, degree: 5 },
+            { string: 2, fret: 3, degree: 1 },
+            { string: 1, fret: 1, degree: 3 }
           ],
           muted: [6, 5],
           title: 'D Minor \u2014 Open Position'
@@ -229,9 +229,9 @@ export const phase2 = [
         config: {
           octaves: 2,
           highlighted: [
-            { note: 'B', color: 'root' },
-            { note: 'D', color: 'primary' },
-            { note: 'F', color: 'primary' }
+            { note: 'B', degree: 1 },
+            { note: 'D', degree: 3 },
+            { note: 'F', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'B Diminished Triad: B \u2013 D \u2013 F'
@@ -242,10 +242,10 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 5, fret: 2, color: 'root' },
-            { string: 4, fret: 3, color: 'primary' },
-            { string: 3, fret: 4, color: 'root' },
-            { string: 2, fret: 3, color: 'primary' }
+            { string: 5, fret: 2, degree: 1 },
+            { string: 4, fret: 3, degree: 5 },
+            { string: 3, fret: 4, degree: 1 },
+            { string: 2, fret: 3, degree: 3 }
           ],
           muted: [6, 1],
           title: 'B Diminished'
@@ -345,9 +345,9 @@ export const phase2 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'C', color: 'root' },
-            { note: 'E', color: 'primary' },
-            { note: 'G#', color: 'secondary' }
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G#', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'C Augmented Triad: C \u2013 E \u2013 G\u266F'
@@ -358,11 +358,11 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 5, fret: 3, color: 'root' },
-            { string: 4, fret: 2, color: 'primary' },
-            { string: 3, fret: 1, color: 'secondary' },
-            { string: 2, fret: 1, color: 'root' },
-            { string: 1, fret: 0, color: 'primary' }
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 1, degree: 5 },
+            { string: 2, fret: 1, degree: 1 },
+            { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
           title: 'C Augmented \u2014 Open Position'
@@ -415,9 +415,9 @@ export const phase2 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'C', color: 'root' },
-            { note: 'F', color: 'primary' },
-            { note: 'G', color: 'primary' }
+            { note: 'C', degree: 1 },
+            { note: 'F', degree: 4 },
+            { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'C Suspended 4: C \u2013 F \u2013 G'
@@ -428,11 +428,11 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 5, fret: 3, color: 'root' },
-            { string: 4, fret: 3, color: 'primary' },
-            { string: 3, fret: 0, color: 'primary' },
-            { string: 2, fret: 1, color: 'root' },
-            { string: 1, fret: 1, color: 'primary' }
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 3, degree: 4 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 1, degree: 1 },
+            { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
           title: 'Csus4 \u2014 Open Position'
@@ -485,9 +485,9 @@ export const phase2 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'C', color: 'root' },
-            { note: 'D', color: 'primary' },
-            { note: 'G', color: 'primary' }
+            { note: 'C', degree: 1 },
+            { note: 'D', degree: 2 },
+            { note: 'G', degree: 5 }
           ],
           labels: 'highlighted',
           title: 'C Suspended 2: C \u2013 D \u2013 G'
@@ -498,11 +498,11 @@ export const phase2 = [
         config: {
           startFret: 0, frets: 4,
           dots: [
-            { string: 5, fret: 3, color: 'root' },
-            { string: 4, fret: 0, color: 'primary' },
-            { string: 3, fret: 0, color: 'primary' },
-            { string: 2, fret: 3, color: 'primary' },
-            { string: 1, fret: 3, color: 'primary' }
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 0, degree: 2 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 3, degree: 2 },
+            { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
           title: 'Csus2 \u2014 Open Position'

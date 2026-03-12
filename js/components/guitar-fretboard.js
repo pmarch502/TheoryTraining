@@ -1,14 +1,16 @@
 /**
  * Interactive SVG Guitar Chord Diagram component.
  * Generates inline SVG chord diagrams with configurable dot highlighting.
+ * Dots display note names and use scale-degree colors when specified.
  */
 
 // ─── Layout Constants (viewBox units) ───────────────────────
 
 const STR_GAP  = 20;   // horizontal gap between strings
 const FRET_GAP = 24;   // vertical gap between frets
-const DOT_R    = 7;    // fretted-dot radius
-const OPEN_R   = 5;    // open-string indicator radius
+const DOT_R    = 8.5;  // fretted-dot radius
+const OPEN_R   = 5;    // open-string indicator radius (no label)
+const OPEN_R_L = 8.5;  // open-string indicator radius (with label)
 const NUT_H    = 4;    // nut bar thickness
 
 // ─── Guitar Tuning (for audio playback) ─────────────────────
@@ -16,10 +18,17 @@ const NUT_H    = 4;    // nut bar thickness
 const OPEN_MIDI = { 6: 40, 5: 45, 4: 50, 3: 55, 2: 59, 1: 64 };
 const CHROMATIC = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 
-/** Map string + fret to note name (e.g., string 6, fret 0 → "E2"). */
+/** Map string + fret to note name with octave (e.g., string 6, fret 0 → "E2"). */
 function guitarNoteName(string, fret) {
   const midi = OPEN_MIDI[string] + fret;
   return CHROMATIC[midi % 12] + (Math.floor(midi / 12) - 1);
+}
+
+/** Get just the note letter (no octave) for a string/fret, display-ready. */
+function noteLabel(string, fret) {
+  const midi = OPEN_MIDI[string] + fret;
+  const name = CHROMATIC[midi % 12];
+  return name.replace(/([A-G])b$/i, '$1\u266D').replace('#', '\u266F');
 }
 
 // ─── Helpers ────────────────────────────────────────────────
@@ -40,6 +49,13 @@ function esc(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/** Build color class string from a dot's degree or legacy color. */
+function dotColorCls(d) {
+  if (d.degree) return ` guitar-dot--deg-${d.degree}`;
+  if (d.color) return ` guitar-dot--${d.color}`;
+  return '';
 }
 
 // ─── SVG Builder ────────────────────────────────────────────
@@ -105,8 +121,15 @@ function buildChordSVG(config) {
            + `<line x1="${x + sz}" y1="${markerY - sz}" x2="${x - sz}" y2="${markerY + sz}" class="guitar-marker-x"/>`;
     } else if (openMap.has(s)) {
       const d = openMap.get(s);
-      const cls = d.color ? ` guitar-dot--${d.color}` : '';
-      svg += `<circle cx="${x}" cy="${markerY}" r="${OPEN_R}" class="guitar-open-dot${cls}"/>`;
+      const cls = dotColorCls(d);
+      const hasLabel = d.degree || d.label;
+      const r = hasLabel ? OPEN_R_L : OPEN_R;
+      svg += `<circle cx="${x}" cy="${markerY}" r="${r}" class="guitar-open-dot${cls}"/>`;
+      if (hasLabel) {
+        const label = d.label || noteLabel(s, 0);
+        const darkText = d.degree === 3;
+        svg += `<text x="${x}" y="${markerY + 3}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
+      }
     }
   }
 
@@ -118,7 +141,7 @@ function buildChordSVG(config) {
     const lo  = Math.min(b.from, b.to);
     const x1  = strX(gridX, hi);
     const x2  = strX(gridX, lo);
-    const cls = b.color ? ` guitar-dot--${b.color}` : '';
+    const cls = b.degree ? ` guitar-dot--deg-${b.degree}` : (b.color ? ` guitar-dot--${b.color}` : '');
     svg += `<rect x="${x1}" y="${y - DOT_R}" width="${x2 - x1}" height="${DOT_R * 2}" rx="${DOT_R}" class="guitar-barre${cls}"/>`;
   }
 
@@ -127,11 +150,11 @@ function buildChordSVG(config) {
     const x   = strX(gridX, d.string);
     const pos = d.fret - startFret;
     const y   = fretCY(gridY, pos);
-    const cls = d.color ? ` guitar-dot--${d.color}` : '';
+    const cls = dotColorCls(d);
+    const darkText = d.degree === 3;
     svg += `<circle cx="${x}" cy="${y}" r="${DOT_R}" class="guitar-dot${cls}"/>`;
-    if (d.label) {
-      svg += `<text x="${x}" y="${y + 3.5}" class="guitar-dot-label">${esc(d.label)}</text>`;
-    }
+    const label = d.label || noteLabel(d.string, d.fret);
+    svg += `<text x="${x}" y="${y + 3.5}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
   }
 
   svg += `</svg>`;
@@ -146,10 +169,15 @@ function buildChordSVG(config) {
  *
  * Config shape:
  *   { startFret: 0, frets: 4,
- *     dots: [{ string: 5, fret: 3, color: 'root' }, ...],
+ *     dots: [{ string: 5, fret: 3, degree: 1 }, ...],
  *     muted: [6],
- *     barres: [{ fret: 1, from: 1, to: 6, color: 'root' }],
+ *     barres: [{ fret: 1, from: 1, to: 6, degree: 1 }],
  *     title: 'C Major — Open Position' }
+ *
+ * Each dot can specify:
+ *   degree: 1-7 (scale degree → mapped to degree colors)
+ *   color: 'root'|'primary'|'secondary' (legacy fallback)
+ *   label: 'C' (override auto-computed note name)
  *
  * String numbering: 6 = low E (left), 1 = high E (right).
  * Fret numbering: absolute (0 = open, 1 = first fret, etc.).

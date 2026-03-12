@@ -25,13 +25,13 @@ export const phase1 = [
         config: {
           octaves: 1,
           highlighted: [
-            { note: 'C', color: 'primary' },
-            { note: 'D', color: 'primary' },
-            { note: 'E', color: 'primary' },
-            { note: 'F', color: 'primary' },
-            { note: 'G', color: 'primary' },
-            { note: 'A', color: 'primary' },
-            { note: 'B', color: 'primary' }
+            { note: 'C', degree: 1 },
+            { note: 'D', degree: 2 },
+            { note: 'E', degree: 3 },
+            { note: 'F', degree: 4 },
+            { note: 'G', degree: 5 },
+            { note: 'A', degree: 6 },
+            { note: 'B', degree: 7 }
           ],
           labels: 'highlighted',
           title: 'Piano White Keys \u2014 Natural Notes'

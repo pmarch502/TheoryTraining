@@ -75,6 +75,37 @@ export const phase5 = [
         text: "C major eleventh: C - E - G - B - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       ^       ^       ^       ^       ^"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'B', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 }
+          ],
+          labels: 'highlighted',
+          title: 'C Major Eleventh: C \u2013 E \u2013 G \u2013 B \u2013 D \u2013 F'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 0, degree: 7 },
+            { string: 1, fret: 1, degree: 4 }
+          ],
+          muted: [6],
+          title: 'CMaj11 \u2014 Open Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a major eleventh appears on a chord chart, it may appear with various chord quality decorations: CM11, CMaj11, Cmaj11, C<sup>\u0394</sup>11"
       },
@@ -125,6 +156,37 @@ export const phase5 = [
         text: "C dominant eleventh: C - E - G - B\u266D - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       ^       ^       \u266D       ^       ^"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 }
+          ],
+          labels: 'highlighted',
+          title: 'C Dominant Eleventh: C \u2013 E \u2013 G \u2013 B\u266D \u2013 D \u2013 F'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 3, degree: 7 },
+            { string: 2, fret: 3, degree: 2 },
+            { string: 1, fret: 1, degree: 4 }
+          ],
+          muted: [6],
+          title: 'C11 \u2014 Open Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a dominant eleventh appears on a chord chart, it only appears with one chord quality decoration: C11 (we have a major triad (no decoration) and it's not including the 7 - it's the \u266D7 (no decoration))"
       },
@@ -169,6 +231,37 @@ export const phase5 = [
       {
         type: 'notation',
         text: "C minor eleventh: C - E\u266D - G - B\u266D - D - F\n\n1   2   3   4   5   6   7   8   9  10  11\nC   D   E   F   G   A   B   C   D   E   F\n^       \u266D       ^       \u266D       ^       ^"
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 }
+          ],
+          labels: 'highlighted',
+          title: 'C Minor Eleventh: C \u2013 E\u266D \u2013 G \u2013 B\u266D \u2013 D \u2013 F'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 1, degree: 3 },
+            { string: 3, fret: 3, degree: 7 },
+            { string: 2, fret: 3, degree: 2 },
+            { string: 1, fret: 1, degree: 4 }
+          ],
+          muted: [6],
+          title: 'Cm11 \u2014 Open Position'
+        }
       },
       {
         type: 'paragraph',

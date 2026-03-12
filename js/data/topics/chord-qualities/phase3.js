@@ -69,6 +69,35 @@ export const phase3 = [
         text: "C major seventh: C - E - G - B\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ^       ^       ^"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'B', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Major Seventh: C \u2013 E \u2013 G \u2013 B'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 0, degree: 7 },
+            { string: 1, fret: 0, degree: 3 }
+          ],
+          muted: [6],
+          title: 'CMaj7 \u2014 Open Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a major seventh appears on a chord chart, it may appear with various chord quality decorations: CM7, CMaj7, Cmaj7, C<sup>\u0394</sup>7, C<sup>\u0394</sup>"
       },
@@ -135,6 +164,35 @@ export const phase3 = [
         text: "C dominant seventh: C - E - G - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       ^       ^       \u266D"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Dominant Seventh: C \u2013 E \u2013 G \u2013 B\u266D'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 2, degree: 3 },
+            { string: 3, fret: 3, degree: 7 },
+            { string: 2, fret: 1, degree: 1 },
+            { string: 1, fret: 0, degree: 3 }
+          ],
+          muted: [6],
+          title: 'C7 \u2014 Open Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a dominant seventh appears on a chord chart, it only appears with one chord quality decoration: C7 (we have a major triad (no decoration) and it's not the 7 - it's the \u266D7 (no decoration))"
       },
@@ -179,6 +237,35 @@ export const phase3 = [
         text: "C minor seventh: C - E\u266D - G - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       ^       \u266D"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Minor Seventh: C \u2013 E\u266D \u2013 G \u2013 B\u266D'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 2, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 5, degree: 5 },
+            { string: 3, fret: 3, degree: 7 },
+            { string: 2, fret: 4, degree: 3 },
+            { string: 1, fret: 3, degree: 5 }
+          ],
+          muted: [6],
+          title: 'Cm7 \u2014 3rd Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a minor seventh appears on a chord chart, it may appear with various chord quality decorations: Cm7, Cmin7, Cmi7, C-7 (we have a minor triad ('m') and it's not the 7 - it's the \u266D7 (no decoration))."
       },
@@ -221,6 +308,34 @@ export const phase3 = [
       {
         type: 'notation',
         text: "C half-diminished seventh: C - E\u266D - G\u266D - B\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       \u266D       \u266D"
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'Gb', degree: 5 },
+            { note: 'Bb', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Half-Diminished Seventh: C \u2013 E\u266D \u2013 G\u266D \u2013 B\u266D'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 2, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 4, degree: 5 },
+            { string: 3, fret: 3, degree: 7 },
+            { string: 2, fret: 4, degree: 3 }
+          ],
+          muted: [6, 1],
+          title: 'C\u00F87 \u2014 3rd Position'
+        }
       },
       {
         type: 'paragraph',
@@ -306,6 +421,34 @@ export const phase3 = [
         text: "C diminished seventh: C - E\u266D - G\u266D - B\u266D\u266D\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       \u266D       \u266D\u266D"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'Gb', degree: 5 },
+            { note: 'A', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Diminished Seventh: C \u2013 E\u266D \u2013 G\u266D \u2013 B\u266D\u266D'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 1, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 4, degree: 5 },
+            { string: 3, fret: 2, degree: 7 },
+            { string: 2, fret: 4, degree: 3 }
+          ],
+          muted: [6, 1],
+          title: 'Cdim7 \u2014 2nd Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a diminished seventh appears on a chord chart, it may appear with various chord quality decorations: C\u00B07, Co7, Cdim7. The proper symbol may be the '\u00B07', but that's pretty hard to type on a normal keyboard. That's where the 'o7' comes in. It is a reasonable plain text substitute."
       },
@@ -348,6 +491,34 @@ export const phase3 = [
       {
         type: 'notation',
         text: "C minor major seventh: C - E\u266D - G - B\n\n1   2   3   4   5   6   7   8\nC   D   E   F   G   A   B   C\n^       \u266D       ^       ^"
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 1,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'B', degree: 7 }
+          ],
+          labels: 'highlighted',
+          title: 'C Minor-Major Seventh: C \u2013 E\u266D \u2013 G \u2013 B'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 1, degree: 3 },
+            { string: 3, fret: 0, degree: 5 },
+            { string: 2, fret: 0, degree: 7 }
+          ],
+          muted: [6, 1],
+          title: 'CmM7 \u2014 Open Position'
+        }
       },
       {
         type: 'paragraph',

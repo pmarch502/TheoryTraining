@@ -9,7 +9,7 @@
 
 .guitar-svg {
   width: 100%;
-  max-width: 160px;
+  max-width: 180px;
   height: auto;
   display: block;
 }
@@ -53,6 +53,16 @@
   fill: var(--color-text, #eee);
 }
 
+/* Scale-degree colors */
+.guitar-dot--deg-1, .guitar-open-dot.guitar-dot--deg-1 { fill: #C0392B; }
+.guitar-dot--deg-2, .guitar-open-dot.guitar-dot--deg-2 { fill: #E67E22; }
+.guitar-dot--deg-3, .guitar-open-dot.guitar-dot--deg-3 { fill: #F1C40F; }
+.guitar-dot--deg-4, .guitar-open-dot.guitar-dot--deg-4 { fill: #27AE60; }
+.guitar-dot--deg-5, .guitar-open-dot.guitar-dot--deg-5 { fill: #2980B9; }
+.guitar-dot--deg-6, .guitar-open-dot.guitar-dot--deg-6 { fill: #8E44AD; }
+.guitar-dot--deg-7, .guitar-open-dot.guitar-dot--deg-7 { fill: #9B59B6; }
+
+/* Legacy named colors */
 .guitar-dot--root,
 .guitar-open-dot.guitar-dot--root {
   fill: var(--color-accent);
@@ -74,6 +84,13 @@
   opacity: 0.85;
 }
 
+.guitar-barre.guitar-dot--deg-1 { fill: #C0392B; }
+.guitar-barre.guitar-dot--deg-2 { fill: #E67E22; }
+.guitar-barre.guitar-dot--deg-3 { fill: #F1C40F; }
+.guitar-barre.guitar-dot--deg-4 { fill: #27AE60; }
+.guitar-barre.guitar-dot--deg-5 { fill: #2980B9; }
+.guitar-barre.guitar-dot--deg-6 { fill: #8E44AD; }
+.guitar-barre.guitar-dot--deg-7 { fill: #9B59B6; }
 .guitar-barre.guitar-dot--root    { fill: var(--color-accent); }
 .guitar-barre.guitar-dot--primary { fill: var(--color-success); }
 .guitar-barre.guitar-dot--secondary { fill: var(--color-highlight); }
@@ -82,12 +99,17 @@
 
 .guitar-dot-label {
   fill: #ffffff;
-  font-size: 9px;
+  font-size: 10px;
   font-family: var(--font-body, sans-serif);
   font-weight: 700;
   text-anchor: middle;
   pointer-events: none;
   user-select: none;
+}
+
+/* Dark text for light-colored dots (e.g. degree 3 = yellow) */
+.guitar-dot-label--dark {
+  fill: #1a1a2e;
 }
 
 /* Fret-position number (for non-open diagrams) */

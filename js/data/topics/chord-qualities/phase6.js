@@ -84,6 +84,38 @@ export const phase6 = [
         text: "C major thirteenth: C - E - G - B - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       ^       ^       ^       ^       ^       ^"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'B', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 },
+            { note: 'A', degree: 6 }
+          ],
+          labels: 'highlighted',
+          title: 'C Major Thirteenth: C \u2013 E \u2013 G \u2013 B \u2013 D \u2013 F \u2013 A'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 0, frets: 4,
+          dots: [
+            { string: 5, fret: 3, degree: 1 },
+            { string: 4, fret: 0, degree: 2 },
+            { string: 3, fret: 2, degree: 6 },
+            { string: 2, fret: 0, degree: 7 },
+            { string: 1, fret: 0, degree: 3 }
+          ],
+          muted: [6],
+          title: 'CMaj13 \u2014 Open Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a major thirteenth appears on a chord chart, it may appear with various chord quality decorations: CM13, CMaj13, Cmaj13, C<sup>\u0394</sup>13"
       },
@@ -135,6 +167,38 @@ export const phase6 = [
         text: "C dominant thirteenth: C - E - G - B\u266D - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       ^       ^       \u266D       ^       ^       ^"
       },
       {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 },
+            { note: 'A', degree: 6 }
+          ],
+          labels: 'highlighted',
+          title: 'C Dominant Thirteenth: C \u2013 E \u2013 G \u2013 B\u266D \u2013 D \u2013 F \u2013 A'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 7, frets: 4,
+          dots: [
+            { string: 6, fret: 8, degree: 1 },
+            { string: 4, fret: 8, degree: 7 },
+            { string: 3, fret: 9, degree: 3 },
+            { string: 2, fret: 10, degree: 6 },
+            { string: 1, fret: 10, degree: 2 }
+          ],
+          muted: [5],
+          title: 'C13 \u2014 8th Position'
+        }
+      },
+      {
         type: 'paragraph',
         text: "When a dominant thirteenth appears on a chord chart, it only appears with one chord quality decoration: C13 (we have a major triad (no decoration) and it's not including the 7 - it's the \u266D7 (no decoration))"
       },
@@ -180,6 +244,38 @@ export const phase6 = [
       {
         type: 'notation',
         text: "C minor thirteenth: C - E\u266D - G - B\u266D - D - F - A\n\n1   2   3   4   5   6   7   8   9  10  11  12  13\nC   D   E   F   G   A   B   C   D   E   F   G   A\n^       \u266D       ^       \u266D       ^       ^       ^"
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'Eb', degree: 3 },
+            { note: 'G', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D', degree: 2 },
+            { note: 'F', degree: 4 },
+            { note: 'A', degree: 6 }
+          ],
+          labels: 'highlighted',
+          title: 'C Minor Thirteenth: C \u2013 E\u266D \u2013 G \u2013 B\u266D \u2013 D \u2013 F \u2013 A'
+        }
+      },
+      {
+        type: 'guitar',
+        config: {
+          startFret: 7, frets: 4,
+          dots: [
+            { string: 6, fret: 8, degree: 1 },
+            { string: 4, fret: 8, degree: 7 },
+            { string: 3, fret: 8, degree: 3 },
+            { string: 2, fret: 10, degree: 6 },
+            { string: 1, fret: 10, degree: 2 }
+          ],
+          muted: [5],
+          title: 'Cm13 \u2014 8th Position'
+        }
       },
       {
         type: 'paragraph',

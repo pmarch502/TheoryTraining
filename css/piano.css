@@ -6,7 +6,6 @@
 }
 
 .piano-svg {
-  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -31,21 +30,48 @@
   stroke-width: 0.5;
 }
 
-/* ─── Highlight colors ──────────────────────────────────────── */
+/* ─── Dots (on highlighted keys) ───────────────────────────── */
 
-.piano-key.piano-key--hl-root {
-  fill: var(--color-accent);
+.piano-dot {
+  fill: var(--color-text, #eee);
 }
 
-.piano-key.piano-key--hl-primary {
-  fill: var(--color-success);
+/* Scale-degree colors */
+.piano-dot--deg-1 { fill: #C0392B; }
+.piano-dot--deg-2 { fill: #E67E22; }
+.piano-dot--deg-3 { fill: #F1C40F; }
+.piano-dot--deg-4 { fill: #27AE60; }
+.piano-dot--deg-5 { fill: #2980B9; }
+.piano-dot--deg-6 { fill: #8E44AD; }
+.piano-dot--deg-7 { fill: #9B59B6; }
+
+/* Legacy named-color fallbacks */
+.piano-dot--root      { fill: var(--color-accent); }
+.piano-dot--primary   { fill: var(--color-success); }
+.piano-dot--secondary { fill: var(--color-highlight); }
+
+/* ─── Dot labels (note name inside dot) ────────────────────── */
+
+.piano-dot-label {
+  fill: #ffffff;
+  font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
 }
 
-.piano-key.piano-key--hl-secondary {
-  fill: var(--color-highlight);
+.piano-dot-label--sm {
+  font-size: 8px;
 }
 
-/* ─── Labels ────────────────────────────────────────────────── */
+/* Dark text for light-colored dots (e.g. degree 3 = yellow) */
+.piano-dot-label--dark {
+  fill: #1a1a2e;
+}
+
+/* ─── Key labels (for 'all' mode, below/on keys) ──────────── */
 
 .piano-label {
   font-family: var(--font-body);
@@ -82,6 +108,12 @@
     font-size: 8px;
   }
   .piano-label--black {
+    font-size: 6px;
+  }
+  .piano-dot-label {
+    font-size: 8px;
+  }
+  .piano-dot-label--sm {
     font-size: 6px;
   }
 }
