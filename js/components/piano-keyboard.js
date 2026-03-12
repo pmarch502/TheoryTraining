@@ -190,7 +190,7 @@ export function renderPianoHTML(config) {
     : '';
   // Store highlighted notes with octaves for audio playback
   const { items: hlItems } = buildHighlights(config.highlighted);
-  const hlNotes = hlItems.map(h => h.label + (4 + h.oct));
+  const hlNotes = hlItems.map(h => h.label + (3 + h.oct));
   const hlAttr = hlNotes.length ? ` data-highlighted="${esc(hlNotes.join(','))}"` : '';
   return `<div class="piano-keyboard"${hlAttr}>${svg}${caption}</div>`;
 }
