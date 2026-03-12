@@ -103,5 +103,25 @@ export const chordQualities = {
         { id: 'cq-40', number: 40, title: 'Six-Nine' },
       ]
     },
+    {
+      id: 'phase8',
+      title: 'Phase 8: Altered Chords',
+      subtitle: 'Altered fifths, ninths, and exotic dominant voicings',
+      dataModule: './phase8.js',
+      lessons: [
+        { id: 'cq-41', number: 41, title: 'Augmented Seventh' },
+        { id: 'cq-42', number: 42, title: 'Seven Flat Five' },
+        { id: 'cq-43', number: 43, title: 'Seven Sharp Nine' },
+        { id: 'cq-44', number: 44, title: 'Seven Flat Nine' },
+        { id: 'cq-45', number: 45, title: 'Seven Flat Five Flat Nine' },
+        { id: 'cq-46', number: 46, title: 'Seven Flat Five Sharp Nine' },
+        { id: 'cq-47', number: 47, title: 'Seven Sharp Five Flat Nine' },
+        { id: 'cq-48', number: 48, title: 'Seven Sharp Five Sharp Nine' },
+        { id: 'cq-49', number: 49, title: 'Major Seven Sharp Eleventh' },
+        { id: 'cq-50', number: 50, title: 'Seven Flat Thirteenth' },
+        { id: 'cq-51', number: 51, title: 'Augmented Major Seventh' },
+        { id: 'cq-52', number: 52, title: 'Altered Dominant' },
+      ]
+    },
   ]
 };
