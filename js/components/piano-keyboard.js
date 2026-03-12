@@ -60,15 +60,25 @@ function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-/** Build a map of chromatic index → { color, degree, label } from config.highlighted. */
+/** Build a list of placed highlights from config.highlighted.
+ *  Each note appears exactly once, assigned to an ascending octave.
+ *  Returns { items: [{oct, idx, degree, color, label}], placed: Set<"oct:idx"> }
+ */
 function buildHighlights(arr) {
-  const map = {};
-  if (!arr) return map;
+  const items = [];
+  const placed = new Set();
+  if (!arr || !arr.length) return { items, placed };
+  let curOct = 0;
+  let prevIdx = -1;
   for (const h of arr) {
     const idx = noteIndex(h.note);
-    if (idx !== -1) map[idx] = { color: h.color, degree: h.degree, label: h.note };
+    if (idx === -1) continue;
+    if (prevIdx !== -1 && idx <= prevIdx) curOct++;
+    items.push({ oct: curOct, idx, degree: h.degree, color: h.color, label: h.note });
+    placed.add(`${curOct}:${idx}`);
+    prevIdx = idx;
   }
-  return map;
+  return { items, placed };
 }
 
 // ─── SVG Builder ─────────────────────────────────────────────
@@ -76,7 +86,7 @@ function buildHighlights(arr) {
 function buildPianoSVG(config) {
   const oct = config.octaves || 1;
   const labels = config.labels || 'none';
-  const hl = buildHighlights(config.highlighted);
+  const { items: hlItems, placed: hlPlaced } = buildHighlights(config.highlighted);
 
   // Label area only needed for 'all' mode (highlighted keys use dots now)
   const hasLabelArea = labels === 'all';
@@ -100,7 +110,7 @@ function buildPianoSVG(config) {
       s += `rx="${RAD}" ry="${RAD}" class="piano-key piano-key--white" data-note="${note.names[0]}" data-octave="${o}"/>`;
 
       // Label below for non-highlighted white keys in 'all' mode
-      if (hasLabelArea && !hl[note.i]) {
+      if (hasLabelArea && !hlPlaced.has(`${o}:${note.i}`)) {
         const text = displayName(note.names[0]);
         const lx = x + KW / 2;
         const ly = TOP + KH + LABEL_H - 5;
@@ -118,7 +128,7 @@ function buildPianoSVG(config) {
       s += `rx="${RAD}" ry="${RAD}" class="piano-key piano-key--black" data-note="${note.names.join(',')}" data-octave="${o}"/>`;
 
       // Labels on body for non-highlighted black keys in 'all' mode
-      if (labels === 'all' && !hl[note.i]) {
+      if (labels === 'all' && !hlPlaced.has(`${o}:${note.i}`)) {
         const lx = x + BW / 2;
         s += `<text x="${lx}" y="${TOP + BH - 20}" text-anchor="middle" `;
         s += `class="piano-label piano-label--black">${esc(displayName(note.names[0]))}</text>`;
@@ -130,29 +140,27 @@ function buildPianoSVG(config) {
     }
   }
 
-  // ── Dots on highlighted keys ──
-  for (let o = 0; o < oct; o++) {
-    for (const note of NOTES) {
-      const h = hl[note.i];
-      if (!h) continue;
+  // ── Dots on highlighted keys (each note once, in formula order) ──
+  for (const h of hlItems) {
+    const note = NOTES.find(n => n.i === h.idx);
+    if (!note || h.oct >= oct) continue;
 
-      // Degree-based color class, with fallback to named color
-      const degCls = h.degree
-        ? ` piano-dot--deg-${h.degree}`
-        : (h.color ? ` piano-dot--${h.color}` : '');
-      const darkText = h.degree === 3; // yellow needs dark text
+    // Degree-based color class, with fallback to named color
+    const degCls = h.degree
+      ? ` piano-dot--deg-${h.degree}`
+      : (h.color ? ` piano-dot--${h.color}` : '');
+    const darkText = h.degree === 3; // yellow needs dark text
 
-      if (note.white) {
-        const cx = (o * 7 + note.w) * KW + KW / 2;
-        const cy = TOP + KH - 16;
-        s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_W}" class="piano-dot${degCls}"/>`;
-        s += `<text x="${cx}" y="${cy + 3.5}" class="piano-dot-label${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
-      } else {
-        const cx = (o * 7 + note.after + 1) * KW;
-        const cy = TOP + BH - 14;
-        s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_B}" class="piano-dot piano-dot--on-black${degCls}"/>`;
-        s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
-      }
+    if (note.white) {
+      const cx = (h.oct * 7 + note.w) * KW + KW / 2;
+      const cy = TOP + KH - 16;
+      s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_W}" class="piano-dot${degCls}"/>`;
+      s += `<text x="${cx}" y="${cy + 3.5}" class="piano-dot-label${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
+    } else {
+      const cx = (h.oct * 7 + note.after + 1) * KW;
+      const cy = TOP + BH - 14;
+      s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_B}" class="piano-dot piano-dot--on-black${degCls}"/>`;
+      s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
     }
   }
 
@@ -180,8 +188,9 @@ export function renderPianoHTML(config) {
   const caption = config.title
     ? `<div class="piano-caption">${esc(config.title)}</div>`
     : '';
-  // Store highlighted notes for audio playback
-  const hlNotes = (config.highlighted || []).map(h => h.note);
+  // Store highlighted notes with octaves for audio playback
+  const { items: hlItems } = buildHighlights(config.highlighted);
+  const hlNotes = hlItems.map(h => h.label + (4 + h.oct));
   const hlAttr = hlNotes.length ? ` data-highlighted="${esc(hlNotes.join(','))}"` : '';
   return `<div class="piano-keyboard"${hlAttr}>${svg}${caption}</div>`;
 }
@@ -207,7 +216,7 @@ export function hydratePianos(container) {
           btn.classList.add('audio-loading');
           btn.setAttribute('aria-busy', 'true');
           try {
-            const notes = hlData.split(',').map(n => audio.normalizeNote(n) + '4');
+            const notes = hlData.split(',').map(n => audio.normalizeNote(n));
             await audio.playStrum('piano', notes);
             btn.classList.remove('audio-loading');
             btn.classList.add('audio-playing');
@@ -223,7 +232,7 @@ export function hydratePianos(container) {
         piano.appendChild(btn);
 
         // Preload highlighted notes
-        audio.preload('piano', hlData.split(',').map(n => audio.normalizeNote(n) + '4'));
+        audio.preload('piano', hlData.split(',').map(n => audio.normalizeNote(n)));
       }
 
       // Individual key clicks
