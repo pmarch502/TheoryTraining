@@ -82,6 +82,15 @@ class State {
     return { total, completed, percent: total ? Math.round((completed / total) * 100) : 0 };
   }
 
+  /** Get array of all completed lesson IDs. */
+  getCompletedIds() {
+    const ids = [];
+    for (const [id, data] of Object.entries(this._data.lessons)) {
+      if (data.completed) ids.push(id);
+    }
+    return ids;
+  }
+
   /** Export all progress data (for future sync). */
   exportData() {
     return JSON.stringify(this._data);

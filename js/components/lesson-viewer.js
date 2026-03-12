@@ -6,6 +6,7 @@ import {
   renderRootSelector, transposePianoConfig, transposeGuitarConfig,
   pianoAudioNotes, guitarAudioNotes
 } from './transposer.js';
+import { renderQuizLaunchHTML, hydrateQuizSection } from './quiz.js';
 
 /**
  * Renders a lesson data object into the main content area.
@@ -32,6 +33,9 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
     html += renderBlock(block);
     if (block._rootSelector) delete block._rootSelector;
   }
+
+  // Quiz section (collapsed launch button — continuous mode on expand)
+  html += renderQuizLaunchHTML();
 
   // Completion button
   const isComplete = state.isCompleted(lesson.id);
@@ -61,6 +65,13 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
 
   // Hydrate voicing navigation for library-backed guitar chords
   if (article) hydrateVoicingNavs(article);
+
+  // Hydrate quiz section
+  const quizSection = article?.querySelector('.quiz-section');
+  if (quizSection) {
+    const completedIds = state.getCompletedIds();
+    hydrateQuizSection(quizSection, lesson.id, completedIds, lesson.quiz || []);
+  }
 
   // Wire up root selector for transposition
   if (article && hasInstruments) setupRootSelector(article);

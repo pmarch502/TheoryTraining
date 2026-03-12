@@ -6,6 +6,7 @@ import { renderSidebar, initSidebarToggle } from './components/sidebar.js';
 import { renderLesson } from './components/lesson-viewer.js';
 import { initGlossaryPopup } from './components/glossary-popup.js';
 import { glossary, categoryLabels } from './data/topics/chord-qualities/glossary.js';
+import { renderQuizPageHTML, hydrateAggregateQuiz } from './components/quiz.js';
 
 // Topic registry — add new topics here
 const topics = {
@@ -80,11 +81,22 @@ function renderHome() {
       <p>${topic.description}</p>
       <span class="topic-meta">${topic.phases.reduce((sum, p) => sum + p.lessons.length, 0)} lessons across ${topic.phases.length} phases</span>
       ${!comingSoon && progress.completed > 0 ? `<div class="progress-bar"><div class="progress-bar-fill" style="width:${progress.percent}%"></div></div>` : ''}
+      ${!comingSoon ? `<button class="quiz-launch-btn" data-topic="${topic.id}">Quiz Yourself</button>` : ''}
     </a>`;
   }
 
   html += `</div>`;
   main.innerHTML = html;
+
+  // Wire up quiz launch buttons inside topic cards (stop propagation so the <a> doesn't navigate)
+  main.querySelectorAll('.quiz-launch-btn[data-topic]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      location.hash = `#/topic/${btn.dataset.topic}/quiz`;
+    });
+  });
+
   renderSidebar(allTopics, null);
 }
 
@@ -96,6 +108,10 @@ function renderTopicOverview(topicId) {
   let html = `<div class="topic-overview">`;
   html += `<h2>${topic.title}${topic.comingSoon ? ' <span class="coming-soon-badge">Coming Soon</span>' : ''}</h2>`;
   html += `<p class="topic-desc">${topic.description}</p>`;
+
+  if (!topic.comingSoon) {
+    html += `<div class="quiz-launch-wrap"><button class="quiz-launch-btn" data-topic="${topic.id}">Quiz Yourself</button></div>`;
+  }
 
   for (const phase of topic.phases) {
     if (topic.comingSoon) {
@@ -145,6 +161,15 @@ function renderTopicOverview(topicId) {
 
   html += `</div>`;
   main.innerHTML = html;
+
+  // Wire up quiz launch button on topic overview
+  const quizBtn = main.querySelector('.quiz-launch-btn[data-topic]');
+  if (quizBtn) {
+    quizBtn.addEventListener('click', () => {
+      location.hash = `#/topic/${quizBtn.dataset.topic}/quiz`;
+    });
+  }
+
   renderSidebar(allTopics, null);
 }
 
@@ -289,6 +314,26 @@ function renderGlossaryPage() {
   window.scrollTo(0, 0);
 }
 
+function renderQuizPage(topicId) {
+  const topic = topics[topicId];
+  if (!topic) { renderNotFound(); return; }
+
+  const main = document.getElementById('main-content');
+  const completedIds = state.getCompletedIds();
+  const hasQuestions = completedIds.length > 0;
+
+  main.innerHTML = renderQuizPageHTML(topicId, hasQuestions);
+
+  if (hasQuestions) {
+    const container = main.querySelector('.quiz-aggregate-container');
+    if (container) hydrateAggregateQuiz(container, completedIds, topicId);
+  }
+
+  renderSidebar(allTopics, null);
+  main.scrollTop = 0;
+  window.scrollTo(0, 0);
+}
+
 function renderNotFound() {
   const main = document.getElementById('main-content');
   main.innerHTML = `<div class="home-container">
@@ -306,6 +351,7 @@ router
   .on(/^#\/?$/, renderHome)
   .on(/^#\/glossary\/?$/, renderGlossaryPage)
   .on(/^#\/topic\/([^/]+)$/, renderTopicOverview)
+  .on(/^#\/topic\/([^/]+)\/quiz\/?$/, renderQuizPage)
   .on(/^#\/topic\/([^/]+)\/([^/]+)$/, renderPhaseOverview)
   .on(/^#\/topic\/([^/]+)\/([^/]+)\/([^/]+)$/, renderLessonPage)
   .onNotFound(renderNotFound);
