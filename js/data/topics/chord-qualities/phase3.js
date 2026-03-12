@@ -85,19 +85,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 0, degree: 7 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: 'maj7',
-          title: 'CMaj7 — Open Position'
-        }
+        config: { suffix: 'maj7' }
       },
       {
         type: 'paragraph',
@@ -182,19 +170,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 1, degree: 1 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: '7',
-          title: 'C7 — Open Position'
-        }
+        config: { suffix: '7' }
       },
       {
         type: 'paragraph',
@@ -257,19 +233,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 2, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 5, degree: 5 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 4, degree: 3 },
-            { string: 1, fret: 3, degree: 5 }
-          ],
-          muted: [6],
-          suffix: 'm7',
-          title: 'Cm7 — 3rd Position'
-        }
+        config: { suffix: 'm7' }
       },
       {
         type: 'paragraph',
@@ -332,18 +296,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 2, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 4, degree: 5 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 4, degree: 3 }
-          ],
-          muted: [6, 1],
-          suffix: 'm7b5',
-          title: 'Cø7 — 3rd Position'
-        }
+        config: { suffix: 'm7b5' }
       },
       {
         type: 'paragraph',
@@ -445,18 +398,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 1, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 4, degree: 5 },
-            { string: 3, fret: 2, degree: 7 },
-            { string: 2, fret: 4, degree: 3 }
-          ],
-          muted: [6, 1],
-          suffix: 'dim7',
-          title: 'Cdim7 — 2nd Position'
-        }
+        config: { suffix: 'dim7' }
       },
       {
         type: 'paragraph',
@@ -519,18 +461,7 @@ export const phase3 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 1, degree: 3 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 0, degree: 7 }
-          ],
-          muted: [6, 1],
-          suffix: 'mmaj7',
-          title: 'CmM7 — Open Position'
-        }
+        config: { suffix: 'mmaj7' }
       },
       {
         type: 'paragraph',

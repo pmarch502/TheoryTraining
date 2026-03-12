@@ -93,19 +93,7 @@ export const phase5 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 0, degree: 7 },
-            { string: 1, fret: 1, degree: 4 }
-          ],
-          muted: [6],
-          suffix: 'maj11',
-          title: 'CMaj11 — Open Position'
-        }
+        config: { suffix: 'maj11' }
       },
       {
         type: 'paragraph',
@@ -176,19 +164,7 @@ export const phase5 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 3, degree: 2 },
-            { string: 1, fret: 1, degree: 4 }
-          ],
-          muted: [6],
-          suffix: '11',
-          title: 'C11 — Open Position'
-        }
+        config: { suffix: '11' }
       },
       {
         type: 'paragraph',
@@ -255,19 +231,7 @@ export const phase5 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 1, degree: 3 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 3, degree: 2 },
-            { string: 1, fret: 1, degree: 4 }
-          ],
-          muted: [6],
-          suffix: 'm11',
-          title: 'Cm11 — Open Position'
-        }
+        config: { suffix: 'm11' }
       },
       {
         type: 'paragraph',

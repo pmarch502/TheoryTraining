@@ -103,19 +103,7 @@ export const phase6 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 0, degree: 2 },
-            { string: 3, fret: 2, degree: 6 },
-            { string: 2, fret: 0, degree: 7 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: 'maj13',
-          title: 'CMaj13 — Open Position'
-        }
+        config: { suffix: 'maj13' }
       },
       {
         type: 'paragraph',
@@ -188,19 +176,7 @@ export const phase6 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 7, frets: 4,
-          dots: [
-            { string: 6, fret: 8, degree: 1 },
-            { string: 4, fret: 8, degree: 7 },
-            { string: 3, fret: 9, degree: 3 },
-            { string: 2, fret: 10, degree: 6 },
-            { string: 1, fret: 10, degree: 2 }
-          ],
-          muted: [5],
-          suffix: '13',
-          title: 'C13 — 8th Position'
-        }
+        config: { suffix: '13' }
       },
       {
         type: 'paragraph',
@@ -269,19 +245,7 @@ export const phase6 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 7, frets: 4,
-          dots: [
-            { string: 6, fret: 8, degree: 1 },
-            { string: 4, fret: 8, degree: 7 },
-            { string: 3, fret: 8, degree: 3 },
-            { string: 2, fret: 10, degree: 6 },
-            { string: 1, fret: 10, degree: 2 }
-          ],
-          muted: [5],
-          suffix: 'm13',
-          title: 'Cm13 — 8th Position'
-        }
+        config: { suffix: 'm13' }
       },
       {
         type: 'paragraph',

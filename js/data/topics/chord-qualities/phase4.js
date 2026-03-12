@@ -91,19 +91,7 @@ export const phase4 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 0, degree: 2 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 0, degree: 7 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: 'maj9',
-          title: 'CMaj9 — Open Position'
-        }
+        config: { suffix: 'maj9' }
       },
       {
         type: 'paragraph',
@@ -172,19 +160,7 @@ export const phase4 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 3, degree: 2 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: '9',
-          title: 'C9 — Open Position'
-        }
+        config: { suffix: '9' }
       },
       {
         type: 'paragraph',
@@ -249,19 +225,7 @@ export const phase4 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 1, degree: 3 },
-            { string: 3, fret: 3, degree: 7 },
-            { string: 2, fret: 3, degree: 2 },
-            { string: 1, fret: 3, degree: 5 }
-          ],
-          muted: [6],
-          suffix: 'm9',
-          title: 'Cm9 — Open Position'
-        }
+        config: { suffix: 'm9' }
       },
       {
         type: 'paragraph',

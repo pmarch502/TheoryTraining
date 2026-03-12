@@ -24,7 +24,6 @@
 .lesson-content sup {
   font-size: 0.75em;
   vertical-align: super;
-  color: var(--color-accent);
 }
 
 /* Code / notation blocks */

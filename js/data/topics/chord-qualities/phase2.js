@@ -91,19 +91,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 1, degree: 1 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: 'major',
-          title: 'C Major — Open Position'
-        }
+        config: { suffix: 'major' }
       },
       {
         type: 'paragraph',
@@ -168,20 +156,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 2, frets: 4,
-          barres: [{ fret: 3, from: 1, to: 5, degree: 1 }],
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 5, degree: 5 },
-            { string: 3, fret: 5, degree: 1 },
-            { string: 2, fret: 4, degree: 3 },
-            { string: 1, fret: 3, degree: 5 }
-          ],
-          muted: [6],
-          suffix: 'm',
-          title: 'C Minor — Barre Chord (3rd Fret)'
-        }
+        config: { suffix: 'm' }
       },
       {
         type: 'paragraph',
@@ -246,18 +221,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 2, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 4, degree: 5 },
-            { string: 3, fret: 5, degree: 1 },
-            { string: 2, fret: 4, degree: 3 }
-          ],
-          muted: [6, 1],
-          suffix: 'dim',
-          title: 'C Diminished'
-        }
+        config: { suffix: 'dim' }
       },
       {
         type: 'paragraph',
@@ -365,19 +329,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 2, degree: 3 },
-            { string: 3, fret: 1, degree: 5 },
-            { string: 2, fret: 1, degree: 1 },
-            { string: 1, fret: 0, degree: 3 }
-          ],
-          muted: [6],
-          suffix: 'aug',
-          title: 'C Augmented — Open Position'
-        }
+        config: { suffix: 'aug' }
       },
       {
         type: 'paragraph',
@@ -438,19 +390,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 3, degree: 4 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 1, degree: 1 },
-            { string: 1, fret: 1, degree: 4 }
-          ],
-          muted: [6],
-          suffix: 'sus4',
-          title: 'Csus4 — Open Position'
-        }
+        config: { suffix: 'sus4' }
       },
       {
         type: 'paragraph',
@@ -511,19 +451,7 @@ export const phase2 = [
       },
       {
         type: 'guitar',
-        config: {
-          startFret: 0, frets: 4,
-          dots: [
-            { string: 5, fret: 3, degree: 1 },
-            { string: 4, fret: 0, degree: 2 },
-            { string: 3, fret: 0, degree: 5 },
-            { string: 2, fret: 3, degree: 2 },
-            { string: 1, fret: 3, degree: 5 }
-          ],
-          muted: [6],
-          suffix: 'sus2',
-          title: 'Csus2 — Open Position'
-        }
+        config: { suffix: 'sus2' }
       },
       {
         type: 'paragraph',

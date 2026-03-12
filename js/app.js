@@ -188,7 +188,7 @@ async function renderLessonPage(topicId, phaseId, lessonId) {
   const lesson = lessons.find(l => l.id === lessonId);
   if (!lesson) { renderNotFound(); return; }
 
-  renderLesson(lesson, topic, phaseId);
+  await renderLesson(lesson, topic, phaseId);
   renderSidebar(allTopics, lessonId);
 
   // Expose sidebar refresh so completion button can update checkmarks

@@ -10,8 +10,11 @@ import {
 /**
  * Renders a lesson data object into the main content area.
  */
-export function renderLesson(lesson, topicIndex, phaseId) {
+export async function renderLesson(lesson, topicIndex, phaseId) {
   const main = document.getElementById('main-content');
+
+  // Expand slim guitar configs (suffix-only) into full configs from chord library
+  await expandGuitarConfigs(lesson.content);
 
   let html = `<article class="lesson-content">`;
   html += `<h1>Lesson ${lesson.number}: ${lesson.title}</h1>`;
@@ -160,15 +163,27 @@ function renderLessonNav(lesson, topicIndex, phaseId) {
 }
 
 /**
+ * Expand slim guitar configs (suffix-only) into full configs via the chord library.
+ */
+async function expandGuitarConfigs(blocks) {
+  const slim = blocks.filter(b => b.type === 'guitar' && b.config.suffix && !b.config.dots);
+  if (!slim.length) return;
+
+  const lib = await import('../data/chord-library.js');
+  await lib.ensureLoaded();
+
+  for (const block of slim) {
+    const full = lib.getTransposedConfig('C', block.config);
+    if (full) block.config = full;
+  }
+}
+
+/**
  * Wire up the root selector dropdown to transpose all piano/guitar blocks.
  */
 function setupRootSelector(article) {
   const select = article.querySelector('.root-select');
-  if (!select) return;
-
-  // Preload chord library so it's ready when the user changes root
-  import('../data/chord-library.js').then(lib => lib.ensureLoaded())
-    .catch(() => {});
+  if (!select)  return;
 
   async function handleRootChange(rootName) {
     try {
