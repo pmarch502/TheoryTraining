@@ -92,6 +92,27 @@
   fill: #ffffff;
 }
 
+/* ─── Degree labels (below keys, aligned with dots) ──────────── */
+
+.piano-deg-label {
+  font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+  fill: var(--color-text-muted);
+}
+
+/* Degree-specific colors (match dot colors) */
+.piano-deg--deg-1 { fill: #C0392B; }
+.piano-deg--deg-2 { fill: #E67E22; }
+.piano-deg--deg-3 { fill: #F1C40F; }
+.piano-deg--deg-4 { fill: #27AE60; }
+.piano-deg--deg-5 { fill: #2980B9; }
+.piano-deg--deg-6 { fill: #8E44AD; }
+.piano-deg--deg-7 { fill: #9B59B6; }
+
 /* ─── Caption ───────────────────────────────────────────────── */
 
 .piano-caption {
@@ -115,5 +136,8 @@
   }
   .piano-dot-label--sm {
     font-size: 6px;
+  }
+  .piano-deg-label {
+    font-size: 8px;
   }
 }

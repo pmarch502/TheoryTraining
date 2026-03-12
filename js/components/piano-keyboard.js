@@ -39,6 +39,7 @@ const RAD = 3;    // corner radius
 
 const DOT_R_W = 10;  // dot radius on white keys
 const DOT_R_B = 7;   // dot radius on black keys
+const DEG_H = 18;    // degree label area below keys
 
 // ─── Helpers ─────────────────────────────────────────────────
 
@@ -90,14 +91,16 @@ function buildPianoSVG(config) {
 
   // Label area only needed for 'all' mode (highlighted keys use dots now)
   const hasLabelArea = labels === 'all';
+  const hasDegrees = hlItems.some(h => h.degree);
+  const degH = hasDegrees ? DEG_H : 0;
 
   const totalWhite = oct * 7;
   const svgW = totalWhite * KW;
-  const svgH = TOP + KH + (hasLabelArea ? LABEL_H : 0);
+  const svgH = TOP + KH + degH + (hasLabelArea ? LABEL_H : 0);
   const ariaLabel = config.title || 'Piano keyboard';
 
   let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgW} ${svgH}" `;
-  s += `role="img" aria-label="${esc(ariaLabel)}" class="piano-svg" style="height:125px">`;
+  s += `role="img" aria-label="${esc(ariaLabel)}" class="piano-svg" style="height:150px">`;
 
   // Top decorative bar
   s += `<rect x="0" y="0" width="${svgW}" height="${TOP}" class="piano-topbar"/>`;
@@ -113,7 +116,7 @@ function buildPianoSVG(config) {
       if (hasLabelArea && !hlPlaced.has(`${o}:${note.i}`)) {
         const text = displayName(note.names[0]);
         const lx = x + KW / 2;
-        const ly = TOP + KH + LABEL_H - 5;
+        const ly = TOP + KH + degH + LABEL_H - 5;
         s += `<text x="${lx}" y="${ly}" text-anchor="middle" `;
         s += `class="piano-label piano-label--white">${esc(text)}</text>`;
       }
@@ -161,6 +164,33 @@ function buildPianoSVG(config) {
       const cy = TOP + BH - 14;
       s += `<circle cx="${cx}" cy="${cy}" r="${DOT_R_B}" class="piano-dot piano-dot--on-black${degCls}"/>`;
       s += `<text x="${cx}" y="${cy + 2.5}" class="piano-dot-label piano-dot-label--sm${darkText ? ' piano-dot-label--dark' : ''}">${esc(displayName(h.label))}</text>`;
+    }
+  }
+
+  // ── Degree labels below keys ──
+  if (hasDegrees) {
+    // Compare each note against the root's major scale to detect accidentals
+    const MAJOR_SCALE = [0, 0, 2, 4, 5, 7, 9, 11]; // index 0 unused, degrees 1-7
+    const rootItem = hlItems.find(h => h.degree === 1);
+    const rootIdx = rootItem ? rootItem.idx : 0;
+
+    for (const h of hlItems) {
+      const note = NOTES.find(n => n.i === h.idx);
+      if (!note || h.oct >= oct || !h.degree) continue;
+
+      const cx = note.white
+        ? (h.oct * 7 + note.w) * KW + KW / 2
+        : (h.oct * 7 + note.after + 1) * KW;
+      // Show extended interval (9/11/13) when note wraps to a higher octave
+      const displayDeg = (h.oct > 0 && (h.degree === 2 || h.degree === 4 || h.degree === 6))
+        ? h.degree + 7
+        : h.degree;
+      // Detect sharp/flat by comparing to the major scale of the root
+      const expectedIdx = (rootIdx + MAJOR_SCALE[h.degree]) % 12;
+      const diff = ((h.idx - expectedIdx) + 12) % 12;
+      const accidental = diff === 1 ? '\u266F' : diff === 11 ? '\u266D' : '';
+      const degCls = ` piano-deg--deg-${h.degree}`;
+      s += `<text x="${cx}" y="${TOP + KH + degH - 4}" text-anchor="middle" class="piano-deg-label${degCls}">${accidental}${displayDeg}</text>`;
     }
   }
 
