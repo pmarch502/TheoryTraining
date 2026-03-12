@@ -103,6 +103,7 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
+          suffix: 'maj11',
           title: 'CMaj11 — Open Position'
         }
       },
@@ -185,6 +186,7 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
+          suffix: '11',
           title: 'C11 — Open Position'
         }
       },
@@ -263,6 +265,7 @@ export const phase5 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
+          suffix: 'm11',
           title: 'Cm11 — Open Position'
         }
       },

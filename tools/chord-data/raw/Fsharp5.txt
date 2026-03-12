@@ -1,0 +1,102 @@
+ F#5
+ ====
+
+ Spelling: 1, 5
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 2 4 4 x 2 2
+
+
+ 2 4 4 6 2 2
+
+
+ x  9  11 11 x  9
+
+
+ x x 4 6 2 2
+
+
+ 2 4 4 6 x 2
+
+
+ 2 4 x 6 2 2
+
+
+ 2 x 4 6 2 2
+
+
+ 14 x  11 11 14 x
+
+
+ x x 4 x 2 2
+
+
+ 14 x  11 11 14 14
+
+
+ 2 4 x 6 x 2
+
+
+ 2 x 4 6 x 2
+
+
+ 14 x  11 11 x  14
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x x 4 6 7 x
+
+
+ 2 4 4 x x x
+
+
+ x  x  x  11 14 14
+
+
+ 2 4 4 x 2 x
+
+
+ x  9  11 11 x  x
+
+
+ x x x x 7 9
+
+
+ x 9 x 6 7 9
+
+
+ 2 4 4 6 x x
+
+
+ x 9 x 6 7 x
+
+
+ x x 4 6 x x
+
+
+ 2 x 4 x 2 2
+
+
+ x x 4 6 2 x
+
+
+ 2 4 x x 2 x
+
+
+ 2 x 4 x 2 x
+
+
+ 2 4 4 x x 2
+
+
+ 2 4 x x 2 2
+
+
+ Number of chord shapes listed:  29
+
+ Chord shapes generated March 2002 by Howard Wright

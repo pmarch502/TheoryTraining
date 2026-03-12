@@ -42,8 +42,8 @@ const ROOT_LETTER_IDX = [0, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6];
 
 /** Spell a note correctly for a given degree relative to a root.
  *  E.g., rootCI=0 (C), degree=5, noteCI=8 → "G♯" (not "A♭"). */
-function degreeNoteName(rootCI, degree, noteCI) {
-  const rootLetterIdx = ROOT_LETTER_IDX[rootCI];
+function degreeNoteName(rootCI, degree, noteCI, rootLetterIdx) {
+  if (rootLetterIdx === undefined) rootLetterIdx = ROOT_LETTER_IDX[rootCI];
   const noteLetterIdx = (rootLetterIdx + degree - 1) % 7;
   const natural = LETTER_CI[noteLetterIdx];
   const diff = ((noteCI - natural) + 12) % 12;
@@ -106,6 +106,7 @@ function buildChordSVG(config) {
     : rootBarre
       ? (OPEN_MIDI[Math.max(rootBarre.from, rootBarre.to)] + rootBarre.fret) % 12
       : 0;
+  const rootLetterIdx = config.rootLetterIdx;
 
   // Grid dimensions
   const gridW = 5 * STR_GAP;
@@ -162,7 +163,7 @@ function buildChordSVG(config) {
       const r = hasLabel ? OPEN_R_L : OPEN_R;
       svg += `<circle cx="${x}" cy="${markerY}" r="${r}" class="guitar-open-dot${cls}"/>`;
       if (hasLabel) {
-        const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[s]) % 12) : noteLabel(s, 0));
+        const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[s]) % 12, rootLetterIdx) : noteLabel(s, 0));
         const darkText = d.degree === 3;
         svg += `<text x="${x}" y="${markerY + 3}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
       }
@@ -189,7 +190,7 @@ function buildChordSVG(config) {
     const cls = dotColorCls(d);
     const darkText = d.degree === 3;
     svg += `<circle cx="${x}" cy="${y}" r="${DOT_R}" class="guitar-dot${cls}"/>`;
-    const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[d.string] + d.fret) % 12) : noteLabel(d.string, d.fret));
+    const label = d.label || (d.degree ? degreeNoteName(rootCI, d.degree, (OPEN_MIDI[d.string] + d.fret) % 12, rootLetterIdx) : noteLabel(d.string, d.fret));
     svg += `<text x="${x}" y="${y + 3.5}" class="guitar-dot-label${darkText ? ' guitar-dot-label--dark' : ''}">${esc(label)}</text>`;
   }
 
@@ -244,6 +245,10 @@ function buildChordSVG(config) {
 
 // ─── Exports ────────────────────────────────────────────────
 
+function escAttr(s) {
+  return s.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 /**
  * Returns an HTML string containing the guitar chord diagram SVG.
  * Called by renderBlock() in lesson-viewer.js.
@@ -263,7 +268,7 @@ function buildChordSVG(config) {
  * String numbering: 6 = low E (left), 1 = high E (right).
  * Fret numbering: absolute (0 = open, 1 = first fret, etc.).
  */
-export function renderGuitarHTML(config) {
+export function renderGuitarHTML(config, { rootSelector = '' } = {}) {
   const svg = buildChordSVG(config);
   const caption = config.title
     ? `<div class="guitar-caption">${esc(config.title)}</div>`
@@ -279,47 +284,73 @@ export function renderGuitarHTML(config) {
     if (dot) notes.push(guitarNoteName(s, dot.fret));
   }
   const notesAttr = notes.length ? ` data-notes="${notes.join(',')}"` : '';
+  const configAttr = ` data-original-config='${escAttr(JSON.stringify(config))}'`;
 
-  return `<div class="guitar-chord"${notesAttr}>${svg}${caption}</div>`;
+  return `<div class="guitar-chord"${notesAttr}${configAttr}>${rootSelector}${svg}${caption}</div>`;
 }
 
 /**
- * Post-render hook — attaches audio strum playback to guitar diagrams.
- * Adds a "Strum" button that plays the chord with a staggered strum effect.
+ * Replace the SVG and caption inside a guitar container with a new config.
+ * Used by the transposer when the root changes.
+ */
+export function updateGuitarSVG(container, config) {
+  container.querySelector('.guitar-svg')?.remove();
+  container.querySelector('.guitar-caption')?.remove();
+  container.querySelector('.audio-play-btn')?.remove();
+  const svg = buildChordSVG(config);
+  const caption = config.title
+    ? `<div class="guitar-caption">${esc(config.title)}</div>`
+    : '';
+  // Insert after root selector if present, otherwise at the start
+  const selector = container.querySelector('.root-selector');
+  if (selector) {
+    selector.insertAdjacentHTML('afterend', svg + caption);
+  } else {
+    container.insertAdjacentHTML('afterbegin', svg + caption);
+  }
+}
+
+/**
+ * Attach audio strum playback to a single guitar diagram.
+ */
+export function hydrateSingleGuitar(guitar, audio) {
+  guitar.querySelector('.audio-play-btn')?.remove();
+  const notesData = guitar.dataset.notes;
+  if (!notesData) return;
+
+  const btn = document.createElement('button');
+  btn.className = 'audio-play-btn';
+  btn.innerHTML = '\u25B6 Play';
+  btn.setAttribute('aria-label', 'Play chord');
+  btn.addEventListener('click', async () => {
+    if (btn.classList.contains('audio-loading')) return;
+    btn.classList.add('audio-loading');
+    btn.setAttribute('aria-busy', 'true');
+    try {
+      const notes = notesData.split(',');
+      await audio.playStrum('guitar', notes);
+      btn.classList.remove('audio-loading');
+      btn.classList.add('audio-playing');
+      btn.setAttribute('aria-busy', 'false');
+      setTimeout(() => btn.classList.remove('audio-playing'), 1500);
+    } catch {
+      btn.classList.remove('audio-loading');
+      btn.classList.add('audio-error');
+      btn.setAttribute('aria-busy', 'false');
+      btn.innerHTML = '\u25B6 Unavailable';
+    }
+  });
+  guitar.appendChild(btn);
+  audio.preload('guitar', notesData.split(','));
+}
+
+/**
+ * Post-render hook — attaches audio strum playback to all guitar diagrams in a container.
  */
 export function hydrateGuitars(container) {
   import('../audio/audio-engine.js').then(audio => {
-    const guitars = container.querySelectorAll('.guitar-chord');
-    for (const guitar of guitars) {
-      const notesData = guitar.dataset.notes;
-      if (!notesData) continue;
-
-      const btn = document.createElement('button');
-      btn.className = 'audio-play-btn';
-      btn.innerHTML = '\u25B6 Play';
-      btn.setAttribute('aria-label', 'Play chord');
-      btn.addEventListener('click', async () => {
-        if (btn.classList.contains('audio-loading')) return;
-        btn.classList.add('audio-loading');
-        btn.setAttribute('aria-busy', 'true');
-        try {
-          const notes = notesData.split(',');
-          await audio.playStrum('guitar', notes);
-          btn.classList.remove('audio-loading');
-          btn.classList.add('audio-playing');
-          btn.setAttribute('aria-busy', 'false');
-          setTimeout(() => btn.classList.remove('audio-playing'), 1500);
-        } catch {
-          btn.classList.remove('audio-loading');
-          btn.classList.add('audio-error');
-          btn.setAttribute('aria-busy', 'false');
-          btn.innerHTML = '\u25B6 Unavailable';
-        }
-      });
-      guitar.appendChild(btn);
-
-      // Preload samples
-      audio.preload('guitar', notesData.split(','));
+    for (const guitar of container.querySelectorAll('.guitar-chord')) {
+      hydrateSingleGuitar(guitar, audio);
     }
   }).catch(e => console.warn('[guitar] Audio not available:', e));
 }

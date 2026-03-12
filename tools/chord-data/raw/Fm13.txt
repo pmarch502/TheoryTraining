@@ -1,0 +1,78 @@
+ Fm13
+ =====
+
+ Spelling: 1, b3, (5), b7, (9), (11), 13
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 1 3 1 1 3 1
+
+
+ x  8  10 8  9  10
+
+
+ 1 3 1 1 3 x
+
+
+ 1 3 1 1 3 4
+
+
+ 1 3 1 1 3 3
+
+
+ x  8  6  8  6  10
+
+
+ 1 3 1 x 3 4
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x  8  x  8  9  10
+
+
+ 1 x 1 1 3 1
+
+
+ 1 x 1 1 3 x
+
+
+ x  8  6  8  8  10
+
+
+ x  8  6  8  x  10
+
+
+ 1 x 1 1 3 3
+
+
+ 13 11 13 x  x  10
+
+
+ 1 x 1 3 3 4
+
+
+ 1 x 1 1 3 4
+
+
+ 1 x 1 x 3 4
+
+
+ 13 x  13 13 x  10
+
+
+ 13 x  13 x  9  10
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ 1 x 1 0 3 4
+
+
+ Number of chord shapes listed:  20
+
+ Chord shapes generated March 2002 by Howard Wright

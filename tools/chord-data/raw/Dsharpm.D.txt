@@ -1,0 +1,93 @@
+ D#m/D
+ ======
+
+ Spelling: 1, b3, 5 (with bass note D )
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 10 9  8  8  11 x
+
+
+ x  x  12 11 11 11
+
+
+ 10 9  8  8  x  11
+
+
+ x 5 4 8 4 6
+
+
+ 10 6  8  x  7  6
+
+
+ 10 6  x  8  7  6
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x 5 4 3 4 x
+
+
+ 10 9  8  8  x  x
+
+
+ 10 9  8  11 11 11
+
+
+ 10 9  x  11 11 11
+
+
+ x 5 4 x 4 6
+
+
+ 10 9  8  x  11 11
+
+
+ 10 9  x  8  11 11
+
+
+ 10 13 13 11 11 11
+
+
+ 10 x  8  11 11 11
+
+
+ x 5 x 8 7 6
+
+
+ 10 9  x  8  11 x
+
+
+ 10 13 13 11 x  x
+
+
+ 10 x  13 11 11 11
+
+
+ x 5 x 3 4 2
+
+
+ 10 13 x  11 11 11
+
+
+ x 5 8 8 7 x
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ x  x  0  11 11 11
+
+
+ x x 0 3 4 2
+
+
+ x x 0 8 7 6
+
+
+ Number of chord shapes listed:  25
+
+ Chord shapes generated March 2002 by Howard Wright

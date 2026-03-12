@@ -95,6 +95,7 @@ export const phase3 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
+          suffix: 'maj7',
           title: 'CMaj7 — Open Position'
         }
       },
@@ -191,6 +192,7 @@ export const phase3 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
+          suffix: '7',
           title: 'C7 — Open Position'
         }
       },
@@ -265,6 +267,7 @@ export const phase3 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
+          suffix: 'm7',
           title: 'Cm7 — 3rd Position'
         }
       },
@@ -338,6 +341,7 @@ export const phase3 = [
             { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
+          suffix: 'm7b5',
           title: 'Cø7 — 3rd Position'
         }
       },
@@ -450,6 +454,7 @@ export const phase3 = [
             { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
+          suffix: 'dim7',
           title: 'Cdim7 — 2nd Position'
         }
       },
@@ -523,6 +528,7 @@ export const phase3 = [
             { string: 2, fret: 0, degree: 7 }
           ],
           muted: [6, 1],
+          suffix: 'mmaj7',
           title: 'CmM7 — Open Position'
         }
       },

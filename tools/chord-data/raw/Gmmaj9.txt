@@ -1,0 +1,105 @@
+ Gmmaj9
+ =======
+
+ Spelling: 1, b3, (5), 7, 9
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 3 5 4 3 3 5
+
+
+ 3 5 4 3 x 5
+
+
+ 3 x 4 3 3 5
+
+
+ 3 x 4 3 x 5
+
+
+ 3 5 7 3 7 3
+
+
+ 3 5 7 3 7 x
+
+
+ 3 x 4 3 7 5
+
+
+ 3 5 x 3 7 5
+
+
+ 3 x 5 3 7 5
+
+
+ 3 x 7 3 7 3
+
+
+ 3 x 7 3 7 x
+
+
+ 3 x 7 3 7 6
+
+
+ 3 x 7 3 7 5
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x  10 8  11 10 10
+
+
+ 3 1 4 2 x x
+
+
+ x  10 8  11 10 x
+
+
+ 3 1 x 2 3 2
+
+
+ x x 5 3 7 5
+
+
+ 3 1 x 2 x 2
+
+
+ 3 1 4 x x 5
+
+
+ 3 x 4 2 x 6
+
+
+ x  10 x  14 11 14
+
+
+ 3 x 7 x 7 6
+
+
+ 3 x x 3 7 5
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ 3 1 0 2 3 2
+
+
+ 3 1 0 2 x 2
+
+
+ 3 1 4 0 x 5
+
+
+ 3 x 7 0 7 6
+
+
+ 3 x 0 3 7 5
+
+
+ Number of chord shapes listed:  29
+
+ Chord shapes generated March 2002 by Howard Wright

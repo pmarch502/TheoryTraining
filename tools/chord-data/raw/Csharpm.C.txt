@@ -1,0 +1,153 @@
+ C#m/C
+ ======
+
+ Spelling: 1, b3, 5 (with bass note C )
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ x  x  10 9  9  9
+
+
+ 8 7 6 6 9 x
+
+
+ 8 7 6 6 x 9
+
+
+ x 3 2 6 2 4
+
+
+ 8 4 6 x 5 4
+
+
+ 8 4 x 6 5 4
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ 8 7 6 6 x x
+
+
+ x 3 2 1 2 x
+
+
+ 8 7 6 9 9 9
+
+
+ 8 7 x 9 9 9
+
+
+ x 3 x 6 5 4
+
+
+ 8 7 6 x 9 9
+
+
+ 8 7 x 6 9 9
+
+
+ x 3 2 x 2 4
+
+
+ 8 7 x 6 9 x
+
+
+ 8  11 11 9  9  9
+
+
+ 8  11 11 9  x  x
+
+
+ 8 x 6 9 9 9
+
+
+ 8  x  11 9  9  9
+
+
+ x 3 6 6 5 x
+
+
+ x  x  10 13 14 12
+
+
+ 8  11 x  9  9  9
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ x 3 2 1 2 0
+
+
+ 8 7 6 6 x 0
+
+
+ 8 7 x 6 9 0
+
+
+ x 3 x 1 2 0
+
+
+ 8  11 11 9  x  0
+
+
+ x 3 6 6 5 0
+
+
+ 8  11 11 x  9  0
+
+
+ x  x  10 13 14 0
+
+
+ 8 x 6 6 9 0
+
+
+ x 3 6 6 x 0
+
+
+ 8  x  11 9  9  0
+
+
+ 8 x 6 6 5 0
+
+
+ x  x  10 6  9  0
+
+
+ 8 x 6 6 x 0
+
+
+ 8 x x 6 9 0
+
+
+ 8 4 6 6 x 0
+
+
+ 8  7  11 x  9  0
+
+
+ 8  11 11 x  x  0
+
+
+ 8  x  11 x  9  0
+
+
+ 8 4 6 x 5 0
+
+
+ x 3 6 x 2 0
+
+
+ x 3 6 6 2 0
+
+
+ 8 4 6 x x 0
+
+
+ Number of chord shapes listed:  45
+
+ Chord shapes generated March 2002 by Howard Wright

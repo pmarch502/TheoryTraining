@@ -1,0 +1,78 @@
+ Cdim
+ =====
+
+ Spelling: 1, b3, b5
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 8  9  10 8  x  11
+
+
+ x 3 1 5 1 2
+
+
+ 8  9  x  8  x  11
+
+
+ 8 x 4 5 4 8
+
+
+ 8 x 4 8 4 8
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x 3 4 5 4 x
+
+
+ x  x  10 11 13 11
+
+
+ 8  9  10 8  x  x
+
+
+ x x x 5 4 2
+
+
+ x 3 4 x 4 2
+
+
+ x 3 4 x 4 x
+
+
+ x  x  10 8  7  x
+
+
+ x  x  10 11 x  11
+
+
+ 8 9 x 8 7 x
+
+
+ x 3 1 x 1 2
+
+
+ x  x  10 8  7  8
+
+
+ 8 6 x 8 7 x
+
+
+ x 3 1 x 4 2
+
+
+ x 3 x 5 4 2
+
+
+ 8 x x 8 7 8
+
+
+ 8  9  10 x  x  11
+
+
+ Number of chord shapes listed:  21
+
+ Chord shapes generated July 2002 by Howard Wright

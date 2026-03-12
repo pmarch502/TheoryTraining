@@ -101,6 +101,7 @@ export const phase2 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
+          suffix: 'major',
           title: 'C Major — Open Position'
         }
       },
@@ -178,6 +179,7 @@ export const phase2 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
+          suffix: 'm',
           title: 'C Minor — Barre Chord (3rd Fret)'
         }
       },
@@ -253,6 +255,7 @@ export const phase2 = [
             { string: 2, fret: 4, degree: 3 }
           ],
           muted: [6, 1],
+          suffix: 'dim',
           title: 'C Diminished'
         }
       },
@@ -372,6 +375,7 @@ export const phase2 = [
             { string: 1, fret: 0, degree: 3 }
           ],
           muted: [6],
+          suffix: 'aug',
           title: 'C Augmented — Open Position'
         }
       },
@@ -444,6 +448,7 @@ export const phase2 = [
             { string: 1, fret: 1, degree: 4 }
           ],
           muted: [6],
+          suffix: 'sus4',
           title: 'Csus4 — Open Position'
         }
       },
@@ -516,6 +521,7 @@ export const phase2 = [
             { string: 1, fret: 3, degree: 5 }
           ],
           muted: [6],
+          suffix: 'sus2',
           title: 'Csus2 — Open Position'
         }
       },

@@ -1,7 +1,11 @@
 import { state } from '../state.js';
 import { linkGlossaryTerms } from './glossary-linker.js';
-import { renderPianoHTML, hydratePianos } from './piano-keyboard.js';
-import { renderGuitarHTML, hydrateGuitars } from './guitar-fretboard.js';
+import { renderPianoHTML, hydratePianos, updatePianoSVG, hydrateSinglePiano } from './piano-keyboard.js';
+import { renderGuitarHTML, hydrateGuitars, updateGuitarSVG, hydrateSingleGuitar } from './guitar-fretboard.js';
+import {
+  renderRootSelector, transposePianoConfig, transposeGuitarConfig,
+  pianoAudioNotes, guitarAudioNotes
+} from './transposer.js';
 
 /**
  * Renders a lesson data object into the main content area.
@@ -12,9 +16,18 @@ export function renderLesson(lesson, topicIndex, phaseId) {
   let html = `<article class="lesson-content">`;
   html += `<h1>Lesson ${lesson.number}: ${lesson.title}</h1>`;
 
-  // Render content blocks
+  const hasInstruments = lesson.content.some(b => b.type === 'piano' || b.type === 'guitar');
+
+  // Render content blocks — inject root selector into the first piano block only
+  const selectorHTML = hasInstruments ? renderRootSelector() : '';
+  let selectorPlaced = false;
   for (const block of lesson.content) {
+    if (!selectorPlaced && block.type === 'piano') {
+      block._rootSelector = selectorHTML;
+      selectorPlaced = true;
+    }
     html += renderBlock(block);
+    if (block._rootSelector) delete block._rootSelector;
   }
 
   // Completion button
@@ -42,6 +55,9 @@ export function renderLesson(lesson, topicIndex, phaseId) {
 
   // Hydrate interactive guitar chord diagrams
   if (article) hydrateGuitars(article);
+
+  // Wire up root selector for transposition
+  if (article && hasInstruments) setupRootSelector(article);
 
   // Wire up completion button
   const completeBtn = main.querySelector('.lesson-complete-btn');
@@ -85,10 +101,10 @@ function renderBlock(block) {
       </div>`;
 
     case 'piano':
-      return renderPianoHTML(block.config);
+      return renderPianoHTML(block.config, { rootSelector: block._rootSelector || '' });
 
     case 'guitar':
-      return renderGuitarHTML(block.config);
+      return renderGuitarHTML(block.config, { rootSelector: block._rootSelector || '' });
 
     case 'divider':
       return `<hr class="lesson-divider">`;
@@ -141,4 +157,49 @@ function renderLessonNav(lesson, topicIndex, phaseId) {
 
   html += `</nav>`;
   return html;
+}
+
+/**
+ * Wire up the root selector dropdown to transpose all piano/guitar blocks.
+ */
+function setupRootSelector(article) {
+  const select = article.querySelector('.root-select');
+  if (!select) return;
+
+  // Preload chord library so it's ready when the user changes root
+  import('../data/chord-library.js').then(lib => lib.ensureLoaded())
+    .catch(() => {});
+
+  async function handleRootChange(rootName) {
+    try {
+      const [audio, chordLib] = await Promise.all([
+        import('../audio/audio-engine.js'),
+        import('../data/chord-library.js')
+      ]);
+      await chordLib.ensureLoaded();
+
+      // Transpose all pianos
+      for (const piano of article.querySelectorAll('.piano-keyboard')) {
+        const config = JSON.parse(piano.dataset.originalConfig);
+        const newConfig = transposePianoConfig(config, rootName);
+        updatePianoSVG(piano, newConfig);
+        piano.dataset.highlighted = pianoAudioNotes(newConfig).join(',');
+        hydrateSinglePiano(piano, audio);
+      }
+
+      // Transpose all guitars — use chord library for real voicings, fallback to fret shifting
+      for (const guitar of article.querySelectorAll('.guitar-chord')) {
+        const config = JSON.parse(guitar.dataset.originalConfig);
+        const newConfig = (rootName !== 'C' && chordLib.getTransposedConfig(rootName, config))
+          || transposeGuitarConfig(config, rootName);
+        updateGuitarSVG(guitar, newConfig);
+        guitar.dataset.notes = guitarAudioNotes(newConfig).join(',');
+        hydrateSingleGuitar(guitar, audio);
+      }
+    } catch (e) {
+      console.warn('[transposer] Error:', e);
+    }
+  }
+
+  select.addEventListener('change', () => handleRootChange(select.value));
 }

@@ -1,0 +1,111 @@
+ G#7sus4
+ ========
+
+ Spelling: 1, 4, (5), b7
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 4 6 4 6 4 4
+
+
+ 4 4 4 6 4 4
+
+
+ x  11 11 11 9  9
+
+
+ 4 4 4 6 7 4
+
+
+ x  11 13 11 14 11
+
+
+ 4 6 4 6 7 4
+
+
+ 4 6 4 6 x 4
+
+
+ x  11 13 11 14 x
+
+
+ 4 4 4 6 7 x
+
+
+ 4 6 4 6 7 x
+
+
+ x  11 x  11 9  9
+
+
+ 4 4 6 6 7 4
+
+
+ 4 4 4 x 2 2
+
+
+ x x 6 6 7 9
+
+
+ 4 4 6 6 7 x
+
+
+ 4 6 x 6 7 4
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ 4 4 4 x 4 4
+
+
+ 4 4 4 x 4 x
+
+
+ 4 6 4 6 x x
+
+
+ x x 6 8 7 9
+
+
+ x x x 1 2 2
+
+
+ x  x  x  13 14 14
+
+
+ x  11 11 11 9  x
+
+
+ x x 6 6 7 4
+
+
+ 4 4 4 6 x x
+
+
+ 4 4 4 x x x
+
+
+ 4 6 6 6 7 x
+
+
+ x  11 11 11 x  11
+
+
+ 4 x 4 6 4 4
+
+
+ 4 4 4 x x 4
+
+
+ 4 4 4 x 2 x
+
+
+ 4 x 6 6 7 x
+
+
+ Number of chord shapes listed:  32
+
+ Chord shapes generated March 2002 by Howard Wright

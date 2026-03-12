@@ -1,0 +1,84 @@
+ D#madd9
+ ========
+
+ Spelling: 1, b3, 5, 9
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ x  x  13 11 11 13
+
+
+ 11 13 13 11 11 13
+
+
+ x  6  8  10 7  6
+
+
+ 11 13 13 11 x  13
+
+
+ 11 13 x  11 11 13
+
+
+ 11 x  13 11 11 13
+
+
+ 11 13 x  11 x  13
+
+
+ x  6  x  10 7  6
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x 6 4 3 6 6
+
+
+ x 6 4 x 6 6
+
+
+ 11 9  8  10 x  x
+
+
+ x 6 4 3 6 x
+
+
+ 11 9  x  10 11 x
+
+
+ 11 9  x  10 11 11
+
+
+ x  6  8  10 7  x
+
+
+ 11 9  x  11 11 13
+
+
+ x 6 4 8 6 6
+
+
+ 11 x  x  11 11 13
+
+
+ 11 9  x  x  11 13
+
+
+ 11 x  8  10 7  x
+
+
+ 11 x  x  10 11 14
+
+
+ 11 13 x  10 x  14
+
+
+ x 6 x 3 6 2
+
+
+ Number of chord shapes listed:  23
+
+ Chord shapes generated March 2002 by Howard Wright

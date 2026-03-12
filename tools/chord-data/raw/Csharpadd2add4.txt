@@ -1,0 +1,57 @@
+ C#add2add4
+ ===========
+
+ Spelling: 1, 2, 3, 4, 5
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 9  9  11 10 9  11
+
+
+ 9  9  x  10 9  11
+
+
+ x 4 4 1 4 1
+
+
+ 9  9  13 10 9  9
+
+
+ 9  6  6  10 7  x
+
+
+ 9  9  13 10 9  11
+
+
+ 9  9  13 11 9  13
+
+
+ x 4 4 8 6 4
+
+
+ 9  x  13 11 9  13
+
+
+ 9  9  13 10 9  13
+
+
+ 9  9  13 13 9  13
+
+
+ 9  9  13 x  9  13
+
+
+ 9  9  13 13 x  13
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ 9  11 13 11 x  13
+
+
+ Number of chord shapes listed:  14
+
+ Chord shapes generated March 2002 by Howard Wright

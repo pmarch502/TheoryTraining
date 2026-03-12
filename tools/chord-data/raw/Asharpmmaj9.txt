@@ -1,0 +1,90 @@
+ A#mmaj9
+ ========
+
+ Spelling: 1, b3, (5), 7, 9
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 6 8 7 6 6 8
+
+
+ 6 8 7 6 x 8
+
+
+ 6 x 7 6 6 8
+
+
+ 6  8  10 6  10 6
+
+
+ 6 x 7 6 x 8
+
+
+ 6  x  7  6  10 8
+
+
+ 6  8  10 6  10 x
+
+
+ 6  8  x  6  10 8
+
+
+ 6  x  8  6  10 8
+
+
+ 6  x  10 6  10 6
+
+
+ 6  x  10 6  10 x
+
+
+ 6  x  10 6  10 9
+
+
+ 6  x  10 6  10 8
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ 6 4 7 5 x x
+
+
+ x  13 11 14 13 13
+
+
+ x  13 11 14 13 x
+
+
+ 6 4 x 5 6 5
+
+
+ x  x  8  6  10 8
+
+
+ 6 4 x 5 x 5
+
+
+ 6 4 7 x x 8
+
+
+ 6 x 7 5 x 9
+
+
+ 6 x x 5 2 5
+
+
+ x 1 x 5 2 5
+
+
+ 6  x  10 x  10 9
+
+
+ 6  x  x  6  10 8
+
+
+ Number of chord shapes listed:  25
+
+ Chord shapes generated March 2002 by Howard Wright

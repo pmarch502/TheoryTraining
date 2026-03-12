@@ -51,8 +51,8 @@ const ROOT_LETTER_IDX = [0, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6];
 
 /** Spell a note correctly for a given degree relative to a root.
  *  E.g., rootCI=0 (C), degree=7, noteCI=9 → "B♭♭" (not "A"). */
-function degreeNoteName(rootCI, degree, noteCI) {
-  const rootLetterIdx = ROOT_LETTER_IDX[rootCI];
+function degreeNoteName(rootCI, degree, noteCI, rootLetterIdx) {
+  if (rootLetterIdx === undefined) rootLetterIdx = ROOT_LETTER_IDX[rootCI];
   const noteLetterIdx = (rootLetterIdx + degree - 1) % 7;
   const natural = LETTER_CI[noteLetterIdx];
   const diff = ((noteCI - natural) + 12) % 12;
@@ -73,7 +73,16 @@ function noteIndex(name) {
   for (const note of NOTES) {
     if (note.names.some(nm => nm.toLowerCase() === n.toLowerCase())) return note.i;
   }
-  return -1;
+  // Fallback for double accidentals (e.g., F##, Bbb)
+  const letter = n[0].toUpperCase();
+  const li = LETTERS.indexOf(letter);
+  if (li === -1) return -1;
+  let ci = LETTER_CI[li];
+  for (let i = 1; i < n.length; i++) {
+    if (n[i] === '#') ci = (ci + 1) % 12;
+    else if (n[i] === 'b') ci = (ci + 11) % 12;
+  }
+  return ci;
 }
 
 /** Convert ASCII note name to display form: C# → C♯, Db → D♭ */
@@ -109,9 +118,12 @@ function buildHighlights(arr) {
 // ─── SVG Builder ─────────────────────────────────────────────
 
 function buildPianoSVG(config) {
-  const oct = config.octaves || 1;
   const labels = config.labels || 'none';
   const { items: hlItems, placed: hlPlaced } = buildHighlights(config.highlighted);
+
+  // Auto-detect octaves: enough to fit all highlighted notes, with config as floor
+  const maxHlOct = hlItems.length ? Math.max(...hlItems.map(h => h.oct)) : 0;
+  const oct = Math.max(config.octaves || 1, maxHlOct + 1);
 
   // Label area only needed for 'all' mode (highlighted keys use dots now)
   const hasLabelArea = labels === 'all';
@@ -170,6 +182,7 @@ function buildPianoSVG(config) {
   // ── Dots on highlighted keys (each note once, in formula order) ──
   const rootItem = hlItems.find(h => h.degree === 1);
   const rootCI = rootItem ? rootItem.idx : 0;
+  const rootLetterIdx = config.rootLetterIdx;
 
   for (const h of hlItems) {
     const note = NOTES.find(n => n.i === h.idx);
@@ -181,7 +194,7 @@ function buildPianoSVG(config) {
       : (h.color ? ` piano-dot--${h.color}` : '');
     const darkText = h.degree === 3; // yellow needs dark text
     // Use degree-aware spelling (e.g., Bbb not A for dim7)
-    const label = h.degree ? degreeNoteName(rootCI, h.degree, h.idx) : displayName(h.label);
+    const label = h.degree ? degreeNoteName(rootCI, h.degree, h.idx, rootLetterIdx) : displayName(h.label);
 
     if (note.white) {
       const cx = (h.oct * 7 + note.w) * KW + KW / 2;
@@ -229,6 +242,10 @@ function buildPianoSVG(config) {
 
 // ─── Exports ─────────────────────────────────────────────────
 
+function escAttr(s) {
+  return s.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 /**
  * Returns an HTML string containing the piano keyboard SVG.
  * Called by renderBlock() in lesson-viewer.js.
@@ -242,7 +259,7 @@ function buildPianoSVG(config) {
  *   degree: 1-7 (scale degree → mapped to degree colors)
  *   color: 'root'|'primary'|'secondary' (legacy fallback)
  */
-export function renderPianoHTML(config) {
+export function renderPianoHTML(config, { rootSelector = '' } = {}) {
   const svg = buildPianoSVG(config);
   const caption = config.title
     ? `<div class="piano-caption">${esc(config.title)}</div>`
@@ -251,62 +268,89 @@ export function renderPianoHTML(config) {
   const { items: hlItems } = buildHighlights(config.highlighted);
   const hlNotes = hlItems.map(h => h.label + (3 + h.oct));
   const hlAttr = hlNotes.length ? ` data-highlighted="${esc(hlNotes.join(','))}"` : '';
-  return `<div class="piano-keyboard"${hlAttr}>${svg}${caption}</div>`;
+  const configAttr = ` data-original-config='${escAttr(JSON.stringify(config))}'`;
+  return `<div class="piano-keyboard"${hlAttr}${configAttr}>${rootSelector}${svg}${caption}</div>`;
 }
 
 /**
- * Post-render hook — attaches audio playback to piano elements.
- * Adds a "Play" button for highlighted chords and click-to-play on keys.
+ * Replace the SVG and caption inside a piano container with a new config.
+ * Used by the transposer when the root changes.
+ */
+export function updatePianoSVG(container, config) {
+  container.querySelector('.piano-svg')?.remove();
+  container.querySelector('.piano-caption')?.remove();
+  container.querySelector('.audio-play-btn')?.remove();
+  const svg = buildPianoSVG(config);
+  const caption = config.title
+    ? `<div class="piano-caption">${esc(config.title)}</div>`
+    : '';
+  // Insert after root selector if present, otherwise at the start
+  const selector = container.querySelector('.root-selector');
+  if (selector) {
+    selector.insertAdjacentHTML('afterend', svg + caption);
+  } else {
+    container.insertAdjacentHTML('afterbegin', svg + caption);
+  }
+}
+
+/**
+ * Attach audio playback to a single piano element.
+ * Adds Play button for highlighted chord and click-to-play on keys.
+ */
+export function hydrateSinglePiano(piano, audio) {
+  // Remove existing play button (safe for re-hydration after root change)
+  piano.querySelector('.audio-play-btn')?.remove();
+
+  const hlData = piano.dataset.highlighted;
+  if (hlData) {
+    const btn = document.createElement('button');
+    btn.className = 'audio-play-btn';
+    btn.innerHTML = '\u25B6 Play';
+    btn.setAttribute('aria-label', 'Play chord');
+    btn.addEventListener('click', async () => {
+      if (btn.classList.contains('audio-loading')) return;
+      btn.classList.add('audio-loading');
+      btn.setAttribute('aria-busy', 'true');
+      try {
+        const notes = hlData.split(',').map(n => audio.normalizeNote(n));
+        await audio.playStrum('piano', notes);
+        btn.classList.remove('audio-loading');
+        btn.classList.add('audio-playing');
+        btn.setAttribute('aria-busy', 'false');
+        setTimeout(() => btn.classList.remove('audio-playing'), 1500);
+      } catch {
+        btn.classList.remove('audio-loading');
+        btn.classList.add('audio-error');
+        btn.setAttribute('aria-busy', 'false');
+        btn.innerHTML = '\u25B6 Unavailable';
+      }
+    });
+    piano.appendChild(btn);
+    audio.preload('piano', hlData.split(',').map(n => audio.normalizeNote(n)));
+  }
+
+  // Individual key clicks
+  const keys = piano.querySelectorAll('.piano-key');
+  for (const key of keys) {
+    key.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const noteName = key.dataset.note.split(',')[0];
+      const octave = 4 + parseInt(key.dataset.octave || '0');
+      const fullNote = audio.normalizeNote(noteName) + octave;
+      key.classList.add('piano-key--playing');
+      await audio.playNote('piano', fullNote);
+      setTimeout(() => key.classList.remove('piano-key--playing'), 300);
+    });
+  }
+}
+
+/**
+ * Post-render hook — attaches audio playback to all piano elements in a container.
  */
 export function hydratePianos(container) {
   import('../audio/audio-engine.js').then(audio => {
-    const pianos = container.querySelectorAll('.piano-keyboard');
-    for (const piano of pianos) {
-      const hlData = piano.dataset.highlighted;
-
-      // "Play" button for highlighted chord
-      if (hlData) {
-        const btn = document.createElement('button');
-        btn.className = 'audio-play-btn';
-        btn.innerHTML = '\u25B6 Play';
-        btn.setAttribute('aria-label', 'Play chord');
-        btn.addEventListener('click', async () => {
-          if (btn.classList.contains('audio-loading')) return;
-          btn.classList.add('audio-loading');
-          btn.setAttribute('aria-busy', 'true');
-          try {
-            const notes = hlData.split(',').map(n => audio.normalizeNote(n));
-            await audio.playStrum('piano', notes);
-            btn.classList.remove('audio-loading');
-            btn.classList.add('audio-playing');
-            btn.setAttribute('aria-busy', 'false');
-            setTimeout(() => btn.classList.remove('audio-playing'), 1500);
-          } catch {
-            btn.classList.remove('audio-loading');
-            btn.classList.add('audio-error');
-            btn.setAttribute('aria-busy', 'false');
-            btn.innerHTML = '\u25B6 Unavailable';
-          }
-        });
-        piano.appendChild(btn);
-
-        // Preload highlighted notes
-        audio.preload('piano', hlData.split(',').map(n => audio.normalizeNote(n)));
-      }
-
-      // Individual key clicks
-      const keys = piano.querySelectorAll('.piano-key');
-      for (const key of keys) {
-        key.addEventListener('click', async (e) => {
-          e.stopPropagation();
-          const noteName = key.dataset.note.split(',')[0];
-          const octave = 4 + parseInt(key.dataset.octave || '0');
-          const fullNote = audio.normalizeNote(noteName) + octave;
-          key.classList.add('piano-key--playing');
-          await audio.playNote('piano', fullNote);
-          setTimeout(() => key.classList.remove('piano-key--playing'), 300);
-        });
-      }
+    for (const piano of container.querySelectorAll('.piano-keyboard')) {
+      hydrateSinglePiano(piano, audio);
     }
   }).catch(e => console.warn('[piano] Audio not available:', e));
 }

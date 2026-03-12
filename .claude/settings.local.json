@@ -22,7 +22,8 @@
       "Bash(done)",
       "Bash(wc -l js/data/topics/chord-qualities/phase*.js)",
       "Bash(kill %1 2>/dev/null; echo \"done\")",
-      "Bash(find \"C:/Users/Paul March/AI/MusicInstruction/TheoryTraining\" -name \"*audio*\" -o -name \"*sound*\" 2>/dev/null | head -20)"
+      "Bash(find \"C:/Users/Paul March/AI/MusicInstruction/TheoryTraining\" -name \"*audio*\" -o -name \"*sound*\" 2>/dev/null | head -20)",
+      "WebFetch(domain:www.hakwright.co.uk)"
     ]
   }
 }

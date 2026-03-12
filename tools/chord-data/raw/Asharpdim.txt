@@ -1,0 +1,177 @@
+ A#dim
+ ======
+
+ Spelling: 1, b3, b5
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 6 7 8 6 x 9
+
+
+ x  13 11 9  11 9
+
+
+ 6 7 x 6 x 9
+
+
+ x  13 x  9  11 9
+
+
+ 6 x 2 3 2 6
+
+
+ 6 x 2 6 2 6
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x 1 2 3 2 x
+
+
+ 6 7 8 6 x x
+
+
+ x  x  8  9  11 9
+
+
+ x  13 14 x  14 12
+
+
+ x 1 2 x 2 x
+
+
+ x x 8 6 5 x
+
+
+ x  13 11 x  11 12
+
+
+ x x 8 9 x 9
+
+
+ 6 4 x 6 5 x
+
+
+ 6 7 x 6 5 x
+
+
+ x x 8 6 5 6
+
+
+ 6 x x 6 5 6
+
+
+ x  13 11 x  14 12
+
+
+ x  13 14 x  14 x
+
+
+ 6 7 x 6 x x
+
+
+ 6 4 x 3 5 x
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ x 1 2 3 2 0
+
+
+ x 1 2 x 2 0
+
+
+ 6 7 8 6 x 0
+
+
+ x x 8 6 5 0
+
+
+ x x x 3 2 0
+
+
+ 6 7 x 6 5 0
+
+
+ x 1 x 3 2 0
+
+
+ x  13 14 x  14 0
+
+
+ 6 4 x 6 5 0
+
+
+ x  13 11 x  11 0
+
+
+ x  13 11 x  14 0
+
+
+ 6 4 x 6 x 0
+
+
+ x  13 11 9  11 0
+
+
+ 6 4 x 3 5 0
+
+
+ 6 7 x 6 x 0
+
+
+ 6 x 8 6 5 0
+
+
+ 6 x 8 6 x 0
+
+
+ 6 x x 6 5 0
+
+
+ 6 4 8 6 x 0
+
+
+ 6 4 x 3 x 0
+
+
+ 6 4 8 x 5 0
+
+
+ 6 4 2 6 x 0
+
+
+ x  13 11 9  x  0
+
+
+ 6 4 2 3 x 0
+
+
+ 6 4 2 x 5 0
+
+
+ 6 4 x x 5 0
+
+
+ 6 4 x 6 2 0
+
+
+ x x 8 6 x 0
+
+
+ 6 4 x 3 2 0
+
+
+ 6 4 8 x x 0
+
+
+ 6 4 2 x x 0
+
+
+ Number of chord shapes listed:  53
+
+ Chord shapes generated July 2002 by Howard Wright

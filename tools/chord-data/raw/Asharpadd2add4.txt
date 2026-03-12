@@ -1,0 +1,87 @@
+ A#add2add4
+ ===========
+
+ Spelling: 1, 2, 3, 4, 5
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 6 6 8 7 6 8
+
+
+ 6 6 x 7 6 8
+
+
+ x  13 13 10 13 10
+
+
+ 6  6  10 7  6  6
+
+
+ 6 3 3 7 4 x
+
+
+ 6  6  10 7  6  8
+
+
+ 6  6  10 8  6  10
+
+
+ x 1 1 5 3 1
+
+
+ 6  x  10 8  6  10
+
+
+ 6  6  10 7  6  10
+
+
+ 6  6  10 x  6  10
+
+
+ 6  6  10 10 6  10
+
+
+ 6  6  10 10 x  10
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ 6  8  10 8  x  10
+
+
+ CHORD SHAPES USING OPEN STRINGS:
+ ---------------------------------
+
+ 6 6 0 5 6 6
+
+
+ 6 6 0 5 6 x
+
+
+ 6 8 0 8 x 8
+
+
+ 6 x 0 8 6 8
+
+
+ 6 6 0 x 6 8
+
+
+ 6 8 0 5 4 x
+
+
+ 6 8 0 x 4 8
+
+
+ x 1 0 5 4 1
+
+
+ 6  6  0  10 x  8
+
+
+ Number of chord shapes listed:  23
+
+ Chord shapes generated March 2002 by Howard Wright

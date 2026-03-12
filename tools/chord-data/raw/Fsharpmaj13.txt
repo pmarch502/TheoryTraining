@@ -1,0 +1,87 @@
+ F#maj13
+ ========
+
+ Spelling: 1, 3, (5), 7, (9), (11), 13
+
+
+ MOVEABLE BAR CHORD SHAPES:
+ ---------------------------
+
+ 2 1 3 1 4 1
+
+
+ 2 x 3 3 4 2
+
+
+ 2 1 3 1 4 x
+
+
+ 2 1 3 x 4 1
+
+
+ 2 1 x 3 4 1
+
+
+ 2 1 4 1 4 1
+
+
+ 2 1 4 x 4 1
+
+
+ 2 1 x 4 4 1
+
+
+ OTHER MOVEABLE SHAPES:
+ -----------------------
+
+ x  9  11 10 11 11
+
+
+ 2 4 3 3 4 x
+
+
+ x  9  8  10 11 11
+
+
+ 2 1 3 3 4 x
+
+
+ 2 1 3 4 4 4
+
+
+ x  9  x  10 11 11
+
+
+ 2 x 3 3 4 4
+
+
+ 2 x 3 3 4 x
+
+
+ x  9  8  10 x  11
+
+
+ 2 1 3 x 4 4
+
+
+ 2 1 3 x 4 x
+
+
+ 2 x 3 3 4 6
+
+
+ 2 x 3 4 4 6
+
+
+ 2 x x 3 4 1
+
+
+ 2 1 x 1 4 1
+
+
+ 14 13 x  10 11 11
+
+
+ Number of chord shapes listed:  24
+
+ Chord shapes generated March 2002 by Howard Wright
