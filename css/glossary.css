@@ -1,15 +1,16 @@
 /* ─── Glossary term highlights (in lesson content) ─── */
 .glossary-term {
-  color: var(--color-highlight);
-  border-bottom: 1px dotted var(--color-highlight);
+  color: inherit;
+  border-bottom: none;
+  text-decoration: underline dashed 1px;
+  text-underline-offset: 3px;
   cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  transition: text-decoration-color var(--transition-fast);
 }
 
 .glossary-term:hover,
 .glossary-term:focus-visible {
-  color: var(--color-accent-hover);
-  border-bottom-color: var(--color-accent-hover);
+  text-decoration-color: var(--color-accent-hover);
 }
 
 /* ─── Popup tooltip ─── */
