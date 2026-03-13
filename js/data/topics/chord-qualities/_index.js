@@ -123,5 +123,14 @@ export const chordQualities = {
         { id: 'cq-52', number: 52, title: 'Altered Dominant' },
       ]
     },
+    {
+      id: 'finale',
+      title: 'Final Words',
+      subtitle: 'A closing thought on rules, creativity, and being you',
+      dataModule: './finale.js',
+      lessons: [
+        { id: 'cq-53', number: 53, title: 'Final Words' },
+      ]
+    },
   ]
 };

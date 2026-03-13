@@ -39,7 +39,7 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
   }
 
   // Quiz section (collapsed launch button — continuous mode on expand)
-  html += renderQuizLaunchHTML();
+  if (!lesson.noQuiz) html += renderQuizLaunchHTML();
 
   // Completion button
   const isComplete = state.isCompleted(lesson.id);
