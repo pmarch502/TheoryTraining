@@ -6,7 +6,7 @@ export const phase4 = [
     content: [
       {
         type: 'paragraph',
-        text: "Like the seventh chords, <strong>ninth chords</strong> are going to add another triad to the stack (triads stacked 3, sevenths stacked 4, and ninths stack 5). Ninth chords have been described as adding elegance, luminosity, and emotional nuance to harmonic structure."
+        text: "Like the seventh chords, <strong>ninth chords</strong> are going to add another third to the stack (triads stacked 3, sevenths stacked 4, and ninths stack 5). Ninth chords have been described as adding elegance, luminosity, and emotional nuance to harmonic structure."
       },
       {
         type: 'paragraph',

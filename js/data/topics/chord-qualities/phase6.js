@@ -6,7 +6,7 @@ export const phase6 = [
     content: [
       {
         type: 'paragraph',
-        text: "Like the seventh, ninth, and eleventh chords, <strong>thirteenth chords</strong> are going to add another triad to the stack (triads stacked 3, sevenths stacked 4, ninths stacked 5, elevenths stacked 6, and thirteenths stack 7). Thirteenth chords have been described as adding unparalleled richness and expressive nuance - characterized by depth, warmth, and tension-resolution potential."
+        text: "Like the seventh, ninth, and eleventh chords, <strong>thirteenth chords</strong> are going to add another third to the stack (triads stacked 3, sevenths stacked 4, ninths stacked 5, elevenths stacked 6, and thirteenths stack 7). Thirteenth chords have been described as adding unparalleled richness and expressive nuance - characterized by depth, warmth, and tension-resolution potential."
       },
       {
         type: 'paragraph',

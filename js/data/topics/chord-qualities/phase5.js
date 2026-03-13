@@ -6,7 +6,7 @@ export const phase5 = [
     content: [
       {
         type: 'paragraph',
-        text: "Like the seventh and ninth chords, <strong>eleventh chords</strong> are going to add another triad to the stack (triads stacked 3, sevenths stacked 4, ninths stack 5, and elevenths stack 6). Eleventh chords have been described as adding richly colored, often suspended sonorities that enhance tension, depth, and atmospheric quality."
+        text: "Like the seventh and ninth chords, <strong>eleventh chords</strong> are going to add another third to the stack (triads stacked 3, sevenths stacked 4, ninths stack 5, and elevenths stack 6). Eleventh chords have been described as adding richly colored, often suspended sonorities that enhance tension, depth, and atmospheric quality."
       },
       {
         type: 'paragraph',

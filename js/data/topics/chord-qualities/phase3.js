@@ -331,7 +331,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "IM7      ii7      iii7     IVM7     V7       vi7      viiø7\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
+        text: "IM7      ii7      iii7     IVM7     V7       vi7      viiø7\nC maj7   D min7   E min7   F maj7   G 7      A min7   B half-dim7"
       },
       {
         type: 'paragraph',
@@ -339,7 +339,7 @@ export const phase3 = [
       },
       {
         type: 'notation',
-        text: "1M7      2m7      3m7      4M7      57       6m7      7ø7\nC maj7   D min7   E min7   F maj7   G dom7   A min7   B half-dim7"
+        text: "1M7      2m7      3m7      4M7      57       6m7      7ø7\nC maj7   D min7   E min7   F maj7   G 7      A min7   B half-dim7"
       },
       {
         type: 'paragraph',

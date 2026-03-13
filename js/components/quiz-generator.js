@@ -53,10 +53,10 @@ const CHORD_TEMPLATES = [
     const wrongs = pickDistractors(entry.formula, pool.map(e => e.formula));
     if (wrongs.length < 3) return null;
     return {
-      question: `What is the formula for a ${entry.name} chord?`,
+      question: `What are the scale degrees for a ${entry.name} chord?`,
       correct: entry.formula,
       wrongs,
-      explanation: `The ${entry.name} chord uses the formula ${entry.formula}.`,
+      explanation: `The ${entry.name} chord uses the scale degrees ${entry.formula}.`,
     };
   },
   // 2 — Formula → Name
@@ -64,10 +64,10 @@ const CHORD_TEMPLATES = [
     const wrongs = pickDistractors(entry.name, pool.map(e => e.name));
     if (wrongs.length < 3) return null;
     return {
-      question: `Which chord quality uses the formula ${entry.formula}?`,
+      question: `Which chord quality uses the scale degrees ${entry.formula}?`,
       correct: entry.name,
       wrongs,
-      explanation: `The formula ${entry.formula} belongs to the ${entry.name} chord.`,
+      explanation: `The scale degrees ${entry.formula} belongs to the ${entry.name} chord.`,
     };
   },
   // 3 — Name → Symbol

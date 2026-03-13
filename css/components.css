@@ -169,6 +169,10 @@
   color: var(--color-accent);
 }
 
+.topic-card .quiz-launch-btn {
+  margin-top: var(--space-md);
+}
+
 /* Topic overview page */
 .topic-overview h2 {
   font-size: var(--font-size-2xl);
