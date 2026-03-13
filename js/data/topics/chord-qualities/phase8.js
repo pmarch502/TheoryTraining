@@ -772,7 +772,7 @@ export const phase8 = [
       },
       {
         type: 'paragraph',
-        text: "In practice, when a musician sees \"C7alt\" on a chart, they might play any of these voicings (among others):"
+        text: "In practice, when a musician sees \"C7alt\" on a chart, they might play any of these voicings (see Lessons 45-48):"
       },
       {
         type: 'notation',

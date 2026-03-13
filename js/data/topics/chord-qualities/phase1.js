@@ -34,7 +34,9 @@ export const phase1 = [
             { note: 'B', degree: 7 }
           ],
           labels: 'highlighted',
-          title: 'Piano White Keys — Natural Notes'
+          title: 'Piano White Keys — Natural Notes',
+          playback: 'scale',
+          transposable: false
         }
       }
     ]
@@ -57,7 +59,8 @@ export const phase1 = [
         config: {
           octaves: 1,
           labels: 'all',
-          title: 'Piano Keyboard — All 12 Notes'
+          title: 'Piano Keyboard — All 12 Notes',
+          transposable: false
         }
       }
     ]
@@ -80,7 +83,8 @@ export const phase1 = [
         config: {
           octaves: 2,
           labels: 'all',
-          title: 'Two Octaves — Repeating Pattern'
+          title: 'Two Octaves — Repeating Pattern',
+          transposable: false
         }
       },
       {
@@ -156,10 +160,6 @@ export const phase1 = [
       {
         type: 'paragraph',
         text: "So, how do we define the notes in a scale? First, you pick your starting point. Let's start with a C major scale. Let's use our twelve names (imagine it repeats itself forever) and our major scale formula to create the C major scale:"
-      },
-      {
-        type: 'notation',
-        text: "A   A♯/B♭   B   C   C♯/D♭   D   D♯/E♭   E   F   F♯/G♭   G   G♯/A♭\n                    W       W       H   W       W       W   H"
       },
       {
         type: 'paragraph',

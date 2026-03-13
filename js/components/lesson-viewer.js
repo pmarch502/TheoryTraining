@@ -21,9 +21,13 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
   html += `<h1>Lesson ${lesson.number}: ${lesson.title}</h1>`;
 
   const hasInstruments = lesson.content.some(b => b.type === 'piano' || b.type === 'guitar');
+  const isTransposable = hasInstruments && !lesson.content.some(b =>
+    (b.type === 'piano' || b.type === 'guitar') &&
+    b.config?.transposable === false
+  );
 
   // Render content blocks — inject root selector into the first piano block only
-  const selectorHTML = hasInstruments ? renderRootSelector() : '';
+  const selectorHTML = isTransposable ? renderRootSelector() : '';
   let selectorPlaced = false;
   for (const block of lesson.content) {
     if (!selectorPlaced && block.type === 'piano') {
@@ -74,7 +78,7 @@ export async function renderLesson(lesson, topicIndex, phaseId) {
   }
 
   // Wire up root selector for transposition
-  if (article && hasInstruments) setupRootSelector(article);
+  if (article && isTransposable) setupRootSelector(article);
 
   // Wire up completion button
   const completeBtn = main.querySelector('.lesson-complete-btn');

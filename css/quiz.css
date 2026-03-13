@@ -241,17 +241,11 @@
   border-color: var(--color-primary-light);
 }
 
-.quiz-check-btn {
-  margin-bottom: var(--space-sm);
-}
-
-.quiz-next-btn {
-  margin-top: var(--space-sm);
-}
 
 /* ─── Feedback ─────────────────────────────────────────── */
 
 .quiz-feedback {
+  min-height: 2.5em;
   padding: var(--space-sm) var(--space-md);
   border-radius: 6px;
   font-size: var(--font-size-sm);

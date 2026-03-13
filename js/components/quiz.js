@@ -36,9 +36,7 @@ function renderQuestionHTML(q, index, hidden = false) {
     html += `</button>`;
   }
   html += `</div>`;
-  html += `<button class="quiz-btn quiz-check-btn" disabled>Check Answer</button>`;
-  html += `<div class="quiz-feedback" hidden role="alert"></div>`;
-  html += `<button class="quiz-btn quiz-next-btn" hidden>Next Question</button>`;
+  html += `<div class="quiz-feedback" role="alert"></div>`;
   html += `</div>`;
   return html;
 }
@@ -88,34 +86,27 @@ function loadNextLessonQuestion(container, lessonId, completedIds, handAuthored,
     return;
   }
 
-  container.innerHTML = renderQuestionHTML(q, 0, false);
+  let html = renderQuestionHTML(q, 0, false);
+  html += `<div class="quiz-aggregate-actions">
+    <button class="quiz-btn quiz-next-question-btn">Next Question</button>
+    <button class="quiz-btn quiz-done-btn">I'm Done</button>
+  </div>`;
+  container.innerHTML = html;
+
   const qEl = container.querySelector('.quiz-question');
+  hydrateQuestion(qEl);
 
-  hydrateQuestion(qEl, () => {
-    // After answering, replace the default next button with our continuous-mode buttons
-    const nextBtn = qEl.querySelector('.quiz-next-btn');
-    nextBtn.hidden = true;
+  container.querySelector('.quiz-next-question-btn').addEventListener('click', () => {
+    loadNextLessonQuestion(container, lessonId, completedIds, handAuthored, launchBtn);
+    const qText = container.querySelector('.quiz-question-text');
+    if (qText) qText.focus();
+  });
 
-    const btnWrap = document.createElement('div');
-    btnWrap.className = 'quiz-aggregate-actions';
-    btnWrap.innerHTML = `
-      <button class="quiz-btn quiz-next-question-btn">Next Question</button>
-      <button class="quiz-btn quiz-done-btn">I'm Done</button>
-    `;
-    qEl.appendChild(btnWrap);
-
-    btnWrap.querySelector('.quiz-next-question-btn').addEventListener('click', () => {
-      loadNextLessonQuestion(container, lessonId, completedIds, handAuthored, launchBtn);
-      const qText = container.querySelector('.quiz-question-text');
-      if (qText) qText.focus();
-    });
-
-    btnWrap.querySelector('.quiz-done-btn').addEventListener('click', () => {
-      container.hidden = true;
-      container.innerHTML = '';
-      launchBtn.hidden = false;
-      launchBtn.focus();
-    });
+  container.querySelector('.quiz-done-btn').addEventListener('click', () => {
+    container.hidden = true;
+    container.innerHTML = '';
+    launchBtn.hidden = false;
+    launchBtn.focus();
   });
 }
 
@@ -129,27 +120,20 @@ export function hydrateAggregateQuiz(container, completedIds, topicId) {
     const q = generateRandomQuestion(completedIds);
     if (!q) return;
 
-    container.innerHTML = renderQuestionHTML(q, 0, false);
+    let html = renderQuestionHTML(q, 0, false);
+    html += `<div class="quiz-aggregate-actions">
+      <button class="quiz-btn quiz-next-question-btn">Next Question</button>
+      <a href="#/topic/${topicId}" class="quiz-btn quiz-done-btn">I'm Done</a>
+    </div>`;
+    container.innerHTML = html;
+
     const qEl = container.querySelector('.quiz-question');
+    hydrateQuestion(qEl);
 
-    hydrateQuestion(qEl, () => {
-      // After answering, show Next/Done buttons
-      const nextBtn = qEl.querySelector('.quiz-next-btn');
-      nextBtn.hidden = true; // We'll use our own buttons
-
-      const btnWrap = document.createElement('div');
-      btnWrap.className = 'quiz-aggregate-actions';
-      btnWrap.innerHTML = `
-        <button class="quiz-btn quiz-next-question-btn">Next Question</button>
-        <a href="#/topic/${topicId}" class="quiz-btn quiz-done-btn">I'm Done</a>
-      `;
-      qEl.appendChild(btnWrap);
-
-      btnWrap.querySelector('.quiz-next-question-btn').addEventListener('click', () => {
-        loadNext();
-        const qText = container.querySelector('.quiz-question-text');
-        if (qText) qText.focus();
-      });
+    container.querySelector('.quiz-next-question-btn').addEventListener('click', () => {
+      loadNext();
+      const qText = container.querySelector('.quiz-question-text');
+      if (qText) qText.focus();
     });
   }
 
@@ -158,26 +142,36 @@ export function hydrateAggregateQuiz(container, completedIds, topicId) {
 
 // ─── Shared question hydration ─────────────────────────────
 
-function hydrateQuestion(qEl, onAnswered) {
+function hydrateQuestion(qEl) {
   const options = qEl.querySelectorAll('.quiz-option');
-  const checkBtn = qEl.querySelector('.quiz-check-btn');
   const feedbackEl = qEl.querySelector('.quiz-feedback');
   const correctIndex = parseInt(qEl.dataset.answer);
   const explanation = qEl.dataset.explanation;
-  let selectedIndex = -1;
+  let answered = false;
 
-  // Option selection
   options.forEach((opt) => {
     opt.addEventListener('click', () => {
-      if (checkBtn.disabled === false && checkBtn.dataset.checked) return; // Already checked
-      selectedIndex = parseInt(opt.dataset.index);
-      options.forEach(o => {
-        o.classList.remove('selected');
-        o.setAttribute('aria-checked', 'false');
-      });
-      opt.classList.add('selected');
+      if (answered) return;
+      answered = true;
+
+      const selectedIndex = parseInt(opt.dataset.index);
+      const isCorrect = selectedIndex === correctIndex;
+
+      // Disable further selection
+      options.forEach(o => o.style.pointerEvents = 'none');
+
+      // Mark selected option
       opt.setAttribute('aria-checked', 'true');
-      checkBtn.disabled = false;
+
+      // Mark correct/incorrect
+      options[correctIndex].classList.add('correct');
+      if (!isCorrect) {
+        opt.classList.add('incorrect');
+      }
+
+      // Show feedback
+      feedbackEl.classList.add(isCorrect ? 'feedback-correct' : 'feedback-incorrect');
+      feedbackEl.innerHTML = `<strong>${isCorrect ? 'Correct!' : 'Not quite.'}</strong> ${explanation}`;
     });
 
     // Keyboard support
@@ -187,31 +181,6 @@ function hydrateQuestion(qEl, onAnswered) {
         opt.click();
       }
     });
-  });
-
-  // Check answer
-  checkBtn.addEventListener('click', () => {
-    if (selectedIndex < 0 || checkBtn.dataset.checked) return;
-    checkBtn.dataset.checked = 'true';
-    checkBtn.disabled = true;
-
-    // Disable further selection
-    options.forEach(o => o.style.pointerEvents = 'none');
-
-    const isCorrect = selectedIndex === correctIndex;
-
-    // Mark correct/incorrect
-    options[correctIndex].classList.add('correct');
-    if (!isCorrect) {
-      options[selectedIndex].classList.add('incorrect');
-    }
-
-    // Show feedback
-    feedbackEl.hidden = false;
-    feedbackEl.classList.add(isCorrect ? 'feedback-correct' : 'feedback-incorrect');
-    feedbackEl.innerHTML = `<strong>${isCorrect ? 'Correct!' : 'Not quite.'}</strong> ${explanation}`;
-
-    if (onAnswered) onAnswered();
   });
 }
 

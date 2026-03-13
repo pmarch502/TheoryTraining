@@ -303,17 +303,22 @@ export function hydrateSinglePiano(piano, audio) {
 
   const hlData = piano.dataset.highlighted;
   if (hlData) {
+    // Check for playback mode from config
+    const cfg = piano.dataset.originalConfig
+      ? JSON.parse(piano.dataset.originalConfig) : {};
+    const isScale = cfg.playback === 'scale';
+
     const btn = document.createElement('button');
     btn.className = 'audio-play-btn';
-    btn.innerHTML = '\u25B6 Play';
-    btn.setAttribute('aria-label', 'Play chord');
+    btn.innerHTML = isScale ? '\u25B6 Play Scale' : '\u25B6 Play';
+    btn.setAttribute('aria-label', isScale ? 'Play scale' : 'Play chord');
     btn.addEventListener('click', async () => {
       if (btn.classList.contains('audio-loading')) return;
       btn.classList.add('audio-loading');
       btn.setAttribute('aria-busy', 'true');
       try {
         const notes = hlData.split(',').map(n => audio.normalizeNote(n));
-        await audio.playStrum('piano', notes);
+        await audio.playStrum('piano', notes, { delay: isScale ? 1000 : 35 });
         btn.classList.remove('audio-loading');
         btn.classList.add('audio-playing');
         btn.setAttribute('aria-busy', 'false');
