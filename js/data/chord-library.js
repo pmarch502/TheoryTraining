@@ -21,7 +21,25 @@ const SUFFIX_DISPLAY = {
   'mmaj7': 'mM7',
   'maj9': 'Maj9', '9': '9', 'm9': 'm9',
   'maj11': 'Maj11', '11': '11', 'm11': 'm11',
-  'maj13': 'Maj13', '13': '13', 'm13': 'm13'
+  'maj13': 'Maj13', '13': '13', 'm13': 'm13',
+  '7b5': '7♭5', '7b9': '7♭9', '7sharp5': '7♯5', '7sharp9': '7♯9',
+  '9sharp5': '9♯5', 'maj7b5': 'Maj7♭5', 'maj7sharp5': 'Maj7♯5',
+  'maj7sharp11': 'Maj7♯11', '7b13': '7♭13',
+  '7b5b9': '7♭5♭9', '7b5sharp9': '7♭5♯9',
+  '7sharp5b9': '7♯5♭9', '7sharp5sharp9': '7♯5♯9'
+};
+
+/**
+ * Fallback map for suffixes not in the guitar chord database.
+ * Maps to a close base suffix with optional fret alteration for the 5th.
+ */
+const SUFFIX_FALLBACK = {
+  'maj7sharp11':    { base: 'maj7b5',    spelling: '1, 3, #11, 7' },
+  '7b13':           { base: '9sharp5',   spelling: '1, 3, b13, b7, 9' },
+  '7b5b9':          { base: '7b9',       spelling: '1, 3, b5, b7, b9',  alter: { 7: -1 } },
+  '7b5sharp9':      { base: '7sharp9',   spelling: '1, 3, b5, b7, #9',  alter: { 7: -1 } },
+  '7sharp5b9':      { base: '7b9',       spelling: '1, 3, #5, b7, b9',  alter: { 7: +1 } },
+  '7sharp5sharp9':  { base: '7sharp9',   spelling: '1, 3, #5, b7, #9',  alter: { 7: +1 } },
 };
 
 /** Parse a spelling string like "1, b3, (5), b7" into interval→degree map. */
@@ -211,6 +229,30 @@ function ordinal(n) {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
+// ─── Fallback Fret Alteration ────────────────────────────────
+
+/**
+ * Alter frets for notes at specific chromatic intervals from root.
+ * alter is a map of { chromaticInterval: fretDelta }, e.g. { 7: -1 }
+ * means: any note a perfect 5th (7 semitones) from root gets shifted down 1 fret.
+ * If shifted fret goes below 0, mute that string (omit rather than wrong).
+ */
+function alterFrets(frets, rootCI, alter) {
+  if (!alter) return [...frets];
+  const result = [...frets];
+  for (let i = 0; i < 6; i++) {
+    if (result[i] === -1) continue;
+    const string = 6 - i;
+    const midi = OPEN_MIDI[string] + result[i];
+    const interval = ((midi % 12) - rootCI + 12) % 12;
+    if (alter[interval] !== undefined) {
+      result[i] += alter[interval];
+      if (result[i] < 0) result[i] = -1; // mute if below nut
+    }
+  }
+  return result;
+}
+
 // ─── Public API ──────────────────────────────────────────────
 
 const CI_LOOKUP = { 'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11 };
@@ -225,14 +267,29 @@ export function getTransposedConfig(rootName, originalConfig) {
   const libRoot = ROOT_TO_LIB[rootName];
   if (!libRoot) return null;
 
-  const entry = _db[libRoot]?.[originalConfig.suffix];
-  if (!entry) return null;
-
-  const frets = bestVoicing(entry.voicings);
-  if (!frets) return null;
-
   const rootCI = CI_LOOKUP[libRoot];
-  return voicingToConfig(frets, rootCI, entry.spelling, rootName, originalConfig.suffix, originalConfig.title);
+  const suffix = originalConfig.suffix;
+
+  // Direct lookup
+  const entry = _db[libRoot]?.[suffix];
+  if (entry) {
+    const frets = bestVoicing(entry.voicings);
+    if (!frets) return null;
+    return voicingToConfig(frets, rootCI, entry.spelling, rootName, suffix, originalConfig.title);
+  }
+
+  // Fallback lookup
+  const fb = SUFFIX_FALLBACK[suffix];
+  if (!fb) return null;
+
+  const baseEntry = _db[libRoot]?.[fb.base];
+  if (!baseEntry) return null;
+
+  const baseFrets = bestVoicing(baseEntry.voicings);
+  if (!baseFrets) return null;
+
+  const altered = alterFrets(baseFrets, rootCI, fb.alter);
+  return voicingToConfig(altered, rootCI, fb.spelling, rootName, suffix, originalConfig.title);
 }
 
 /**
@@ -245,23 +302,43 @@ export function getAllVoicingConfigs(rootName, suffix) {
   const libRoot = ROOT_TO_LIB[rootName];
   if (!libRoot) return null;
 
-  const entry = _db[libRoot]?.[suffix];
-  if (!entry) return null;
-
   const rootCI = CI_LOOKUP[libRoot];
+
+  // Direct lookup
+  const entry = _db[libRoot]?.[suffix];
+  if (entry) {
+    const all = [];
+    for (const cat of ['open', 'barre', 'moveable']) {
+      const list = entry.voicings[cat];
+      if (!list) continue;
+      for (const v of list) {
+        all.push({ frets: v, score: scoreVoicing(v) });
+      }
+    }
+    all.sort((a, b) => b.score - a.score);
+    return all.map(({ frets }) =>
+      voicingToConfig(frets, rootCI, entry.spelling, rootName, suffix)
+    );
+  }
+
+  // Fallback lookup
+  const fb = SUFFIX_FALLBACK[suffix];
+  if (!fb) return null;
+
+  const baseEntry = _db[libRoot]?.[fb.base];
+  if (!baseEntry) return null;
 
   const all = [];
   for (const cat of ['open', 'barre', 'moveable']) {
-    const list = entry.voicings[cat];
+    const list = baseEntry.voicings[cat];
     if (!list) continue;
     for (const v of list) {
-      all.push({ frets: v, score: scoreVoicing(v) });
+      const altered = alterFrets(v, rootCI, fb.alter);
+      all.push({ frets: altered, score: scoreVoicing(altered) });
     }
   }
-
   all.sort((a, b) => b.score - a.score);
-
   return all.map(({ frets }) =>
-    voicingToConfig(frets, rootCI, entry.spelling, rootName, suffix)
+    voicingToConfig(frets, rootCI, fb.spelling, rootName, suffix)
   );
 }

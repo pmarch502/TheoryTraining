@@ -323,8 +323,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord are complex and vary widely—players often omit the fifth or voice it differently. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: '7b5b9' }
       },
       {
         type: 'paragraph',
@@ -388,8 +388,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord are complex and vary widely. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: '7b5sharp9' }
       },
       {
         type: 'paragraph',
@@ -453,8 +453,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord are complex and vary widely. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: '7sharp5b9' }
       },
       {
         type: 'paragraph',
@@ -518,8 +518,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord are complex and vary widely. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: '7sharp5sharp9' }
       },
       {
         type: 'paragraph',
@@ -585,8 +585,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord typically omit the fifth and/or ninth to keep it playable. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: 'maj7sharp11' }
       },
       {
         type: 'paragraph',
@@ -662,8 +662,8 @@ export const phase8 = [
         }
       },
       {
-        type: 'paragraph',
-        text: "Guitar voicings for this chord typically omit several tones (often the fifth and eleventh) to keep it playable. Consult a chord reference for specific fingerings in your preferred key."
+        type: 'guitar',
+        config: { suffix: '7b13' }
       },
       {
         type: 'paragraph',
@@ -780,7 +780,45 @@ export const phase8 = [
       },
       {
         type: 'paragraph',
-        text: "Here is one common voicing of an altered dominant—the 7♯5♭9, which many players consider the \"default\" altered sound:"
+        text: "Here are all four double-alteration dominant voicings on piano and guitar:"
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'Gb', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'Db', degree: 2 }
+          ],
+          labels: 'highlighted',
+          title: 'C7♭5♭9: C – E – G♭ – B♭ – D♭'
+        }
+      },
+      {
+        type: 'guitar',
+        config: { suffix: '7b5b9' }
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'G#', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D#', degree: 2 }
+          ],
+          labels: 'highlighted',
+          title: 'C7♯5♯9: C – E – G♯ – B♭ – D♯'
+        }
+      },
+      {
+        type: 'guitar',
+        config: { suffix: '7sharp5sharp9' }
       },
       {
         type: 'piano',
@@ -794,8 +832,31 @@ export const phase8 = [
             { note: 'Db', degree: 2 }
           ],
           labels: 'highlighted',
-          title: 'C Altered Dominant (7♯5♭9): C – E – G♯ – B♭ – D♭'
+          title: 'C7♯5♭9: C – E – G♯ – B♭ – D♭'
         }
+      },
+      {
+        type: 'guitar',
+        config: { suffix: '7sharp5b9' }
+      },
+      {
+        type: 'piano',
+        config: {
+          octaves: 2,
+          highlighted: [
+            { note: 'C', degree: 1 },
+            { note: 'E', degree: 3 },
+            { note: 'Gb', degree: 5 },
+            { note: 'Bb', degree: 7 },
+            { note: 'D#', degree: 2 }
+          ],
+          labels: 'highlighted',
+          title: 'C7♭5♯9: C – E – G♭ – B♭ – D♯'
+        }
+      },
+      {
+        type: 'guitar',
+        config: { suffix: '7b5sharp9' }
       },
       {
         type: 'paragraph',
